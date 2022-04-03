@@ -1,0 +1,40 @@
+/*!
+ * folder.css v2.0.0 
+ * since 12/12/2020
+ * Copyright 2020 Gilberto Gilberto Villarreal Rodriguez
+ *                Gil_yeung@outlook.com
+ * Licensed open source
+ */
+
+ .my-item{
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+     flex-direction: row;
+     width: 100%;
+     height: 50px;
+     text-align:left;
+ }
+/* .my-item:nth-child(n){
+    margin: 0 5px;
+}  */
+.my-item .item {
+    margin: 0 5px;
+}
+.my-item span {
+    font-weight: bold;
+}
+.my-item .selected {
+    margin-left: 0;
+    margin-right: 5px;
+    right: 5px;
+
+ }
+.my-item .fas{
+    color: #298D7A;
+    text-align:none;
+}
+.my-item .selected .fa-check {
+    padding-left: 3px;
+}
+ 

@@ -1,0 +1,113 @@
+ /*!
+ * msg v1.0.0 
+ * since 02/12/2020
+ * Copyright 2020 Gilberto Villarreal Rodriguez
+ *                Gil_yeung@outlook.com
+ * Licensed open source
+ */
+
+#_msg{
+    display: none;
+}
+.msg-cont-modal {
+      display: flex; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+      white-space: wrap;
+}
+
+.msg-container-form{
+
+    top: 0;
+    left: 0;
+    //margin-top: 33.3vh;
+    width: 90%;
+    min-height: 250px;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background: #E8F5FB;
+    /*center-x*/
+    margin: auto;
+    /*center-y*/
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    
+}
+
+.msg-container-label {
+    //color: black;
+    margin: 20px;
+    
+    
+}
+
+.msg-lbl-txt {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: justify;
+    padding-left: 8px;
+    font-size: 22px;
+    color: #3B86E8;
+    margin-bottom: 5px;
+    overflow-wrap: break-word;
+}
+
+.msg-lbl-delete {
+     color: red;
+}
+
+.msg-line-form {
+     margin-top: 20px;
+    width: 100%;
+    height: 3px;
+    background: #3B86E8;
+    height: 3px;
+    width: 100%;
+}
+
+.msg-cont-buttons {
+    position: relative;
+    margin-top: 60px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.ms-button {
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    background: #3B86E8;
+    font-size: 17px;
+    color: #ddd;
+    border-radius: 20px;
+
+    border: none;
+}
+
+.ms-button:hover{
+    background-color: rgba(204, 204, 204,0.9);
+    color: #3B86E8;
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 769px){
+  
+    .msg-container-form {
+        width: 50%;
+        max-width: 514px;
+    }
+}
+

@@ -1,0 +1,254 @@
+/*!
+ * admin.css v2.0.0 
+ * since 12/12/2020
+ * Copyright 2020 Gilberto Villarreal Rodriguez
+ *                Gil_yeung@outlook.com
+ * Licensed open source
+ */
+
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: Futura, Helvetica, sans-serif;
+    //font-size: 18px;
+}    
+  
+
+
+button[disabled], input[disabled]{
+	background-color: transparent;
+	cursor: default !important;
+}
+
+button[disabled]:hover, input[disabled]:hover{
+	background-color: transparent;
+	cursor: default !important;
+}
+/*=============================================================================
+ STYLE BODY
+===============================================================================*/
+body{
+	padding-top: 80px;
+	background-color: #E8F5FB;
+	//overflow: hidden;
+}
+
+.myflex-hijo {
+	
+	width: 80%;
+	//height: calc(100vh - 250px);
+	margin-top: 35px;
+}
+
+.cont-text-hijo{
+	
+	width: 70%;
+}
+
+.my-item {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.icon-user{
+	display: block;
+	object-fit: cover;
+
+	margin-left: auto; 
+	margin-right: auto; 
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+
+	box-shadow: 0px 0px 0px 1px #203A43,
+	0px 0px 0px 5px #2C5364,
+	8px 8px 15px #0F2027,
+	-8px -8px 15px #203A43;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.text-activity{
+	padding-top: 10px;
+	font-size: 20px;
+}
+
+
+/*=============================================================================
+INFO USER
+===============================================================================*/
+
+#user-modal{
+	display: none;
+}
+.user-info-modal {
+      display: flex; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+
+}
+
+.user-info-container{
+
+	position: relative;
+    
+    left: 0;
+  
+    width: 50%;
+    min-height: 55%;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background: #E8F5FB;
+    /*center-x*/
+    margin: auto;
+    /*center-y*/
+    top : middle;
+    text-align: center;
+    color: #3B3838;
+    
+}
+
+.user-line-form {
+     margin-top: 20px;
+    width: 100%;
+    height: 3px;
+    background: #298D7A;
+    height: 3px;
+    width: 100%;
+}
+
+
+.div-cont-label-input{
+	display: flex;
+    height: 40px;
+    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+   justify-content: center;
+   text-align: center;
+   color:  #298D7A;
+}
+
+.input-form-trasparent{
+	height: 35px;
+    //width: 100%;
+    //border: 1px solid rgb(239, 255, 255);
+    background-color:  rgba(10,109,136,0.0);
+    border-radius: 5px;
+    //padding-left: 10px;
+    border: none;
+    font-size: 17px;
+    color: black;
+    text-align: center;
+}
+
+.user-info-container .btn{
+	background-color:#3B86E8 ;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 68%;
+	height: 50px;
+	font-size: 20px;
+	font-weight: 700;
+	border-radius: 30px;
+	transition: .5s;
+	color: #E8F5FB;
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+}
+
+.user-info-container .btn:hover{
+	background-color:#E52626;
+	color: #E8F5FB;
+
+}
+
+.close-user-container{
+
+	float: right;
+	right: 10px;
+	position: absolute;
+	font-size: 30px;
+	padding: 0px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.close-user-container:hover{
+	color: #E52626;
+}
+.msg-warning-txt{
+	color: red;
+	text-align: center;
+}
+
+/*=============================================================================
+ MEDIA QUERY
+===============================================================================*/
+
+@media screen and (max-width: 1000px){
+	/*=============================================================================
+	 STYLE BODY
+	===============================================================================*/
+	.myflex-padre {
+		padding-left: 1vw;
+		padding-right: 1vw;
+	}
+
+	.myflex-hijo {
+		width: 80%;
+		
+	}
+	.cont-text-hijo{
+		width: 70%;
+	}
+
+	
+
+}
+
+
+@media screen and (max-width: 800px){
+	/*=============================================================================
+	 STYLE BODY
+	===============================================================================*/
+
+	.myflex-padre {
+		flex-direction: column;
+	}
+
+	.cont-text-hijo{
+		width: 94%;
+		position: absolute;
+	}
+
+	.myflex-hijo {
+
+		width: 100%;
+	}
+	/*=============================================================================
+	INFO USER
+	===============================================================================*/
+
+
+	.user-info-container{
+	  
+	    width: 95%;
+	    
+	}
+	.user-info-container .btn{
+		
+		width: 100%;
+	}
+	
+}

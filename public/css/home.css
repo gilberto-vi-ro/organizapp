@@ -1,0 +1,821 @@
+/*!
+ * home v2.0.0 
+ * since 12/12/2020
+ * Copyright 2020 Gilberto Villarreal Rodriguez
+ *                Gil_yeung@outlook.com
+ * Licensed open source
+ */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: Futura, Helvetica, sans-serif;
+    //font-size: 18px;
+}    
+
+button[disabled], input[disabled]{
+	background-color: #BFBFBF ;
+	cursor: no-drop !important;
+}
+
+button[disabled]:hover, input[disabled]:hover{
+	background-color: #BFBFBF ;
+	cursor: no-drop !important;
+}
+/*=============================================================================
+ STYLE BODY
+===============================================================================*/
+body{ 
+	padding-top: 80px;
+	background-color: #E8F5FB;
+	overflow: hidden;
+	
+}
+.body{
+    margin-left: 70px;
+   
+}
+
+.text-path ul{
+	display: flex;
+	position: absolute;
+	width: calc( 100% - 400px);
+}
+.text-path ul li{
+ padding-left: 8px;
+
+}
+.text-path ul li #breadcrumb{
+
+	display: flex;
+	position: absolute;
+ 	width: 100%;
+ 	
+	overflow: auto;
+ 	white-space: nowrap;
+
+}
+#breadcrumb a{
+	color: #298D7A;
+	text-decoration: none;
+}
+.logo{
+	width: 40px;
+	padding: 10px;
+	margin-left: 50px;
+}
+
+/*.actividad{
+	margin-left: 800px;
+}
+
+estilo de contenido de home
+.form{
+	margin-left: 1200px;
+	
+}*/
+/*estilo de el range calendar box select*/
+
+.date-range{
+	display: block;
+	position: absolute;
+	float: right;
+	right: 0px;
+	margin-top: -30px;
+}
+.date-range ul li{
+	margin-right: 10px;
+	list-style: none;
+	float: left;
+}
+.date-range .fas{
+	color : #298D7A ;
+	font-size: 18px;
+}
+
+.date-range .date-box{
+	width: 120px;
+}
+
+/*estilo de  busqueda box select*/
+.combo{
+	//padding-top: 60px;
+	margin-left: calc(50% - 70px);
+}
+.busqueda{
+	display: block;
+	float: right;
+	right: 10px;
+}
+.icon-search{
+	width: 25px;
+}
+.icon-foldersearch{
+	width: 25px;
+	margin-left: 12px;
+}
+.icon-back{
+	width: 25px;
+	cursor: pointer;
+}
+.icon-foldersearch{
+	//width: 25px;
+	cursor: pointer;
+}
+
+.busqueda ul li{
+	margin-right: 10px;
+	list-style: none;
+	float: left;
+}
+
+/*estilo de el combo box select*/
+.combo select {
+	width: 140px;
+	height: 25px;
+	margin-right: 10%;
+	border-radius: 10px;
+
+}
+
+/*estilo de los contenedores de actividades*/
+
+
+.text-activity{
+	padding-top: 50px;
+	text-align: center;
+	color: #298D7A;
+}
+
+.limg{
+	width: 50px;
+	height: 50px;
+}
+/*fecha actividad*/
+.fecha{
+	color: #CD5C5C ;
+
+}
+.fecha2{
+	color: #3B3838;
+
+}
+
+
+
+
+/*=============================================================================
+ STYLE SECTION
+===============================================================================*/
+
+
+
+.myflex-padre {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items:center center;
+
+
+	background-color: #E8F5FB;
+	width: 100%;
+	overflow: auto;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	
+	
+}
+
+.cont-text-hijo{
+	margin-top: -30px;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	
+	width: 20%;
+	padding-left: 25px;
+	text-align: center;
+	
+	background-color: rgba(219, 220, 222, 0.8);
+	color: #298D7A;
+	border-radius: 10px;
+
+}
+.myflex-hijo {
+	padding-top: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	
+
+	display: inline-block;
+	justify-content: space-around;
+	background-color: #DBDCDE;
+	
+	width: 25%;
+	height:400px;
+	border-radius: 10px;
+	
+	overflow: auto;
+	overflow-x: hidden;
+
+	
+}
+.myflex-hijo .center-item a {
+	text-decoration: none;
+}
+.center-item{
+
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.my-item {
+	display: block;
+	position: relative;
+	
+	text-align: center;
+
+  	width: 100px;
+    height: 120px;
+  	margin: 10px;
+
+	background-color: rgba(191, 191, 191, 0.8);
+	padding: 5px;
+	font-size: 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	/*para romper linea sin espace*/
+	overflow-wrap: break-word;
+	
+}
+
+.my-item p{
+	font-size: 11pt;
+
+}
+.my-item .selected{
+	display: none;
+	position: absolute;
+	z-index: 100;
+	margin-left: 70px;
+	background-color: #298D7A;
+	border: 2px solid #3B3838 ;
+	width: 20px;
+	height: 20px;
+}
+
+.my-item .selected .fa-check{
+	display: block;
+	position: relative;
+	top: 6px;
+	
+	color: #E8F5FB ;
+	font-size: 10px;
+	line-height: 5px;
+}
+
+
+.my-item .item-name{
+	overflow:hidden; 
+	text-overflow:ellipsis;
+
+	display: -webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+
+	display: -moz-box;
+	-moz-box-orient:vertical;
+	-moz-line-clamp:2;
+
+	display: -o-box;
+	-o-box-orient:vertical;
+	-o-line-clamp:2;
+
+	height: 38px;
+}
+
+
+.my-item .item-name, .my-item .item-expired{
+	color: #3B3838 ;
+}
+.my-item .tooltip-content {
+  visibility: hidden;
+  display: block;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  position: absolute;
+  z-index: 2;
+  margin-left: -20px;
+  margin-top: -50px;
+  min-width: 100px;
+ 
+  
+  border-radius: 10px;
+}
+
+.active-tooltip:hover .tooltip-content {
+  visibility: visible;
+}
+
+.task-warning .item-name, .task-warning .item-expired{
+	color: #CD5C5C;
+}
+
+.text-padre{
+	position: absolute;
+}
+
+.logo-task{
+	width: 40px;
+    height: 40px;
+}
+
+.combo select option{
+	text-align: center;
+}
+
+#add_file{
+	display: none;
+}
+
+#show_file{
+	display: none;
+}
+/*=============================================================================
+EDIT TASK
+===============================================================================*/
+#edit_task{
+	display: none;
+}
+
+
+/*=============================================================================
+ADD NEW TASK
+===============================================================================*/
+#add_task{
+	display: none;
+}
+.my-task input, .my-task select, .my-task textarea{
+	background-color: transparent;
+	color: #3B3838;
+	width: 50%;
+	border: none;
+
+}
+
+.my-task input:active, .my-task input:focus, .my-task input:hover,
+.my-task textarea:active, .my-task textarea:focus, .my-task textarea:hover,
+.my-task select:active, .my-task select:focus, .my-task select:hover {
+	//border: 1px solid gray;
+	outline: none;
+	/*box-shadow:
+		1px 1px #53a7ea,
+		2px 2px #53a7ea,
+		3px 3px #53a7ea;*/
+	border-bottom: 3px solid #298D7A ;
+}
+.my-task input::placeholder{
+	color: #3B3838;
+}
+.my-task textarea{
+	padding-top: 10px;
+	padding-left: -3px;
+	min-width: 100px;
+}
+.my-task select{
+	margin-right: 3px;
+}
+
+.txt-new-task{
+	position: absolute;
+	margin-top: 20px;
+}
+.logo-new-task{
+	width: 50px;
+    height: 50px;
+    margin-left: -50px;
+}
+
+/*.task-item-cont-modal {
+      display: flex; // Hidden by default 
+      position: fixed; // Stay in place 
+      z-index: 1000; // Sit on top 
+      top: 0;
+      left: 0;
+      width: 100%; // Full width 
+      height: 100%; // Full height 
+      overflow: auto; // Enable scroll if needed 
+      background-color: rgba(0,0,0,0.7); // Black w/ opacity 
+     
+
+}*/
+
+.task-item-container-form{
+
+	position: relative;
+    
+    width: 450px;
+    min-height: 200px;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background: #E8F5FB;
+    /*center-x*/
+    margin: auto;
+    /*center-y*/
+    //margin-top: middle;
+    text-align: center;
+    color: #3B3838;
+    padding: 20px;
+    
+}
+.task-item-container-form p{
+	/*para romper linea sin espace*/
+	overflow-wrap: break-word;
+}
+.task-item-line-form {
+     margin-top: 20px;
+    width: 100%;
+    height: 3px;
+    background-color: #BFBFBF;
+    height: 3px;
+    width: 100%;
+
+}
+
+
+.task-item-cont-modal .active{
+	top: 20px;
+	display: block;
+}
+
+.task-item-cont-txt{
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+ 
+.task-item-cont-txt p{
+	padding: 5px;
+}
+.task-item-txt{
+	color: #298D7A ;
+}
+.task-item-space{
+	position: relative; 
+	width: 100%;
+}
+.task-item-container-form a{
+	color: #3B3838;
+	text-decoration: none;
+}
+
+.task-item-container-form i{
+	color: #298D7A;
+	margin: 5px;
+}
+
+.task-item-button-left,
+.task-item-button-right {
+    width: 120px;
+    height: 35px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #3B86E8 ;
+    font-size: 17px;
+    color: #E8F5FB;
+    border-radius: 20px;
+
+    border: none;
+}
+
+.task-item-button-left:hover,
+.task-item-button-right:hover{
+    background-color:  #3B3838 ;
+    cursor: pointer;
+}
+.task-item-input{
+
+	height: 25px;
+    width: 308px;
+    background: transparent;
+    //border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    font-size: 17px;
+    color: #3B3838;
+    text-align: center;
+
+}
+.task-item-input:focus, .task-item-input:active {
+	outline: 7px;
+	//box-shadow:1px 1px 10px  green;
+	border-bottom: 2px solid #298D7A;
+}
+
+/*=============================================================================
+LIST FOLDER
+===============================================================================*/
+#list_folder{
+	display: none;
+}
+.cont-modal {
+      display: flex; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+.cont-modal  .myflex-padre{
+	background-color: transparent;
+	
+}
+
+.cont-modal  .myflex-hijo{
+	margin-top: 5vh;
+	margin-bottom: 0px;
+	justify-content: center;
+	width: 90%;
+	height: 90%;
+}
+
+.cont-modal .my-item .fa-folder{
+	color: #3B86E8 ;
+	font-size: 60px;
+}
+
+#list_folder .close-modal{
+	margin-top: -30px;
+	float: right;
+	right: 8%;
+	position: absolute;
+	font-size: 30px;
+	padding: 0px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#list_folder .close-modal:hover{
+	color: #E52626;
+}
+
+
+
+/*=============================================================================
+ UPLOAD FILE
+===============================================================================*/
+#file_drop_target {
+	display: block;
+	position: relative; 
+	padding:12px 0; 
+	border: 4px dashed #ccc;
+	font-size:12px;
+	//color:#ccc;
+	text-align: center;
+	margin-top: 20px;
+
+}
+#file_drop_target.drag_over {
+	border: 4px dashed #96C4EA;
+	 color: #96C4EA;
+}
+#upload_progress {padding: 4px 0;}
+#upload_progress .error {color:#a00;}
+#upload_progress > div { padding:3px 0;}
+.no_write #mkdir, .no_write #file_drop_target {display: none}
+.progress_track {display:inline-block;width:200px;height:10px;border:1px solid #333;margin: 0 4px 0 10px;}
+.progress {background-color: #82CFFA;height:10px; }
+/*=============================================================================
+ TOOLTIP
+===============================================================================*/
+.tooltip_elemento {
+    position: relative;
+}
+
+
+.tooltip {
+    display: none;
+    position: absolute;
+    min-width: 100px;  
+    max-width: 120px;  
+    padding: 10px;
+    margin: 0 0 12px 0;    
+    z-index: 12;
+    //bottom: 100%;
+    background-color: #3B3838;
+    opacity: 0.8;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+   
+    font-size: 11px;
+    /*para romper linea sin espace*/
+	overflow-wrap: break-word;
+
+}
+
+.center-item .tooltip{
+    margin-top: 20px; 
+}
+.tooltip:after {
+    content: "";
+    position: absolute;
+    top: -14px;
+    z-index: 100;
+    border: 0 solid #3B3838;
+    border-top: 14px solid transparent;
+    border-left-width: 10px;
+    width: 50%;
+    left: 50%;
+}
+ 
+.tooltip:before {
+    content: "";
+    position: absolute;
+    border: 0 solid #3B3838;
+    top: -14px;
+    z-index: 100;
+    border-right-width: 10px;
+    border-top: 14px solid transparent;
+    width: 50%;
+    right: 50%;
+}
+/*=============================================================================
+ MEDIA QUERY
+===============================================================================*/
+@media screen and (max-width: 1000px){
+	.myflex-padre {
+		padding-left: 1vw;
+		padding-right: 1vw;
+	}
+
+	.cont-text-hijo{
+		width: 26%;
+	}
+
+	.myflex-hijo {
+		width: 32%;
+		
+	}
+/*=============================================================================
+LIST FOLDER
+===============================================================================*/
+	#list_folder .close-modal{
+		right: 7%;
+	}
+
+}
+
+
+@media screen and (max-width: 800px){
+
+	body{
+		 overflow: auto;
+	}
+
+	/*=============================================================================
+	 STYLE BODY
+	===============================================================================*/
+	 .body{
+        margin-left: 0px;
+    }
+
+	.body-padre{
+
+		display: flex;
+		flex-direction: column;
+
+	}
+	
+
+	.text-path ul{
+		margin-top: 20px;
+	 	margin-left:  5px;
+
+		width: calc( 100% - 80px);
+	}
+
+	
+	.busqueda{
+		margin-top: -20px;
+		margin-bottom: 40px;
+
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items:center center;
+	}
+
+	.date-range{
+		position: relative;
+		float: none;
+		right: none;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items:center center;
+
+		margin-top: 5px;
+	}
+	
+	.combo{
+		padding-top: 10px;
+	}
+	.text-activity {
+		padding-top: 10px;
+		text-align: center;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items:center center;
+	}
+	.icon-search{
+		padding-top: 5px;
+		width:  25px;
+	}
+	.icon-foldersearch{
+		width: 25px;
+		margin-left: 0px;
+	}
+	.icon-back{
+		width: 25px;
+	}
+
+
+
+	/*=============================================================================
+	 STYLE SECTION
+	===============================================================================*/
+	
+	.text-padre{
+		text-align: center;
+		position: relative;
+		width: 100%;
+	}
+	.myflex-box {
+		width: 100%;
+	}
+	
+	.myflex-padre {
+		flex-direction: column;
+	}
+
+	.cont-text-hijo{
+		width: 94%;
+		position: absolute;
+	}
+
+	.myflex-hijo {
+
+		width: 100%;
+	}
+	/*=============================================================================
+	ADD NEW TASK
+	===============================================================================*/
+	.task-item-cont-txt{
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.row{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+	}
+
+	.my-task input, .my-task textarea, .my-task select{
+		display: block;
+		position: relative;
+		margin: auto;
+		text-align: center;
+
+	}
+
+	/*=============================================================================
+	LIST FOLDER
+	===============================================================================*/
+	.cont-modal  .myflex-hijo{
+		width: 100%;
+	}
+	#list_folder .close-modal{
+		right: 3%;
+	}
+
+}
+
+

@@ -1,0 +1,291 @@
+/*!
+ * folder.css v2.0.0 
+ * since 12/12/2020
+ * Copyright 2020 Gilberto Gilberto Villarreal Rodriguez
+ *                Gil_yeung@outlook.com
+ * Licensed open source
+ */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: Futura, Helvetica, sans-serif;
+    //font-size: 18px;
+}    
+
+
+/*=============================================================================
+ STYLE BODY
+===============================================================================*/
+body{
+	padding-top: 80px;
+	background-color: #E8F5FB;
+	//overflow: hidden;
+}
+
+.myflex-hijo {
+	
+	
+	width: 80%;
+	//height: calc(100vh - 200px);
+}
+
+.cont-text-hijo{
+	
+	width: 70%;
+}
+
+.my-item {
+
+   // border-radius: 10px;
+}
+
+.icon-user{
+	display: block;
+	object-fit: cover;
+
+	margin-left: auto; 
+	margin-right: auto; 
+	width: 50px;
+	height: 50px;
+	
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.my-item .fa-folder{
+	color: #3B86E8 ;
+	font-size: 60px;
+}
+
+.my-item .fa-file{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #E8F5FB ;
+	font-size: 45px;
+}
+
+.my-item .selected{
+	display: none;
+	position: absolute;
+	margin-left: 70px;
+	background-color: #298D7A;
+	border: 2px solid #3B3838 ;
+	width: 20px;
+	height: 20px;
+}
+
+.my-item .selected .fa-check{
+	display: block;
+	position: relative;
+	top: 6px;
+	
+	color: #E8F5FB ;
+	font-size: 10px;
+	line-height: 5px;
+}
+
+/*=============================================================================
+INFO ITEM
+===============================================================================*/
+#info_item{
+	display: none;
+}
+.info-item-cont-modal {
+      display: flex; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+     
+
+}
+
+.info-item-container-form{
+
+	position: relative;
+    
+    width: 450px;
+    min-height: 200px;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background: #E8F5FB;
+    /*center-x*/
+    margin: auto;
+    /*center-y*/
+    //margin-top: middle;
+    text-align: center;
+    color: #3B3838;
+    padding: 20px;
+    
+}
+.info-item-container-form p{
+	/*para romper linea sin espace*/
+	overflow-wrap: break-word;
+}
+.info-item-line-form {
+     margin-top: 20px;
+    width: 100%;
+    height: 3px;
+    background-color: #BFBFBF;
+    height: 3px;
+    width: 100%;
+
+}
+
+
+.info-item-cont-modal .active{
+	top: 20px;
+	display: block;
+}
+
+.info-item-cont-txt{
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.info-item-textarea{
+	width: 200px;
+	background-color:transparent;
+	text-align: right;
+	font-size: 12pt;
+	resize: both;
+}
+
+.info-item-cont-txt p{
+	padding: 5px;
+}
+.info-item-txt{
+	color: #298D7A ;
+}
+.info-item-space{
+	position: relative; 
+	width: 100%;
+}
+.info-item-container-form a{
+	color: #3B3838;
+	text-decoration: none;
+}
+
+.info-item-container-form i{
+	color: #298D7A;
+	margin: 5px;
+}
+
+.info-item-button-left,
+.info-item-button-right {
+    width: 120px;
+    height: 35px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #3B86E8 ;
+    font-size: 17px;
+    color: #E8F5FB;
+    border-radius: 20px;
+
+    border: none;
+}
+
+.info-item-button-left:hover,
+.info-item-button-right:hover{
+    background-color:  #3B3838 ;
+    cursor: pointer;
+}
+.info-item-input{
+
+	height: 25px;
+    width: 308px;
+    background: transparent;
+    //border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    font-size: 17px;
+    color: #3B3838;
+    text-align: center;
+
+}
+.info-item-input:focus, .info-item-input:active {
+	outline: 7px;
+	//box-shadow:1px 1px 10px  green;
+	border-bottom: 2px solid #298D7A;
+}
+
+/*=============================================================================
+ ADD FOLDER
+===============================================================================*/
+#add_folder{
+	display: none;
+}
+/*=============================================================================
+ RENAME FOLDER
+===============================================================================*/
+#rename_folder{
+	display: none;
+}
+
+/*=============================================================================
+ MEDIA QUERY
+===============================================================================*/
+
+@media screen and (max-width: 1000px){
+	/*=============================================================================
+	 STYLE BODY
+	===============================================================================*/
+	.myflex-padre {
+		padding-left: 1vw;
+		padding-right: 1vw;
+	}
+
+	.myflex-hijo {
+		width: 80%;
+		
+	}
+	.cont-text-hijo{
+		width: 70%;
+	}
+
+	
+
+}
+
+
+@media screen and (max-width: 800px){
+	/*=============================================================================
+	 STYLE BODY
+	===============================================================================*/
+
+	.myflex-padre {
+		flex-direction: column;
+	}
+
+	.cont-text-hijo{
+		width: 94%;
+		position: absolute;
+	}
+
+	.myflex-hijo {
+
+		width: 100%;
+	}
+	/*=============================================================================
+	 INFO ITEM
+	===============================================================================*/
+	.info-item-container-form{
+		width: 95%;
+	}
+	.info-item-cont-modal {
+		width: 100%;
+		top: middle;
+	}
+
+	.icon-info-item{
+		padding-top: 3px;
+	}
+}
