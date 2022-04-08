@@ -1,0 +1,36 @@
+/drive  //crea esta carpeta en la raiz del proyecto
+
+.htaccess  //crea este archivo en la raiz del proyecto  con los siguientes valores
+	# Especificar códificación de caracteres
+	AddDefaultCharset utf-8
+
+
+	Options All -Indexes
+	RewriteEngine On
+
+	#url amigable
+	RewriteRule ^([-a-zA-Z0-9_/]+)$ index.php?pagina=$1 [QSA,L]
+
+config.php //crea este archivo en la raiz del proyecto  con los siguientes valores
+	#Configuracion de acceso a la base de datos
+	define('SGDB','mysql');
+	define('DB_HOST','localhost');
+	define('DB_PORT','3306'); # Default: 3306 -- Mac: 8889
+	define('DB_NAME','organizapp');
+	define('DB_USER','root');
+	define('DB_PWD','');
+	define('DB_CHARSET',"SET NAMES 'utf8'");
+
+	
+	#Ruta base de url
+	define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]."/organizapp/");
+	#Ruta de la app
+	define("BASE_URL", "/organizapp/");
+	//echo ROOT_PATH."<br>".BASE_URL;
+
+	
+	 #Configurar sona horaria.
+	 date_default_timezone_set('America/Mexico_City');
+	 setlocale(LC_ALL,"es_ES");
+	 #activar errores.
+	 ini_set("display_errors","1");
