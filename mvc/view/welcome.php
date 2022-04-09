@@ -47,8 +47,8 @@
                   <ul class="nav navbar-nav navbar-right">
                     <li class="ref-id active"><a href="#main-header">Inicio</a></li>
                     <li class="ref-id"><a href="#quien-somos">  Quienes somos</a></li>
-                    <li class="ref-id"><a href="#mision">Mision</a></li>
-                    <li class="ref-id"><a href="#vision">Vision</a></li>
+                    <li class="ref-id"><a href="#mision">Misión</a></li>
+                    <li class="ref-id"><a href="#vision">Visión</a></li>
                     <li class="ref-id"><a href="#objetivo">Objetivo</a></li>
                     <li class="ref-id"><a href="#proyect">Proyectos</a></li>
                     <li class="ref-id"><a href="#contact">Contactos</a></li>
@@ -73,7 +73,7 @@
                     <div class="bg-color" >
                          <div class="banner-info text-center wow fadeIn delay-05s">
                             <h1 class="bnr-title">¿Qué <span>Esperas?</span></h1>
-                            <h2 class="bnr-sub-title">!Prueva nuestras App¡</h2>
+                            <h2 class="bnr-sub-title">!Prueba nuestras App¡</h2>
                           </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="slider slide5"><!-- slide 5 --><img class="img-responsive-slide" src="<?= BASE_URL ?>public/img/bg/slider3.jpg"> 
                      <div class="banner-info text-center wow fadeIn delay-05s">
-                        <h2 class="bnr-sub-title"> Aplicaciones Moviles</h2>
+                        <h2 class="bnr-sub-title"> Aplicaciones Móviles</h2>
                       </div>
                 </div>
             </div>
@@ -127,8 +127,8 @@
               <div class="item-im">
                 <img class="log_em" src="<?= BASE_URL ?>public/img/icon/logoEmpresa.jpg">
               </div>
-              <label>LIGHTSOFT, Empresa de desarrollo Web y Movil</label>
-              <p id="text">Somos una empresa comprometida con nuestros clientes y ademas  contamos con desarrolladores con experiencias en el mundo de la programacion web y movil, contamos con capasitaciones de actualizacion para nuestros dearrolladores en las nuevas tecnologias por lo que somos tu mejor opción para hacer creser tu negocio o empresa. <br>El software que se desarrolla en estas instalaciones cuentan con soporte a los clientes, sera atendido por personal capacitado y con experiencia.</p>
+              <label>LIGHTSOFT, Empresa de desarrollo Web y Móvil</label>
+              <p id="text">Somos una empresa comprometida con nuestros clientes y además  contamos con desarrolladores con experiencias en el mundo de la programación web y móvil, contamos con capacitaciones de actualización para nuestros desarrolladores en las nuevas tecnologías por lo que somos tu mejor opción para hacer crecer tu negocio o empresa. <br>El software que se desarrolla en estas instalaciones cuentan con soporte a los clientes, será atendido por personal capacitado y con experiencia.</p>
             </div>
           </div>
 
@@ -137,7 +137,7 @@
               <figure><a href="#"> 
                 <img src="<?= BASE_URL ?>public/img/project/pro1.jpg" class="img-responsive" style="height: 250px" >
                 <figcaption>
-                  <h2>Lightsoft</h2>
+                  <h2>LightSoft</h2>
                   <p>Alta calidad de nuestros sistemas.</p>
                 </figcaption></a>
               </figure>
@@ -146,7 +146,7 @@
               <figure><a href="#">
                 <img src="<?= BASE_URL ?>public/img/project/pro2.jpg" class="img-responsive" style="height: 250px">
                 <figcaption>
-                  <h2>Lightsoft</h2>
+                  <h2>LightSoft</h2>
                   <p>Satisfacemos las necesidades de pequeñas, medianas y grandes empresas.</p>
                 </figcaption><a/>
               </figure>
@@ -155,7 +155,7 @@
               <figure><a href="#">
                 <img src="<?= BASE_URL ?>public/img/project/pro4.png" class="img-responsive" style="height: 250px">
                 <figcaption>
-                  <h2>Lightsoft</h2>
+                  <h2>LightSoft</h2>
                   <p>La responsabilidad, talento e innovación son parte fundamentales que complementan nuestra empresa.</p>
                 </figcaption><a/>
               </figure>
@@ -251,7 +251,7 @@
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="blog-sec">
                   <div class="blog-img">
-                    <h3>OrganizApp</h3> <p>Es una aplicacion web que tiene como objetivo organizar las tareas o actividades de un usuario indicándole la fecha de entrega de cada una, manteniendo tres estados: pendiente, listo y entregado.  <a href="<?= BASE_URL ?>login" style="font-size: 16px ">< visitar ></a> </p>
+                    <h3>OrganizApp</h3> <p>Es una aplicación  web que tiene como objetivo organizar las tareas o actividades de un usuario indicándole la fecha de entrega de cada una, manteniendo tres estados: pendiente, listo y entregado.  <a href="<?= BASE_URL ?>login" style="font-size: 16px ">< visitar ></a> </p>
                   </div>
 
                    <div class="portfolio-item padding-right-zero mr-btn-15" height="150%">
@@ -259,7 +259,7 @@
                         <img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="img-responsive" style="height: 250px" >
                         <figcaption>
                           <h2>OrganizApp</h2>
-                          <p>Organiza tus actividaes y respalda tus archivos listos en la nube.</p>
+                          <p>Organiza tus actividades  y respalda tus archivos listos en la nube.</p>
                         </figcaption></a>
                       </figure>
                     </div>
@@ -269,7 +269,7 @@
                 <div class="blog-sec">
                   <div class="blog-img">
                     <h3 >English Game</h3>
-                    <p>Es una aplicacion para aprender ingles basico, su objetivo es presentar un juego con palabras en ingles para que los alumnos se vayan familiarizando y mejorando su nivel de ingles. <a href="<?= BASE_URL ?>../englishGame">< visitar ></a> </p></p>
+                    <p>Es una aplicación para aprender ingles básico, su objetivo es presentar un juego con palabras en ingles para que los alumnos se vayan familiarizando y mejorando su nivel de ingles. <a href="<?= BASE_URL ?>../englishGame">< visitar ></a> </p></p>
                   </div>
 
                   <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
@@ -287,7 +287,7 @@
                 <div class="blog-sec">
                     <div class="blog-img">
                      <h3 >Backup-Restore</h3>
-                     <p>Es una aplicacion para hacer backup y restore de una base de datos, la aplicacion soporta el gestor de base de datos MySql y MariaDB, y se espera que un futuro soporte otros gestores. <a href="<?= BASE_URL ?>../Backup-Restore">< visitar > </a> </p></p>
+                     <p>Es una aplicación para hacer backup y restore de una base de datos, la aplicación soporta el gestor de base de datos MySql y MariaDB, y se espera que un futuro soporte otros gestores. <a href="<?= BASE_URL ?>../Backup-Restore">< visitar > </a> </p></p>
                     </div>
 
                     <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
@@ -295,7 +295,7 @@
                         <img src="<?= BASE_URL ?>public/img/project/backup-restore-gl.png" class="img-responsive" style="height: 250px">
                         <figcaption>
                           <h2>Backup-Restore</h2>
-                          <p>Respalda y restatura de manera rápida tu base de datos.</p>
+                          <p>Respalda y restaura  de manera rápida tu base de datos.</p>
                         </figcaption><a/>
                       </figure>
                     </div>
@@ -310,13 +310,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center white">
-              <h2 class="service-title pad-bt15"><!-- Mantente en contacto con nosotros. -->Siguenos en nuestras redes sosiales </h2>
+              <h2 class="service-title pad-bt15"><!-- Mantente en contacto con nosotros. -->Síguenos en nuestras redes sociales </h2>
               <p></p>
             <!-- <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p> -->
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="loction-info white contact-center-x">
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayon, Chiapas</p>
+              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayón, Chiapas</p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Gmail.png"></i>lightsoft@gmail.com</p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Phone.png"></i>+52 919 153 8136</p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/WhatsApp.png"></i>+52 919 153 8136</p>
@@ -377,7 +377,7 @@
         </footer>
     </div-->
     <div class="copyright">
-          <span class="small"> &copy; lightsoft.com</span>
+          <span class="small"> &copy; lightSoft.com</span>
     </div>
     
   <!---->
