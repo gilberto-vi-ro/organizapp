@@ -22,9 +22,9 @@ config.php //crea este archivo en la raiz del proyecto  con los siguientes valor
 	define('DB_CHARSET',"SET NAMES 'utf8'");
 
 	
-	#Ruta base de url
-	define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]."/organizapp/");
 	#Ruta de la app
+	define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]."/organizapp/");
+	#Ruta base de url
 	define("BASE_URL", "/organizapp/");
 	//echo ROOT_PATH."<br>".BASE_URL;
 
