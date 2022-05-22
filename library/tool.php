@@ -122,16 +122,26 @@
     * @param int $length Longitud de caracter
 	* @return string $password
 	*/
- //    function generatePassword($length = 8)
- //    {
-	// 	$password = "";
-	// 	$patron = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	// 	$max = strlen($patron)-1;
-	// 	for($i = 0; $i < $length; $i++){
-	// 		$password .= $patron{mt_rand(0,$max)};
-	// 	}
-	// 	return $password;
-	// }
+    function generatePassword($length = 8)
+    {
+		$pattern = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            $max = strlen($pattern)-1;
+            $password = '';
+            for ($x =0 ; $x < $length; $x++) {
+                $position = rand(0, $max);
+                $password .= substr($pattern, $position, 1);
+            }
+            return $password;
+	}
+
+	/**
+    * Genera una token aleatoria.
+	* @return string $token
+	*/
+	function generateToken($length = 8)
+	{
+        return generatePassword($length);
+	}
 
 	/**
 	* Elimina los caracteres especiales de una cadena.
