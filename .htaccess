@@ -1,0 +1,12 @@
+# Especificar códificación de caracteres
+AddDefaultCharset utf-8
+
+
+Options All -Indexes
+RewriteEngine On
+
+#Evitar que se muestren tipos de archivos 
+IndexIgnore *.css *.js
+
+#url amigable
+RewriteRule ^([-a-zA-Z0-9_/]+)$ index.php?pagina=$1 [QSA,L]
