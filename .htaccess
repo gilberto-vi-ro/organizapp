@@ -1,3 +1,9 @@
+
+#Session timeout
+php_value session.cookie_lifetime 0
+php_value session.gc_maxlifetime 3600
+
+
 # Especificar códificación de caracteres
 AddDefaultCharset utf-8
 
@@ -9,4 +15,4 @@ RewriteEngine On
 IndexIgnore *.css *.js
 
 #url amigable
-RewriteRule ^([-a-zA-Z0-9_/]+)$ index.php?pagina=$1 [QSA,L]
+RewriteRule ^([-a-zA-Z0-9_/]+)$ index.php?page=$1 [QSA,L]
