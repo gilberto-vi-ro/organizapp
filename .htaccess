@@ -1,7 +1,21 @@
+#protect files
+    <Files config.php>
+        Order allow,deny
+        Deny from all
+    </Files>
+    <Files .htaccess>
+        Order allow,deny
+        Deny from all
+    </Files>
+    #<FilesMatch "\.(htaccess|htpasswd|ini|php|css|js|)$">
+       # Order Allow,Deny
+        #Deny from all
+    #</FilesMatch>
 
 #Session timeout
-php_value session.cookie_lifetime 0
-php_value session.gc_maxlifetime 3600
+    php_value session.cookie_lifetime 0
+    #time in second
+    php_value session.gc_maxlifetime 150
 
 
 # Especificar códificación de caracteres

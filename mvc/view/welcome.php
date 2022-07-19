@@ -337,8 +337,8 @@
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="loction-info white contact-center-x">
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayón, Chiapas</p>
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Gmail.png"></i>lightsoft@gmail.com</p>
+              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayón, Chiapas,México</p>
+              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Gmail.png"></i>gilberto.vi.ro@gmail.com</p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Phone.png"></i>+52 919 153 8136</p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/WhatsApp.png"></i>+52 919 153 8136</p>
             </div>
@@ -351,10 +351,10 @@
                 <div class="col-md-6 ">
                 </div>
                 <div class="col-md-6 contact-center-x">
-	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Facebook.png"></i>lightsoft@gmail.com</p>
-	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Twitter.png"></i>+52 919 153 8136</p>
-	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Instagram.png"></i>lightsoft@gmail.com</p>
-	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Facebook Messenger.png"></i>+52 919 153 8136</p>
+	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Facebook.png"></i>null</p>
+	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Twitter.png"></i>null</p>
+	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Instagram.png"></i>null</p>
+	                <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Facebook Messenger.png"></i>null</p>
                 </div>
               
               </form>
