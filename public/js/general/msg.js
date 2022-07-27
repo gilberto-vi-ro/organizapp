@@ -1,11 +1,13 @@
-/*!
- * msg.js v1.0.0
- * since 18/12/2020
- * Copyright 2020 Gilberto Villarreal Rodriguez
- * 				  Gil_yeung@outlook.com
- * Licensed open source
- */
-
+/**
+ * @fileoverview msg.js
+ * @version      1.0.0
+ * @author       Gilberto Villarreal Rodriguez <gil_yeung@outlook.com>
+ * @link         https://myproyecto.com/
+ * @copyright    myproyecto.com
+ * desc          ...
+ * @since        18/12/2020
+ * @license      License Open Source
+ */ 
 /*=============================================================================
  MSG
 ===============================================================================*/

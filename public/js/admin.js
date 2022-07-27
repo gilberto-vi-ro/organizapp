@@ -1,9 +1,3 @@
-/*!
- * admin.js v1.0.0
- * since 18/12/2020
- * Copyright 2020 Gilberto Villarreal Rodriguez <Gil_yeung@outlook.com>
- * Licensed open source
- */
 
 /*====================================================
 ITEMS

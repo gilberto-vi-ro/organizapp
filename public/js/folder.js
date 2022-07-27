@@ -1,10 +1,4 @@
-/*!
- * folder.js v1.0.0
- * since 18/12/2020
- * Copyright 2020 Gilberto Villarreal Rodriguez <Gil_yeung@outlook.com>
- * Licensed open source
- */
- 
+
 $(function(){
 
 	var XSRF = (document.cookie.match('(^|; )_sfm_xsrf=([^;]*)')||0)[2]; //generate cookie

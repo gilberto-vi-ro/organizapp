@@ -4,11 +4,11 @@
     * @category    Herramienta principal.
     * @package     library/tool
     * @author      Gilberto Villarreal Rodriguez  <Gil_yeung@outlook.com>
-    * @link        https://sitegl.com/
-    * @license     https://www.sitegl.com/framework-gl/?license New  License Open Source
+    * @link        https://myproyecto.com/
+    * @license     License Open Source
     * @description Emplear metodos o funciones en general es decir para todos los controllers.
     * @see         link de documentacion
-    * @since       Fecha de elaboracion: 13/2/2019
+    * @since       13/2/2019
     * @version     3.0.0
     */
     

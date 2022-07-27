@@ -1,11 +1,13 @@
-
-/*!
- * all.js v1.0.0
- * since 18/12/2020
- * Copyright 2020 Gilberto Villarreal rodriguez
- * 				  Gil_yeung@outlook.com
- * Licensed open source
- */
+/**
+ * @fileoverview all.js
+ * @version      1.0.0
+ * @author       Gilberto Villarreal Rodriguez <gil_yeung@outlook.com>
+ * @link         https://myproyecto.com/
+ * @copyright    myproyecto.com
+ * desc          general functions
+ * @since        18/12/2020
+ * @license      License Open Source
+ */ 
 
 /*====================================================
 TOOLTIP
