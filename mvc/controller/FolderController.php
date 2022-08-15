@@ -68,24 +68,24 @@
 	    	$html = "null";
 	    	switch ($extension) {
 	    		case 'png':
-	    			$html = '<img src="'.$pathname.'" width="80%">'; 
+	    			$html = '<img src="'.$pathname.'" width="100%">'; 
 	    			break;
 
 	    		case 'jpg':
-	    			$html = '<img src="'.$pathname.'" width="80%">'; 
+	    			$html = '<img src="'.$pathname.'" width="100%">'; 
 	    			break;
 
 	    		case 'gif':
-	    			$html = '<img src="'.$pathname.'" width="80%">'; 
+	    			$html = '<img src="'.$pathname.'" width="100%">'; 
 	    			break;
 
 	    		case 'pdf':
-	    			$html = '<embed src="'.$pathname.' #toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="400px" />';
+	    			$html = '<embed src="'.$pathname.'#toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="600px" />';
 	    			//$html = ' <a  target="_blank" href="'.$pathname.'">ver pdf</a> ';
 	    			break;
 	    		case 'movil-pdf':
 	    			//$html = '<embed src="'.$pathname.' #toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="400px" />';
-	    			$html = '<iframe src="'.$pathname.'"></iframe> ';
+	    			$html = '<iframe src="'.$pathname.'" height="600px"></iframe> ';
 	    			break;
 
 	    		case 'mp3':
