@@ -6,17 +6,45 @@ use organizapp;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE if EXISTS usuario;
-CREATE TABLE usuario (
-  id_usuario INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  nombre_completo VARCHAR(255) NOT NULL,
-  usuario VARCHAR(255) NOT NULL,
-  pwd TEXT NOT NULL,
-  tipo TINYINT(1) UNSIGNED NOT NULL,
-  img VARCHAR(255) NULL DEFAULT NULL,
-  fecha_registro DATETIME NOT NULL DEFAULT now(),
-  fecha_ultima_vez DATETIME NOT NULL DEFAULT now() ON UPDATE now(),
-  PRIMARY KEY(id_usuario)
-)
+CREATE TABLE IF NOT EXISTS usuario (
+  `id_usuario` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_completo` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `pwd` TEXT NOT NULL,
+  `tipo` TINYINT(1) UNSIGNED NOT NULL,
+  `img` VARCHAR(255) NULL DEFAULT NULL,
+  `fecha_registro` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `fecha_ultima_vez` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`))
+AUTO_INCREMENT=1000,
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+DROP TABLE if EXISTS pago;
+CREATE TABLE IF NOT EXISTS pago (
+  `id_pago` INT NOT NULL AUTO_INCREMENT,
+  `codigo_licencia` VARCHAR(255) NULL,
+  `fecha_ini` DATE NULL,
+  `fecha_fin` DATE NULL,
+  `monto` DOUBLE NULL,
+  `metodo_pago` VARCHAR(255) NULL,
+  `status` VARCHAR(255) NULL,
+  `id_usuario` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_pago`),
+  CONSTRAINT `fk_pago_usuario`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+AUTO_INCREMENT=1000,
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+DROP TABLE IF EXISTS licencia;
+CREATE TABLE IF NOT EXISTS licencia (
+  `id_licencia` INT NOT NULL AUTO_INCREMENT,
+  `codigo_licencia` VARCHAR(255) NULL,
+  `fecha_registro` DATETIME NULL,
+  `id_usuario` INT(10) NOT NULL,
+  PRIMARY KEY (`id_licencia`))
 AUTO_INCREMENT=1000,
 ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -120,8 +148,8 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- -------------------------------------------------insert-----------------------------------------------
 
-INSERT INTO `organizapp`.`usuario` (`nombre_completo`,`usuario`, `pwd`, `tipo`,`img`) VALUES
- ('admin', 'admin', '$2y$10$QSMbG1Z8Tm3HHZRoXKi07eOIfBiKoZ5C9LKCf0oabYQKKp1C.dC0W', 0, NULL );
+INSERT INTO `organizapp`.`usuario` (`nombre_completo`,`email`, `pwd`, `tipo`,`img`) VALUES
+ ('admin', 'admin@gmail.com', '$2y$10$QSMbG1Z8Tm3HHZRoXKi07eOIfBiKoZ5C9LKCf0oabYQKKp1C.dC0W', 0, NULL );
 
 INSERT INTO `organizapp`.`carpeta` (`path`, `path_name`, `nombre`, `descripcion`, `raiz`, `id_usuario`) VALUES 
  ('drive/', 'drive/1000', '1000', 'admin', '1', '1000');

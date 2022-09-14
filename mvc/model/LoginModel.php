@@ -8,7 +8,7 @@ class LoginModel extends DB
 	public function userExist($_post){
 		try {
 
-			$this->prepare("SELECT id_usuario, usuario, pwd, tipo FROM usuario WHERE usuario=? ");
+			$this->prepare("SELECT id_usuario, email, pwd, tipo FROM usuario WHERE email=? ");
 			$this->bindParam(1,$_post['username']);
 			$this->execute();
 			if ($this->rowCount()>0)
@@ -26,9 +26,9 @@ class LoginModel extends DB
 	public function register($_post){
 		try {
 
-			$dataUser['usuario'] = $_post['username'];
+			$dataUser['email'] = $_post['username'];
 			/*=====================exists usuario=========================*/
-			if( $this->existsData("usuario",$dataUser)->response )
+			if( $this->existsData("email",$dataUser)->response )
 				return 2;
 
 			$this->beginTransaction();

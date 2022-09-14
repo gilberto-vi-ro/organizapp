@@ -15,7 +15,7 @@
 		public function login()
 		{
 			$myData = $this->LoginModel->userExist($_POST);
-	        if ($myData && $myData['usuario'] === $_POST['username']){
+	        if ($myData && $myData['email'] === $_POST['username']){
 	           
 	            if ( !password_verify(  $_POST['pwd'], $myData['pwd']) )
 	            href(BASE_URL."login?notpwd");
