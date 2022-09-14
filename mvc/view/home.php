@@ -10,7 +10,7 @@
     include_once ROOT_PATH . "mvc/model/HomeModel.php";
     include_once ROOT_PATH . "mvc/controller/HomeController.php";
     $message = null;
-
+    $section= "home";
 
     $HomeController = new HomeController();
 
@@ -413,6 +413,7 @@
     =================================================================================-->
     <script type="text/javascript">
         var BASE_URL = "<?= BASE_URL ?>";
+        var section = "<?= $section ?>";
         /*var FileManager_values = '<?= $getFileManagerValues ?>';*/
     </script>
     <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>

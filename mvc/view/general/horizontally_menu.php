@@ -7,7 +7,7 @@
             <nav>   
                 <li class="text-organizapp"><a href="<?= BASE_URL ?>home">OrganizApp </a></li>
                 <ul class="menu-header">
-                    <li><a href="<?= BASE_URL ?>home"> Actividades</a> </li>
+                    <li><a id="_home" href="<?= BASE_URL ?>home"> Actividades</a> </li>
                     <li><a href="<?= BASE_URL ?>folder"> Carpetas </a> </li>
                     <li><a href="<?= BASE_URL ?>trash"> <i class="fas fa-recycle"></i> </a> </li>
                     <li><a id="my_bell" href="<?= BASE_URL ?>notification"> <i class="fas fa-bell"></i> </a> </li>
