@@ -9,7 +9,7 @@ class LoginModel extends DB
 		try {
 
 			$this->prepare("SELECT id_usuario, email, pwd, tipo FROM usuario WHERE email=? ");
-			$this->bindParam(1,$_post['username']);
+			$this->bindParam(1,$_post['email']);
 			$this->execute();
 			if ($this->rowCount()>0)
 				return $this->fetchAll(PDO::FETCH_ASSOC)[0];
@@ -26,9 +26,9 @@ class LoginModel extends DB
 	public function register($_post){
 		try {
 
-			$dataUser['email'] = $_post['username'];
+			$dataUser['email'] = $_post['email'];
 			/*=====================exists usuario=========================*/
-			if( $this->existsData("email",$dataUser)->response )
+			if( $this->existsData("usuario",$dataUser)->response )
 				return 2;
 
 			$this->beginTransaction();

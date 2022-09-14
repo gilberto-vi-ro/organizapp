@@ -68,7 +68,7 @@
 					</div>
 					<div class="data">
 						<i class="fas fa-user"></i>
-						<input type="username" placeholder="Usuario" name="username" required="">
+						<input type="email" placeholder="Email" name="email" required="">
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
@@ -98,7 +98,7 @@
 				<div class="fields">
 					<div class="data">
 						<i class="fas fa-user"></i>
-						<input type="username" placeholder="Usuario" name="username" required="">
+						<input type="email" placeholder="Email" name="email" required="">
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
