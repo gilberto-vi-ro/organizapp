@@ -117,6 +117,57 @@ class NotificationModel extends DB
 		}
 	}
 
+	public static function updateNotificationSentEmail($id){
+		try {
+
+			$DB = DB::conn();
+			
+			$query = "UPDATE notificacion SET enviado = 1 WHERE id_notificacion = ?";
+			$queryDB = $DB->prepare($query);
+			$queryDB->execute([$id]);
+		
+			if ($queryDB->rowCount()>0)
+				return true;
+			else
+				return false;
+			
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public static function getNotificationForEmail(){
+		try {
+
+			$DB = DB::conn();
+			
+			$query = "SELECT carpeta.path_name, tarea.nombre, tarea.estado,tarea.prioridad, email, id_notificacion, mensaje FROM usuario
+							INNER JOIN carpeta
+							INNER JOIN tarea
+							INNER JOIN notificacion
+							INNER JOIN mensaje
+							ON usuario.id_usuario = carpeta.id_usuario AND 
+							carpeta.id_carpeta = tarea.id_carpeta AND 
+							tarea.id_tarea = notificacion.id_tarea AND 
+							notificacion.id_mensaje = mensaje.id_mensaje
+							WHERE visto = 0 AND eliminado = 0 AND enviado = 0 ";
+			$queryDB = $DB->prepare($query);
+			$queryDB->execute();
+		
+			if ($queryDB->rowCount()>0)
+				return $queryDB->fetchAll(PDO::FETCH_ASSOC);
+			else
+				return false;
+			
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
 	public function getNotification($idUsuario, $range){
 		try {
 			$range = explode("::",$range);

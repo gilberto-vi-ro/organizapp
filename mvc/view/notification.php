@@ -1,13 +1,19 @@
 <?php 
-    session_start();
-    if(!session('data_user') ){
-        href(BASE_URL."login");
-        return;
-    }
-
     include_once ROOT_PATH."library/DB.php";
     include_once ROOT_PATH."mvc/model/NotificationModel.php";
     include_once ROOT_PATH."mvc/controller/NotificationController.php";
+    
+    session_start();
+    if (!isset($_GET['sendNotificationEmail'])){
+        if(!session('data_user') ){
+            href(BASE_URL."login");
+            return;
+        }
+    }else{
+        if (isset($_GET['sendNotificationEmail']) )
+            NotificationController::sendNotificationEmail();
+    }
+    
     $message=null;
 
 

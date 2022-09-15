@@ -145,9 +145,9 @@ class HomeModel extends DB
 				$this->rollback();
 
 			#=====================error=========================
-			/*if (!$this->response){
+			if (!$this->response){
 				print_r($this->error); exit();
-			}*/
+			}
 			#=====================return=========================
 			return $this->response;
 			

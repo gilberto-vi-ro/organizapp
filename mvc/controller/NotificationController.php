@@ -84,6 +84,60 @@
 			//exit();
 	    }
 
+		public static function sendNotificationEmail() 
+	    {   
+			$res = NotificationModel::getNotificationForEmail();
+			
+			if ($res) {
+				foreach ($res as $key => $value) {
+					self::sendMail($value); 
+					echo "<br>";
+				}
+			}else{
+				setMsg( "error","No hay notificacion por enviar.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+			}
+				
+			print_r( json_encode(getMsg()) );
+			exit();
+	    }
+
+		private static function sendMail($data){
+			$to = $data["email"]; 
+			$subject = "OrganizApp"; 
+			$body = ' 
+				<html> 
+				<head> 
+				<title>OrganizApp</title> 
+				</head> 
+				<body> 
+				<h1>OranizApp</h1> 
+				<h2><p>
+						'.$data["mensaje"].', <strong> nombre: </strong> '.$data["nombre"].',
+						<strong>ruta: </strong>'.$data["path_name"].'
+					</p>
+				</h2> 
+				<br>
+				<p> 
+					<b>Puedes acceder desde el siguiente link, primero inicia sesion :</b>
+					<a href="https://myproyecto.com/organizapp/home#'.$data["path_name"].'" >https://myproyecto.com/organizapp/home#'.$data["path_name"].'</a>
+				</p> 
+				<br>
+				<p> No responda a este email ya que fue generado automaticamente.</p> 
+				</body> 
+				</html> 
+			'; 
+			// Para enviar un correo HTML, debe establecerse la cabecera Content-type
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			if(mail($to,$subject,$body,$headers)){
+				NotificationModel::updateNotificationSentEmail($data["id_notificacion"]);
+				echo 'We have sent you a message with subject "OrganizApp"';
+			}
+			else 
+				echo 'An error occurred while sending the Email';
+
+		}
+
 		public  function seenNotification($idNotification) 
 	    {   
 			$res = $this->NotificationModel->seenNotification( $idNotification );
