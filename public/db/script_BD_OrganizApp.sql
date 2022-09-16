@@ -214,7 +214,7 @@ CREATE VIEW view_get_notification AS
 -- SELECT * FROM view_get_notification where tarea_estado=1 AND carpeta_path = '';
 -- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;FUNCTION;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 DROP FUNCTION IF EXISTS getPath;
-Delimiter |
+DELIMITER |
 	CREATE FUNCTION getPath( pathname TEXT )
 		RETURNS TEXT
 		BEGIN 
@@ -225,26 +225,26 @@ Delimiter |
 			
 			RETURN CONCAT(path,'/');
 		END |
-Delimiter ;
+DELIMITER ;
        
 -- SELECT getPath('1/2/3/4/5/6/7') as path;
 
 -- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;FUNCTION;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 DROP FUNCTION IF EXISTS getName;
-Delimiter |
+DELIMITER |
 	CREATE FUNCTION getName( pathname text )
 		RETURNS text
 		BEGIN 
 			RETURN SUBSTRING_INDEX(Pathname, '/', -1 );
 		END |
-Delimiter ;
+DELIMITER ;
        
 -- SELECT getName('1/2/3/4/5/6/7') as name;
 
 
 -- :::::::::::::::::::::::::::::::::::::::::::::::procedure::::::::::::::::::::::::::::::::::::::::::::::::::::
 drop procedure if exists updateToTrash;
-Delimiter |
+DELIMITER |
 create procedure updateToTrash(in pathname text, in newPathname text )
   BEGIN
           	UPDATE carpeta SET carpeta.path_name = REPLACE( carpeta.path_name, pathname , newPathname ),
@@ -252,12 +252,12 @@ create procedure updateToTrash(in pathname text, in newPathname text )
  						    carpeta.archivado = '1' , carpeta.fecha_archivado = now()
 				      WHERE carpeta.path_name like CONCAT( pathname,'%' );
   END |
-Delimiter ;
+DELIMITER ;
 -- call updateToTrash('drive/1001/1', 'drive/1001/1.trash');
 
 -- :::::::::::::::::::::::::::::::::::::::::::::::procedure::::::::::::::::::::::::::::::::::::::::::::::::::::
 drop procedure if exists restoreTrash;
-Delimiter |
+DELIMITER |
 create procedure restoreTrash(in pathname text, in newPathname text )
   BEGIN
 				UPDATE carpeta SET carpeta.path_name = REPLACE( carpeta.path_name, pathname , newPathname ),
@@ -265,13 +265,13 @@ create procedure restoreTrash(in pathname text, in newPathname text )
 				    carpeta.archivado = '0' , carpeta.fecha_archivado = null
 				  WHERE carpeta.path_name like CONCAT( pathname,'%' );
   END |
-Delimiter ;
+DELIMITER ;
 -- call restoreTrash('drive/1001/1.trash', 'drive/1001/1');
 
 
 -- :::::::::::::::::::::::::::::::::::::::::::::::procedure::::::::::::::::::::::::::::::::::::::::::::::::::::
 drop procedure if exists updatePathname;
-Delimiter |
+DELIMITER |
 create procedure updatePathname( in oldPathname text, in newPathname text )
   BEGIN
      
@@ -286,7 +286,7 @@ create procedure updatePathname( in oldPathname text, in newPathname text )
 	      WHERE carpeta.path_name like CONCAT( oldPathname,'%' );
             
   END |
-Delimiter ;
+DELIMITER ;
 
 -- call updatePathname('drive/1001/1', 'drive/1001/renamed');
 -- call updatePathname('drive/1001/renamed', 'drive/1001/1');
