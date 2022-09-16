@@ -14,8 +14,8 @@ body{
 
 /* Change the white to any color ;) */
 input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
-     //-webkit-box-shadow: 0 0 0 30px red inset !important;
-     //background-color: blue !important;
+     /* -webkit-box-shadow: 0 0 0 30px red inset !important; */
+     /* background-color: blue !important; */
      -webkit-text-fill-color: #E8F5FB;
      transition: background-color 5000s ease-in-out 0s;
 }
@@ -23,17 +23,17 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 .center-login, .center-sign-up{
 
 	top : 0px;
-	//top : middle;
+	/* top : middle; */
 	left: 0px;
 
 	display: flex;
 	position: relative;
 
-	//align-items: center;
+	/* align-items: center; */
   	justify-content: center;
 
-    //vertical-align: center;
-	//text-align: center;
+    /* vertical-align: center; */
+	/* text-align: center; */
 
   	
 }
@@ -183,7 +183,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
     user-select: none; /*hace que el campo de texto no se pueda seleccionar (lo anterior evita que el usuario simplemente copie y pegue el Captcha)
     Importante, no debe confundirse con el atributo "deshabilitado" escrito para este campo de entrada en el código HTML. */
   
-    //width: 200px;
+    /* width: 200px; */
     color: black;
     border-color: black;
 	text-align: center;
@@ -209,10 +209,13 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 }
 .login-captcha{
 
+	display: block;
 	color: #E8F5FB;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	cursor: pointer;
+	position: relative;
+	text-align: center;
 }
 .login-captcha i,  .login-captcha label{
 	cursor: pointer;
@@ -251,12 +254,17 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	
 	.login-container .btn-login{
 
-		width: calc( 100% - 100px);
+		width: calc( 100% - 20px);
+	}
+
+	.login-container .fields {
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 	.login-container .fields .data input{
 
-		width: calc(100% - 135px);
+		width: calc(100% - 80px);
 	}
 
 }

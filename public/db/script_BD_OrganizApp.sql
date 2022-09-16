@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS usuario (
 AUTO_INCREMENT=1000,
 ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
+DROP TABLE if EXISTS pago;
 CREATE TABLE IF NOT EXISTS pago (
   `id_pago` INT NOT NULL AUTO_INCREMENT,
   `monto` DOUBLE NULL,
@@ -151,24 +152,24 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- -------------------------------------------------insert-----------------------------------------------
 
-INSERT INTO `organizapp`.`usuario` (`nombre_completo`,`email`, `pwd`, `tipo`,`img`) VALUES
+INSERT INTO `usuario` (`nombre_completo`,`email`, `pwd`, `tipo`,`img`) VALUES
  ('admin', 'admin@gmail.com', '$2y$10$QSMbG1Z8Tm3HHZRoXKi07eOIfBiKoZ5C9LKCf0oabYQKKp1C.dC0W', 0, NULL );
 
--- INSERT INTO `organizapp`.`pago` (`monto`, `metodo_pago`, `status`, `descripcion`, `fecha_registro`) VALUES 
+-- INSERT INTO `pago` (`monto`, `metodo_pago`, `status`, `descripcion`, `fecha_registro`) VALUES 
 --   ('0', 'default', 'completado', 'pago de prueba', '2022-09-14 13:08:10');
 
--- INSERT INTO `organizapp`.`licencia` (`codigo_licencia`, `fecha_ini`, `fecha_fin`, `fecha_registro`, `id_usuario`, `id_pago`) VALUES
+-- INSERT INTO `licencia` (`codigo_licencia`, `fecha_ini`, `fecha_fin`, `fecha_registro`, `id_usuario`, `id_pago`) VALUES
 --  ('iuyeiwufhiuchiuhiu', '2022-09-14 13:09:55', '2022-09-14 13:09:56', '2022-09-14 13:09:59', '1000', '1000');
 
-INSERT INTO `organizapp`.`carpeta` (`path`, `path_name`, `nombre`, `descripcion`, `raiz`, `id_usuario`) VALUES 
+INSERT INTO `carpeta` (`path`, `path_name`, `nombre`, `descripcion`, `raiz`, `id_usuario`) VALUES 
  ('drive/', 'drive/1000', '1000', 'admin', '1', '1000');
 
-INSERT INTO `organizapp`.`archivo` (`id_archivo`,`nombre`, `size`, `extension`,`descripcion`, `id_carpeta`) VALUES 
+INSERT INTO `archivo` (`id_archivo`,`nombre`, `size`, `extension`,`descripcion`, `id_carpeta`) VALUES 
  (1000, 'null', '0', 'null', 'null', '1000');
 
-INSERT INTO `organizapp`.`mensaje` (`mensaje`) VALUES ('Usted tiene una tarea que ya expiro');
-INSERT INTO `organizapp`.`mensaje` (`mensaje`) VALUES ('Usted tiene una tarea para hoy');
-INSERT INTO `organizapp`.`mensaje` (`mensaje`) VALUES ('Usted tiene una tarea para mañana');
+INSERT INTO `mensaje` (`mensaje`) VALUES ('Usted tiene una tarea que ya expiro');
+INSERT INTO `mensaje` (`mensaje`) VALUES ('Usted tiene una tarea para hoy');
+INSERT INTO `mensaje` (`mensaje`) VALUES ('Usted tiene una tarea para mañana');
 
 
 
@@ -300,10 +301,10 @@ CREATE TRIGGER setDefaultArchiveInTask BEFORE DELETE ON archivo
 FOR EACH ROW 
 		BEGIN
 				DECLARE id_task INT;
-				-- obtener tarea.id_tarea
+				/*obtener tarea.id_tarea*/
 				set id_task=(SELECT id_tarea FROM tarea WHERE tarea.id_archivo = OLD.id_archivo);
 				IF id_task = 1000 THEN 
-				   set id_task=0; -- mo hacer nada
+				   set id_task=0; /*no hacer nada*/
 				else
 				  	update tarea set id_archivo = 1000 where id_archivo = OLD.id_archivo;
 				END IF;
@@ -321,7 +322,7 @@ FOR EACH ROW
 					DECLARE my_id_tarea INT;
     			DECLARE my_id_archivo INT;
 					/*Declaro el cursor para la busqueda */
-				    DECLARE fileInFolder CURSOR FOR 	-- obtener todos las tarea.id_tarea
+				    DECLARE fileInFolder CURSOR FOR 	/*obtener todos las tarea.id_tarea*/
 				    				SELECT tarea.id_tarea, tarea.id_archivo FROM carpeta
 										INNER JOIN archivo
 										INNER JOIN tarea
@@ -339,7 +340,7 @@ FOR EACH ROW
                     /* Asigno la primera linea a las variables... */
                     FETCH fileInFolder INTO my_id_tarea, my_id_archivo;
                     IF my_id_tarea = 1000 THEN 
-                      set my_id_tarea=0; -- mo hacer nada
+                      set my_id_tarea=0; /*no hacer nada*/
                     else
                         update tarea set id_archivo = 1000 where id_tarea = my_id_tarea;
                   END IF;

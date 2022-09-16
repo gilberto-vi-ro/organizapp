@@ -293,7 +293,7 @@
                         <p>Es una aplicación web con diseño intuitivo para hacer backup y restore de una base de datos de manera local o remota, la aplicación soporta el gestor de base de datos MySql y MariaDB, y se espera que un futuro soporte otros gestores. <a href="<?= BASE_URL ?>../Backup-Restore">< visitar > </a> </p>
                       </div>
                       <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
-                        <figure><a href="<?= BASE_URL ?>../Backup-Restore">
+                        <figure><a href="<?= BASE_URL ?>../backup-restore">
                           <img src="<?= BASE_URL ?>public/img/project/backup-restore-gl.png" class="img-responsive" style="height: 250px">
                           <figcaption>
                             <h2>Backup-Restore</h2>

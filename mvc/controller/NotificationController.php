@@ -131,7 +131,7 @@
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			if(mail($to,$subject,$body,$headers)){
 				NotificationModel::updateNotificationSentEmail($data["id_notificacion"]);
-				echo 'We have sent you a message with subject "OrganizApp"';
+				echo 'We have sent you a message to '.$to.' with subject "OrganizApp"';
 			}
 			else 
 				echo 'An error occurred while sending the Email';
