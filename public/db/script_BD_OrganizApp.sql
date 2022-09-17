@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS licencia (
   `fecha_ini` DATETIME NULL,
   `fecha_fin` DATETIME NULL,
   `fecha_registro` DATETIME NULL DEFAULT CURRENT_TIMESTAMP(),
-  `id_usuario` INT(10) NOT NULL,
+  `id_admin` INT(10) NOT NULL,
   `id_pago` INT NOT NULL,
   PRIMARY KEY (`id_licencia`),
     FOREIGN KEY (`id_pago`)
@@ -155,10 +155,10 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 INSERT INTO `usuario` (`nombre_completo`,`email`, `pwd`, `tipo`,`img`) VALUES
  ('admin', 'admin@gmail.com', '$2y$10$QSMbG1Z8Tm3HHZRoXKi07eOIfBiKoZ5C9LKCf0oabYQKKp1C.dC0W', 0, NULL );
 
--- INSERT INTO `pago` (`monto`, `metodo_pago`, `status`, `descripcion`, `fecha_registro`) VALUES 
---   ('0', 'default', 'completado', 'pago de prueba', '2022-09-14 13:08:10');
+-- INSERT INTO `pago` (`monto`, `metodo_pago`, `status`, `descripcion`, `id_usuario`) VALUES 
+--   ('0', 'default', 'completado', 'pago de prueba', '1001'); 
 
--- INSERT INTO `licencia` (`codigo_licencia`, `fecha_ini`, `fecha_fin`, `fecha_registro`, `id_usuario`, `id_pago`) VALUES
+-- INSERT INTO `licencia` (`codigo_licencia`, `fecha_ini`, `fecha_fin`, `fecha_registro`, `id_admin`, `id_pago`) VALUES
 --  ('iuyeiwufhiuchiuhiu', '2022-09-14 13:09:55', '2022-09-14 13:09:56', '2022-09-14 13:09:59', '1000', '1000');
 
 INSERT INTO `carpeta` (`path`, `path_name`, `nombre`, `descripcion`, `raiz`, `id_usuario`) VALUES 

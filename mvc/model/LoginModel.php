@@ -33,21 +33,39 @@ class LoginModel extends DB
 
 			$this->beginTransaction();
 			/*=====================insert usuario=========================*/
-			$dataUser['nombre_completo'] = $_post['nombre_c'];
-			$dataUser['pwd']  = $_post['pwd'];
-			$dataUser['tipo'] = 1;
+			$dataUser["nombre_completo"] = $_post["nombre_c"];
+			$dataUser["pwd"]  = $_post["pwd"];
+			$dataUser["tipo"] = 1;
 			$this->insert("usuario",$dataUser);
 
 			/*=====================insert carpeta=========================*/
 			$idUser = $this->getMaxUser();
-			$dataFolder['path'] = "drive/" ;
-			$dataFolder['path_name'] = "drive/".$idUser ;
-			$dataFolder['nombre'] = $idUser;
-			$dataFolder['descripcion'] = "carpeta raiz";
-			$dataFolder['raiz'] = 1;
-			$dataFolder['id_usuario'] = $idUser;
+			$dataFolder["path"] = "drive/" ;
+			$dataFolder["path_name"] = "drive/".$idUser ;
+			$dataFolder["nombre"] = $idUser;
+			$dataFolder["descripcion"] = "carpeta raiz";
+			$dataFolder["raiz"] = 1;
+			$dataFolder["id_usuario"] = $idUser;
 			$this->insert("carpeta",$dataFolder);
 
+			/*=====================insert pago=========================*/
+			$dataPay["monto"] = "0" ;
+			$dataPay["metodo_pago"] = "default" ;
+			$dataPay["status"] = "completado";
+			$dataPay["descripcion"] = "pago de prueba";
+			$dataPay["id_usuario"] = $idUser;
+			$this->insert("pago",$dataPay);
+
+			/*=====================insert licencia=========================*/
+			$idPay = $this->getMaxId('id_pago' , 'pago');
+			$dataLicense["codigo_licencia"] = generatePassword(20);
+			$dataLicense["fecha_ini"] = now() ;
+			$dataLicense["fecha_fin"] = date("Y-m-d H:i:s",strtotime(now()."+ 15 days"));
+			//$dataLicense["fecha_fin"] = date("Y-m-d H:i:s",strtotime(now()."+ 4 months"));
+			$dataLicense["id_admin"] = "1000";
+			$dataLicense["id_pago"] = $idPay;
+			$this->insert("licencia",$dataLicense);
+		
 			/*======================transaction========================*/
 			if ($this->response)
 				$this->commit();
