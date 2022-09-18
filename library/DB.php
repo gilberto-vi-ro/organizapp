@@ -7,9 +7,9 @@
     * @link        https://myproyecto.com/
     * @license     License Open Source
     * @description Clase para conectar a la base de datos y ejecutar consultas PDO.
-    * @see         link de documentacion
+    * @see         https://www.php.net/manual/en/book.pdo.php
     * @since       01/2/2019
-    * @version     4.1.2
+    * @version     4.2.0
     */
 
  
@@ -154,9 +154,12 @@
 		/**
 		* Ejecuta la consulta
 		*/
-		public function execute()
+		public function execute( $input_parameters = array())
 		{	
-			return $this->stmt->execute();
+			if (empty($input_parameters))
+				return $this->stmt->execute();
+			else
+				return $this->stmt->execute($input_parameters);
 		}
 
 		/**

@@ -113,4 +113,28 @@ class LoginModel extends DB
 		}
 	}
 
+	public function isExpiredLicense(){
+		try {
+			/*=====================is active license=========================*/
+			$this->prepare("SELECT codigo_licencia, fecha_fin FROM licencia
+					INNER JOIN pago on pago.id_pago = licencia.id_licencia
+					INNER JOIN usuario on usuario.id_usuario = pago.id_usuario
+					WHERE fecha_fin > ? AND usuario.id_usuario = ?
+					");
+			$this->execute([ now(), session('id_usuario') ]);
+
+			if ($this->rowCount() == 0) 
+				return true;
+			else {
+				$expire_license = $this->fetchAll(PDO::FETCH_ASSOC)[0];
+				session('expire_license', $expire_license["fecha_fin"]);
+				return false;
+			}
+				
+			
+		} catch (PDOException $e) {
+			echo $e->getMessage(); 
+			exit();
+		}
+	}
 }

@@ -33,8 +33,16 @@
 				$this->LoginModel->setLastTime($myData["id_usuario"]);
 	            if ($myData["tipo"]==0)
 	            	href(BASE_URL."admin");
-	            else
-	            	href(BASE_URL."home");
+	            else{
+					if($this->LoginModel->isExpiredLicense())
+					{
+						include_once ROOT_PATH."mvc/view/general/expiredLicense.php";
+						exit();
+					}
+					else
+						href(BASE_URL."home");
+				}
+	            	
 	        }
 	        else{
 	            href(BASE_URL."login?notuser");
@@ -62,6 +70,7 @@
 	   		$FileManager->setPath("drive/");
 			$FileManager->createDir($this->LoginModel->getMaxUser());
 	    }
+		
 
 	}
 

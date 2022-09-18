@@ -21,8 +21,7 @@
          $AdminController->deleteUser($_GET['id']);
 
     if (isset($_POST['addLicense']) ) {
-        print_r($_POST);
-        exit();
+        $AdminController->addPayAndLicense();
     }
        
     /*======================================================================
@@ -179,15 +178,15 @@
                 
                 <div class="div-cont-label-input">
                     <label class="lbl">Monto:</label>
-                    <input type="number" name="pay_paamount" class="input-form-trasparent" placeholder="0" required>
+                    <input type="number" name="pay_amount" class="input-form-trasparent" placeholder="0" required>
                 </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Metodo de Pago:</label>
-                    <input type="text" name="pay_metod" class="input-form-trasparent" placeholder="metodo pago" pattern="|efectivo|targeta|online|" required>
+                    <input type="text" name="pay_method" class="input-form-trasparent" placeholder="efectivo, targeta, online" pattern="|efectivo|targeta|online|" required>
                 </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Estado del pago:</label>
-                    <input type="text" name="pay_status" class="input-form-trasparent" placeholder="Estado pago" pattern="|error|pendiente|completado|" required>
+                    <input type="text" name="pay_status" class="input-form-trasparent" placeholder="error, pendiente, completado" pattern="|error|pendiente|completado|" required>
                 </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Descripcion:</label>
@@ -215,7 +214,7 @@
                 <input id="id_user" type="hidden" value="0000">
                 <div class="div-cont-label-input">
                     <label class="lbl">Codigo de Licencia:</label>
-                    <input type="text" name="cod_license" class="input-form-trasparent" value="AAAAAAAAAAAAAA">
+                    <input type="text" name="cod_license" class="input-form-trasparent" placeholder="AAAAAAAAAAAAAA">
                 </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Años:</label>

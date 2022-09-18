@@ -17,6 +17,7 @@
                             <img class="icon-perfil-show" src="<?= $getImg; ?>">
                             <p><i class="fas fa-user"></i><?= $getName; ?></p>
                             <p><i class="fas fa-qrcode"></i><?= $getCode; ?></p>
+                            <p></i>Su licencia Expira el: <?= session('expire_license') ?></p>
                             <div class="perfil-line-form"></div>
                             <a href="<?= BASE_URL ?>edit_profile"> <p class="perfil-txt"><i class="fas fa-user-edit"></i>Editar perfil</p></a>
                             <a href="<?= BASE_URL ?>general/logout"> <p class="perfil-txt"><i class="fas fa-sign-in-alt"></i>Cerrar sesion</p></a>

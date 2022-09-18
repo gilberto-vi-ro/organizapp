@@ -72,6 +72,19 @@
 	        return $nameUser; 
 	    }
 
+		public  function addPayAndLicense() 
+	    {   
+			
+			$_POST['date_end_license'] = date("Y-m-d H:i:s",strtotime(now()."+ ".$_POST['years_license']." years + ".$_POST['months_license']." months + ".$_POST['days_license']." days"));
+
+	        $res = $this->AdminModel->insertPayAndLicense();
+	        if($res === true)
+				echo 'La licencia se agrego corectamente';
+			else if ($res === 2)
+				echo 'El usurio aun tiene una licencia vigente.';
+	        exit();
+	    }
+
 		
 	}
 

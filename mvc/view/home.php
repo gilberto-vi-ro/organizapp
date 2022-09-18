@@ -17,6 +17,8 @@
     $getImg = $HomeController->getImg();
     $getName = $HomeController->getName();
     $getCode = session('id_usuario');
+    
+
     $pathDefault =  str_replace("drive/", "", $HomeController->getPathDefault());
 
     if (isset($_GET['listFolder'])) {

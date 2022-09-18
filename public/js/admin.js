@@ -60,6 +60,8 @@ $('.js-add-license-cancel').click(function(e){
 
 $('#form-pay').on("submit",function(e){   
     $('[name="cod_license"]').val(generateLicense());
+    $(".js-add-license-continue").removeAttr('disabled');
+    $('#upload_progress').empty();
     show("#add-license-modal","flex");   
 });
 $('#form-license').on("submit",function(e){  
@@ -78,16 +80,22 @@ $('#form-license').on("submit",function(e){
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'admin',true);
         xhr.onload = function(e) {
+            $(".js-add-license-continue").attr('disabled','disabled');
+            $('#upload_progress').empty();
+            $('#form-pay')[0].reset();
+            $('#form-license')[0].reset();
+            $('#upload_progress').text(e.target.response);
             
-            console.log(e.target.response);
         };
         xhr.upload.onprogress = function(e){
             if(e.lengthComputable) {
-                $row.find('.current_progress').text((e.loaded/e.total*100)+'%' );
+                $row.find('.current_progress').text((e.loaded/e.total*100 | 0)+'%' );
                 $row.find('.progress').css('width',(e.loaded/e.total*100 | 0)+'%' );
             }
         };
         xhr.onerror = function(e,i) {
+            $row.find('.current_progress').text('0%' );
+            $row.find('.progress').css('width','0%' );
             console.log(e);
         };
 
