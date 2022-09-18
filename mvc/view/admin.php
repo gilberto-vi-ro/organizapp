@@ -19,6 +19,12 @@
 
     if (isset($_GET['delete_user']) && isset($_GET['id']) )
          $AdminController->deleteUser($_GET['id']);
+
+    if (isset($_POST['addLicense']) ) {
+        print_r($_POST);
+        exit();
+    }
+       
     /*======================================================================
     MSG
     ========================================================================*/
@@ -49,6 +55,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-horizontal.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/home.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/edit_profile.css">
     
 	<!-- ===============================================================================
      MENU HORIZONTAL
@@ -108,7 +115,7 @@
                         <img class="icon-user" src="<?= $img ?>" >
                          <div class="active-tooltip" >
                             <p class="tooltip-content" > <?= $data->nombre_completo; ?> </p>
-                            <p class="item-name"><?= $data->nombre_completo; ?></p>
+                            <p class="item-name"><?= $data->email; ?></p>
                         </div>
                     </div>
                     <?php $i++; endforeach; ?>
@@ -121,33 +128,117 @@
          INFO USER
         =================================================================================-->
 
-        <div id="user-modal" class="user-info-modal" >
+        <div id="user-info-modal" class="user-info-modal" >
             <div class="user-info-container">
-                <p class="close-user-container">&times;</p>
-                <img id="user-id" class="icon-perfil-show" src="<?= BASE_URL ?>public/img/icon/user.png">
+                <p id="close-info-user-modal" class="close-times">&times;</p>
+                <input id="id_user" type="hidden" value="0000">
+                <img id="user-img" class="icon-perfil-show" src="<?= BASE_URL ?>public/img/icon/user.png">
                
-
+                <div class="div-cont-label-input">
+                    <label class="lbl">Tipo:</label>
+                    <input type="text" id="type_user" class="input-form-trasparent" value="tipo" disabled="disabled">
+                </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Nombre:</label>
-                    <input type="text" name="name" class="input-form-trasparent" value="hola" disabled="disabled">
+                    <input type="text" name="name" class="input-form-trasparent" value="nombre" disabled="disabled">
                 </div>
-                 <div class="div-cont-label-input">
+                <div class="div-cont-label-input">
+                    <label class="lbl">Email:</label>
+                    <input type="text" name="email" class="input-form-trasparent" value="Email" disabled="disabled">
+                </div>
+                <div class="div-cont-label-input">
                     <label class="lbl">Path:</label>
-                    <input type="text" name="path" class="input-form-trasparent" value="pendiente" disabled="disabled">
+                    <input type="text" name="path" class="input-form-trasparent" value="path/" disabled="disabled">
                 </div>
                  <div class="div-cont-label-input">
                     <label class="lbl">Ultima vez:</label>
-                    <input type="text" name="ultima_vez" class="input-form-trasparent" value="pendiente" disabled="disabled">
+                    <input type="text" name="last_time" class="input-form-trasparent" value="ultima vez" disabled="disabled">
                 </div>
                 <div class="div-cont-label-input">
                     <label class="lbl">Fecha de registro:</label>
-                    <input type="text" name="create_at" class="input-form-trasparent" value="hola" disabled="disabled">
+                    <input type="text" name="create_at" class="input-form-trasparent" value="registro" disabled="disabled">
                 </div>
                 <div class="user-line-form"></div>
-                <button type="button" class="btn js-delete-user">Eliminar usuario</button>
+                <div class="cont-btn">
+                    <button type="button" class="btn js-add-license">Agregar licencia</button>
+                    <button type="button" class="btn js-delete-user">Eliminar usuario</button>
+                </div>
+                
             </div>
         </div>
 
+        <!-- ===============================================================================
+        ADD PAGO
+        =================================================================================-->
+        <div id="add-pago-modal" class="user-info-modal" >
+            <form id="form-pay" class="user-info-container" onsubmit="return false">
+                <p id="close-add-pago-modal" class="close-times">&times;</p>
+                <br>
+                <label class="title-lbl-txt">Detalles del pago</label>
+                <div class="user-line-form"></div>
+                
+                <div class="div-cont-label-input">
+                    <label class="lbl">Monto:</label>
+                    <input type="number" name="pay_paamount" class="input-form-trasparent" placeholder="0" required>
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Metodo de Pago:</label>
+                    <input type="text" name="pay_metod" class="input-form-trasparent" placeholder="metodo pago" pattern="|efectivo|targeta|online|" required>
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Estado del pago:</label>
+                    <input type="text" name="pay_status" class="input-form-trasparent" placeholder="Estado pago" pattern="|error|pendiente|completado|" required>
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Descripcion:</label>
+                    <input type="text" name="pay_description" class="input-form-trasparent" placeholder="......" >
+                </div>
+                 
+                <div class="user-line-form"></div>
+                <div class="cont-btn">
+                    <button type="button" class="btn js-add-pago-cancel">Cancelar</button>
+                    <button type="submit" class="btn js-add-pago-continue">Continuar</button>
+                </div>
+                
+            </form>
+        </div>
+
+        <!-- ===============================================================================
+        ADD LICENSE
+        =================================================================================-->
+        <div id="add-license-modal" class="user-info-modal" >
+            <form id="form-license" class="user-info-container" onsubmit="return false">
+                <p id="close-add-license-modal" class="close-times">&times;</p>
+                <br>
+                <label class="title-lbl-txt">Detalles de la licencia</label>
+                <div class="user-line-form"></div>
+                <input id="id_user" type="hidden" value="0000">
+                <div class="div-cont-label-input">
+                    <label class="lbl">Codigo de Licencia:</label>
+                    <input type="text" name="cod_license" class="input-form-trasparent" value="AAAAAAAAAAAAAA">
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Años:</label>
+                    <input type="number" name="years_license" class="input-form-trasparent" value="0" min="0" max="9" required>
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Meses:</label>
+                    <input type="number" name="months_license" class="input-form-trasparent" value="0" min="0" max="12" required>
+                </div>
+                <div class="div-cont-label-input">
+                    <label class="lbl">Dias:</label>
+                    <input type="number" name="days_license" class="input-form-trasparent" value="0" min="0" max="31" required>
+                </div>
+                 
+                <div id="upload_progress"></div>
+                <div class="user-line-form"></div>
+                <div class="cont-btn">
+                    <button type="button" class="btn js-add-license-cancel">Cancelar</button>
+                    <button type="submit" class="btn js-add-license-continue">Continuar</button>
+                </div>
+                
+            </form>
+        </div>
       
     <!-- ===============================================================================
     JS

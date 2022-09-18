@@ -2,43 +2,123 @@
 /*====================================================
 ITEMS
 ====================================================*/
-//show("#user-modal","flex");
+//show("#user-info-modal","flex");
 var itemIndex = -1;
 $('.my-item').click(function(e){
-            //console.log(dataUser);
-            show("#user-modal","flex");
-            itemIndex = this.querySelector("input").value;
-            var getImageUser = this.querySelector(".icon-user").getAttribute('src');
-            /*
-            //datos = "p="+ datosJson.data[fila] ;
-            $('#span_photo').html(dataUser.itemIndex[fila][1]);
-            */
+    //console.log(dataUser);
+    show("#user-info-modal","flex");
+    itemIndex = this.querySelector("input").value;
+    var getImageUser = this.querySelector(".icon-user").getAttribute('src');
+    /*
+    //datos = "p="+ datosJson.data[fila] ;
+    $('#span_photo').html(dataUser.itemIndex[fila][1]);
+    */
 
-            $('#user-id').attr('src', getImageUser);
-            $('[name="name"]').val(dataUser[itemIndex].nombre_completo);
-            $('[name="path"]').val(dataUser[itemIndex].path_name);
-            $('[name="ultima_vez"]').val(dataUser[itemIndex].fecha_ultima_vez);
-            $('[name="create_at"]').val(dataUser[itemIndex].fecha_registro);
+    $('#user-img').attr('src', getImageUser);
+    $('#id_user').val(dataUser[itemIndex].id_usuario);
+    $('#type_user').val(dataUser[itemIndex].tipo==0?"Administrador":"Cliente");
+    $('[name="name"]').val(dataUser[itemIndex].nombre_completo);
+    $('[name="email"]').val(dataUser[itemIndex].email);
+    $('[name="path"]').val(dataUser[itemIndex].path_name);
+    $('[name="last_time"]').val(dataUser[itemIndex].fecha_ultima_vez);
+    $('[name="create_at"]').val(dataUser[itemIndex].fecha_registro);
 
-            //console.log(dataUser[itemIndex].fecha_registro);
+    //console.log(dataUser[itemIndex].fecha_registro);
             
 });
 
-
-$('.js-delete-user').click(function(e){
+let idUser=null;
+$('.js-add-license').click(function(e){
             
-           show("#_msg","flex");
-           $('.msg-lbl-txt').text("Esta seguro que desea eliminar a:");
-           $('.msg-lbl-txt').append('<p class="msg-warning-txt" >'+dataUser[itemIndex].nombre_completo+'</p>');
-
-            
+    idUser = $('#id_user').val();
+    let typeUser = $('#type_user').val(); 
+    if (typeUser == "Administrador"){
+        hide(".msg-btn-aceptar");
+        show("#_msg","flex");
+        $('.msg-lbl-txt').text("No se le puede agregar licencia a un Administrador.");
+    }
+    else{
+        hide("#user-info-modal");
+        show("#add-pago-modal","flex");
+    }
+         
 });
 
-$('.close-user-container').click(function(e){
-            hide("#user-modal");
-           
-            
+$('.js-delete-user').click(function(e){    
+    show("#_msg","flex");
+    $('.msg-lbl-txt').text("Esta seguro que desea eliminar a:");
+    $('.msg-lbl-txt').append('<p class="msg-warning-txt" >'+dataUser[itemIndex].nombre_completo+'</p>');
+
 });
+
+$('.js-add-pago-cancel').click(function(e){    
+    hide("#add-pago-modal");  
+});
+$('.js-add-license-cancel').click(function(e){    
+    hide("#add-license-modal");  
+});
+
+$('#form-pay').on("submit",function(e){   
+    $('[name="cod_license"]').val(generateLicense());
+    show("#add-license-modal","flex");   
+});
+$('#form-license').on("submit",function(e){  
+    //registered license
+    var fd = new FormData(document.getElementById("form-pay"));
+        fd.append("addLicense", true);
+        fd.append("id_user", idUser);
+        fd.append("cod_license", $('[name="cod_license"]').val());
+        fd.append("years_license", $('[name="years_license"]').val());
+        fd.append("months_license", $('[name="months_license"]').val());
+        fd.append("days_license", $('[name="days_license"]').val());
+			
+        $row = $('#upload_progress')
+				.append( $('<div class="progress_track"><div class="progress"></div>') )
+                .append( $('<span class="current_progress" />').text("0%"));
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'admin',true);
+        xhr.onload = function(e) {
+            
+            console.log(e.target.response);
+        };
+        xhr.upload.onprogress = function(e){
+            if(e.lengthComputable) {
+                $row.find('.current_progress').text((e.loaded/e.total*100)+'%' );
+                $row.find('.progress').css('width',(e.loaded/e.total*100 | 0)+'%' );
+            }
+        };
+        xhr.onerror = function(e,i) {
+            console.log(e);
+        };
+
+        xhr.send(fd);
+        //console.log(  xhr);
+
+		    
+});
+
+
+$('#close-info-user-modal').click(function(e){
+    hide("#user-info-modal");      
+});
+$('#close-add-pago-modal').click(function(e){
+    hide("#add-pago-modal");      
+});
+$('#close-add-license-modal').click(function(e){
+    hide("#add-license-modal");      
+});
+
+
+function generateLicense(string_length = 20) {
+
+    var chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    var license = '';
+    for (var i=0; i<string_length; i++) {
+         var rnum = Math.floor (Math.random() * chars.length); 
+         license += chars.substring(rnum, rnum+1); 
+    }
+    return license;
+}
 
 
 /*=============================================================================
@@ -83,7 +163,7 @@ $('.close-user-container').click(function(e){
 
         /*close modal info user*/
         if (event.target == userModal) {
-            hide("#user-modal");
+            hide("#user-info-modal");
         }
 
         /*close modal perfil*/

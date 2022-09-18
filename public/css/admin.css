@@ -71,10 +71,18 @@ body{
 /*=============================================================================
 INFO USER
 ===============================================================================*/
+#upload_progress > div { padding:0px !important;}
 
-#user-modal{
+#user-info-modal{
 	display: none;
 }
+#add-pago-modal{
+	display: none;
+}
+#add-license-modal{
+	display: none;
+}
+
 .user-info-modal {
       display: flex; /* Hidden by default */
       position: fixed; /* Stay in place */
@@ -95,7 +103,7 @@ INFO USER
     left: 0;
   
     width: 50%;
-    min-height: 55%;
+    min-height: 200px;
     border-radius: 20px;
     border: 1px solid rgb(255, 255, 255);
     background: #E8F5FB;
@@ -106,6 +114,17 @@ INFO USER
     text-align: center;
     color: #3B3838;
     
+}
+.title-lbl-txt{
+	display: block;
+    position: relative;
+    width: 100%;
+    text-align: justify;
+    padding-left: 8px;
+    font-size: 20px;
+    color: #3B86E8;
+    margin-bottom: 5px;
+    overflow-wrap: break-word;
 }
 
 .user-line-form {
@@ -120,7 +139,7 @@ INFO USER
 
 .div-cont-label-input{
 	display: flex;
-    height: 40px;
+    /* height: 40px; */
     flex-direction: row;
     flex-direction: column;
     align-items: center;
@@ -139,7 +158,13 @@ INFO USER
     border: none;
     font-size: 17px;
     color: black;
-    text-align: center;
+    text-align: justify !important;
+}
+.user-info-container .cont-btn{ 
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .user-info-container .btn{
@@ -147,15 +172,16 @@ INFO USER
 	outline: none;
 	border: none;
 	cursor: pointer;
-	width: 68%;
-	height: 50px;
-	font-size: 20px;
-	font-weight: 700;
+	
+	min-height: 35px;
+	font-size: 17px;
+	/* font-weight: 700; */
 	border-radius: 30px;
 	transition: .5s;
 	color: #E8F5FB;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 5px;
 
 }
 
@@ -165,7 +191,7 @@ INFO USER
 
 }
 
-.close-user-container{
+.close-times{
 
 	float: right;
 	right: 10px;
@@ -176,7 +202,7 @@ INFO USER
 	font-weight: bold;
 }
 
-.close-user-container:hover{
+.close-info-user-container:hover{
 	color: #E52626;
 }
 .msg-warning-txt{
@@ -240,7 +266,7 @@ INFO USER
 	}
 	.user-info-container .btn{
 		
-		width: 100%;
+		width: calc(100% - 10px);
 	}
 	
 }
