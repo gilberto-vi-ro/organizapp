@@ -13,6 +13,7 @@
     include_once ROOT_PATH."mvc/controller/AdminController.php";
 
     $message = null;
+    $section= "admin";
     $AdminController = new AdminController();
 
     $listUsers= $AdminController->listUsers();
@@ -54,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-horizontal.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/home.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/admin.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/edit_profile.css">
+    
     
 	<!-- ===============================================================================
      MENU HORIZONTAL
@@ -66,8 +67,8 @@
         <button class="btn-bar"><i class="bars"> &#9776; </i></button>
             <nav>   
                 <li class="text-organizapp"><a href="<?= BASE_URL ?>admin">OrganizApp </a></li>
-                <ul class="menu-header">
-                    <li><a href="<?= BASE_URL ?>admin"> Admin </a> </li>
+                <ul class="menu-header" >
+                    <li><a id="_admin" href="<?= BASE_URL ?>admin"> Admin </a> </li>
                     <li> <img class="icon-perfil" src="<?=  $AdminController->getImg(); ?>"></li>
                     <div id="_perfil" class="perfil-cont-modal">
                         <div class="perfil-container-form">
@@ -238,20 +239,11 @@
                 
             </form>
         </div>
-      
-    <!-- ===============================================================================
-    JS
-    =================================================================================-->
-    <script type="text/javascript">
-        var dataUser = <?=  json_encode($listUsers); ?> ;
-        var BASE_URL = "<?=  BASE_URL ?>" ;
-    </script>
-    <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>
-    <script src="<?= BASE_URL ?>public/js/general/all.js"></script>
-    <!-- ===============================================================================
+
+     <!-- ===============================================================================
     MSG
     =================================================================================-->
-        <?php 
+    <?php 
         include_once ROOT_PATH."mvc/view/general/msg.php";
         if ($message!=null) { 
                     echo ' <script type="text/javascript"> var showMsg = true ; </script>';
@@ -259,6 +251,18 @@
                     echo ' <script type="text/javascript"> var showMsg = false ; </script>';
               }
         ?>
+      
+    <!-- ===============================================================================
+    JS
+    =================================================================================-->
+    <script type="text/javascript">
+        var dataUser = <?=  json_encode($listUsers); ?> ;
+        var BASE_URL = "<?=  BASE_URL ?>" ;
+        var section = "<?= $section ?>";
+    </script>
+   
+    <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>
+    <script src="<?= BASE_URL ?>public/js/general/all.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-horizontal.js"></script>
 	<script src="<?= BASE_URL ?>public/js/admin.js"></script>
  

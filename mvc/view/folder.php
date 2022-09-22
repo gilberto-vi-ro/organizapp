@@ -10,7 +10,7 @@
     include_once ROOT_PATH."mvc/model/FolderModel.php";
     include_once ROOT_PATH."mvc/controller/FolderController.php";
     $message=null;
-
+    $section= "folder";
 
     $FolderController = new FolderController();
     
@@ -336,6 +336,7 @@
     =================================================================================-->
     <script type="text/javascript">
         var BASE_URL = "<?= BASE_URL ?>";
+        var section = "<?= $section ?>";
         var FileManager_values = '<?=  $getFileManagerValues ?>';
     </script>
     

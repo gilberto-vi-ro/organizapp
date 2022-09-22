@@ -137,16 +137,5 @@ function loadAjax(_url, _type , _data=null, _async=false){
 }
 
 
-/* count notification */
-setInterval(countNotification, 1000);
-function countNotification() {
-  $.get('notification?countNotification' ,'json').done(function(data) {
-    //console.log(data);
-    document.documentElement.style.setProperty('--notification', "'"+data+"'");
-  });
-  return true;
-}
-
-
 
 

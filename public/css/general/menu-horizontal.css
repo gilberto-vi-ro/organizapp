@@ -1,5 +1,4 @@
 
-
 /*=============================================================================
  STYLE HEADER
 ===============================================================================*/
@@ -37,17 +36,25 @@ ul, ol, li{
 	//border: 4px solid #77baf8;
 }
 
+.menu-header li{
+	padding-left: 6px;
+	padding-right: 6px;
+}
 .menu-header li a {
 	color: #E8F5FB;
 	text-transform: uppercase;
 	text-decoration:none;
-	padding:10px 12px;
+	padding:14px 0 4px 0;
 	display:flex;
 	justify-content: space-between;
 }
 
 .menu-header li a:hover {
 	color:#3B3838;
+	/* border-bottom:6px solid #BFBFBF;  */
+}
+
+.menu-header .active-section {
 	border-bottom:6px solid #BFBFBF; 
 }
 
@@ -64,7 +71,9 @@ ul, ol, li{
 .menu-header .active { 
 	display:block;
 }
-
+.menu-header .fas{
+	margin-right: 5px;
+}
 .btn-bar{
 	display: none;
 }
@@ -116,7 +125,7 @@ ul, ol, li{
 	font-size: 25px;
 }
 
-#my_bell .fa-bell::after {
+#_bell .fa-bell::after {
 	display: block;
 	position: absolute;
 	content: var(--notification);
@@ -138,7 +147,7 @@ ul, ol, li{
 }
 
 
-#my_bell:hover>.fa-bell::after{
+#_bell:hover>.fa-bell::after{
 	border: 2px solid #E8F5FB;
 }
 @media screen and (max-width: 800px){/* vista movil, tamanio de pantalla para sobreescribir las clases*/
@@ -162,6 +171,15 @@ ul, ol, li{
 		width: 100%;
 		flex-direction: column;
 		flex-wrap: nowrap;
+	}
+
+	.menu-header li{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.menu-header li a, .menu-header li img{
+		display: block;
+		padding:10px;
 	}
 
 	.active{
@@ -243,7 +261,7 @@ ul, ol, li{
       width: 350px; /* Full width */
       min-height: 200px; /* Full height */
       overflow: auto; /* Enable scroll if needed */
-      white-space: nowrap;
+      /* white-space: wrap; */
       background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
       border-radius: 10px;
      
@@ -252,6 +270,7 @@ ul, ol, li{
 
 .perfil-container-form{
 
+	display: block;
 	position: relative;
     /* top : 7px; */
     /* left: 0; */
@@ -267,8 +286,11 @@ ul, ol, li{
     /* margin-top: middle; */
     text-align: center;
     color: #3B3838;
-    
+	
+	white-space:initial !important;
+	
 }
+
 
 .perfil-line-form {
      margin-top: 20px;

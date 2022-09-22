@@ -416,7 +416,6 @@
     <script type="text/javascript">
         var BASE_URL = "<?= BASE_URL ?>";
         var section = "<?= $section ?>";
-        /*var FileManager_values = '<?= $getFileManagerValues ?>';*/
     </script>
     <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/all.js"></script>

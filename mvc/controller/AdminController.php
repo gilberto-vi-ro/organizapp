@@ -81,7 +81,7 @@
 	        if($res === true)
 				echo 'La licencia se agrego corectamente';
 			else if ($res === 2)
-				echo 'El usurio aun tiene una licencia vigente.';
+				echo 'El usuario aun tiene una licencia vigente.';
 	        exit();
 	    }
 

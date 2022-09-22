@@ -77,3 +77,31 @@ PERFIL
     }
     ///////////////////////////////////////////
 
+/*====================================================
+NOTIFICATION WITH CSS
+====================================================*/
+
+/* count notification */
+setInterval(countNotification, 1000);
+function countNotification() {
+  $.get('notification?countNotification' ,'json').done(function(data) {
+    //console.log(data);
+    document.documentElement.style.setProperty('--notification', "'"+data+"'");
+  });
+  return true;
+}
+
+/*====================================================
+SELECTED SECTION
+====================================================*/
+
+    if (section == "home") //si la seccion o pagina es = a emp_vender
+      document.getElementById("_home").classList.add("active-section");// busca el id en html y le agrega una clase css
+    else if (section == "folder") //sino, entonces la seccion o pagina es = a emp_ventas
+      document.getElementById("_folder").classList.add("active-section");// busca el id en html y le agrega una clase css
+    else if (section == "trash") //sino, entonces la seccion o pagina es = a emp_ventas
+      document.getElementById("_trash").classList.add("active-section");// busca el id en html y le agrega una clase css
+    else if (section == "notification") //sino, entonces la seccion o pagina es = a emp_ventas
+      document.getElementById("_bell").classList.add("active-section");// busca el id en html y le agrega una clase css
+    else if (section == "admin") //sino, entonces la seccion o pagina es = a emp_ventas
+      document.getElementById("_admin").classList.add("active-section");// busca el id en html y le agrega una clase css
