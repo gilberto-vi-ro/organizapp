@@ -71,6 +71,48 @@
 			$FileManager->createDir($this->LoginModel->getMaxUser());
 	    }
 		
+		public function recoverEmail(){
+			if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+				echo "El correo electrónico no tiene un formato de correo electrónico válido.";
+				exit();
+			}
+
+			if (!$this->LoginModel->emailExists($_POST["email"])){
+				echo "El correo electrónico no existe en la base de datos.";
+				exit();
+			}
+			
+			$newPwd = generatePassword(6);
+			if (!$this->LoginModel->updatePwd($_POST["email"], password_hash( $newPwd, PASSWORD_DEFAULT ))){
+				echo "Ocurrió un error al recuperar la contraseña.";
+				exit();
+			}
+			
+			$to = $_POST["email"]; 
+			$subject = "OrganizApp"; 
+			$body = ' 
+				<html> 
+				<head> 
+				<title>Recuperar Contraseña</title> 
+				</head> 
+				<body> 
+				<h1>Tu nueva Contraseña es: '.$newPwd.'</h1> 
+				<p> 
+					<b>Puedes acceder a la app OrganizApp desde el siguiente link:</b>
+					<a href="https://myproyecto.com/organizapp/login?" >https://myproyecto.com/organizapp/login</a>
+				</p> 
+				</body> 
+				</html> 
+			'; 
+			// Para enviar un correo HTML, debe establecerse la cabecera Content-type
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			if(mail($to,$subject,$body,$headers))
+				echo 'Te hemos enviado un mensaje con asunto "OrganizApp"';
+			else 
+				echo 'Se produjo un error al enviar el correo electrónico';
+			exit();
+		}
 
 	}
 

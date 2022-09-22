@@ -85,3 +85,22 @@ $(".login-captcha").on('click',function( event ){ //abrir modal captacha al dar 
     show("#captcha");
 });
     
+/*=============================================================================
+ RECOVER PASSWORD
+===============================================================================*/
+$("#recover_pwd").on('click',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
+    show("#cont_recover_pwd");
+});
+
+$(".msg-btn-close").on('click',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
+    hide("#cont_recover_pwd");
+});
+
+$(".msg-btn-send").on('click',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
+    res_recover_pwd.innerHTML = "...";
+    var email = recover_email.value;
+    $.post("login?",{'email':email, "recoverEmail":1  }
+    ,'json').done(function(response){
+        res_recover_pwd.innerHTML = response;
+    });
+});

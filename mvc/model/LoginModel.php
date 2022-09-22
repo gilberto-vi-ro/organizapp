@@ -137,4 +137,37 @@ class LoginModel extends DB
 			exit();
 		}
 	}
+
+	public function emailExists($email){
+		try {
+
+			$this->prepare("SELECT email FROM usuario WHERE email=? ");
+			$this->bindParam(1,$email);
+			$this->execute();
+			if ($this->rowCount()>0)
+				return true;
+			else
+				return false;
+			
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	public function updatePwd($email,$newPwd){
+		try {
+
+			$this->prepare("UPDATE usuario SET pwd = ? WHERE email=? ");
+			$this->bindParam(1,$newPwd);
+			$this->bindParam(2,$email);
+			$this->execute();
+			if ($this->rowCount()>0)
+				return true;
+			else
+				return false;
+			
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
 }

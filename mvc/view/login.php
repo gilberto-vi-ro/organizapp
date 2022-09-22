@@ -11,8 +11,11 @@
 	if (isset($_POST['login']) )
 		$LoginController->login();
 
-	if (isset($_POST['register'])) {
+	else if (isset($_POST['register'])) {
 		$LoginController->registerUser();
+	}
+	else if (isset($_POST['recoverEmail'])) {
+		$LoginController->recoverEmail();
 	}
 	/*======================================================================
 	MSG
@@ -79,8 +82,11 @@
 						<input type="password" placeholder="Confirma la Contraseña" name="repeat_pwd" required="">
 					</div>
 				</div>
-				<button type="submit" class="btn-login"> Registrarse</button>
-				<a href="?" class="text-back">Login</a>
+				
+				<div class="cont-text-bottom">
+					<button type="submit" class="btn-login"> Registrarse</button>
+					<a href="?" class="text-login">Login</a>
+				</div>
 			</form>
 		</div>
 
@@ -111,7 +117,11 @@
 				</div>
 				
 				<button type="submit" class="btn-login"> iniciar sesion</button>
-				<a href="?sign_up" class="text-register">Registrate aqui!</a>
+				<div class="cont-text-bottom">
+					<a href="?sign_up" class="text-login">Registrate aqui!</a>
+					<a id="recover_pwd" href="#" class="text-login">Recuperar Contraseña</a>
+				</div>
+				
 			</form>
 		</div>
 	<?php } ?>
@@ -135,6 +145,31 @@
 	  		<div class="msg-cont-buttons">
 				<input type="button" class="ms-button msg-btn-refresh" value="Recargar">
 				<input type="button" class="ms-button msg-btn-ok" value="ok">
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ===============================================================================
+	RECOVER PWD
+	=================================================================================-->
+	<div class="msg-cont-modal" id="cont_recover_pwd" style="display: none;">
+		<div class="msg-container-form">	
+			<div class="msg-container-label">
+				<label class="msg-lbl-txt"><p>Enviaremos la contraseña a tu correo.</p> 
+				 	<label class="msg-lbl-delete"> </label> 
+				</label>
+			</div> 
+			<div class="msg-line-form"></div>
+			<!-- Cambia esta ID por otra deseada, asegúrate de cambiarla también en Los archivos CSS y JS. -->
+			<div class="my-captcha" >
+				<input id="recover_email" type="email" placeholder="Escribe tu email" enabled="enabled" style="height:30px">
+				<label id="res_recover_pwd" for=""></label>
+			</div>
+			
+	  		<div class="msg-cont-buttons">
+				<input type="button" class="ms-button msg-btn-close" value="Cerrar">
+				<input type="button" class="ms-button msg-btn-send" value="Enviar">
 			</div>
 		</div>
 	</div>
