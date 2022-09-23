@@ -181,8 +181,8 @@
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
                 </div>
             </div>
         </div>
@@ -195,8 +195,8 @@
                 <div id="cont_file"></div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button id="btn_download_file" type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button id="btn_download_file" type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
                 </div>
             </div>
         </div>
@@ -213,8 +213,8 @@
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button id="btn_add_folder" type="button"  class="info-item-button-left"> Agregar </button>
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button id="btn_add_folder" type="button"  class="info-item-button-left"> Agregar </button>
                 </div>
             </div>
         </div>
@@ -239,8 +239,8 @@
                 </div> -->
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button id="btn_add_file" type="button"  class="info-item-button-left"> Agregar </button>
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button id="btn_add_file" type="button"  class="info-item-button-left"> Agregar </button>
                 </div>
             </div>
         </div>
@@ -257,8 +257,8 @@
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button id="btn_rename_folder" type="button"  class="info-item-button-left"> Renombrar </button>
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button id="btn_rename_folder" type="button"  class="info-item-button-left"> Renombrar </button>
                 </div>
             </div>
         </div>

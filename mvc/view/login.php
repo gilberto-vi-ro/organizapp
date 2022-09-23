@@ -21,15 +21,15 @@
 	MSG
 	========================================================================*/
 	if (isset($_GET['notuser']) )
-		$message="Usuario incorrecto.";
+		$message="Email incorrecto.";
 	elseif (isset($_GET['notpwd'])) {
-		$message="Contrasenia incorrecta.";
+		$message="Contraseña incorrecta.";
 	}
 	elseif (isset($_GET['user_registered'])) {
 		$message="Usuario registrado Correctamente.";
 	}
 	elseif (isset($_GET['user_exist'])) {
-		$message="El usuario ya existe.";
+		$message="El Email ya existe.";
 	}
 	elseif (isset($_GET['user_not_register'])) {
 		$message="Ocurrio un error al registrar.";

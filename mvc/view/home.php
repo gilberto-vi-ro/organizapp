@@ -291,8 +291,8 @@
                 <div class="task-item-line-form"></div>
 
                 <div class="task-item-cont-txt row">
-                    <button type="submit" class="task-item-button-left js_btn_add_task"> Agregar </button>
                     <button type="button" class="task-item-button-right"> Cerrar </button>
+                    <button type="submit" class="task-item-button-left js_btn_add_task"> Agregar </button>
                 </div>
             </form>
         </div>
@@ -349,8 +349,8 @@
                     </div>
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt row">
-                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Guardar </button>
                     <button type="button" class="task-item-button-right"> Cerrar </button>
+                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Guardar </button>
                 </div>
             </form>
         </div>

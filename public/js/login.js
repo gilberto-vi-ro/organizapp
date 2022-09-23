@@ -94,6 +94,8 @@ $("#recover_pwd").on('click',function( event ){ //abrir modal captacha al dar su
 
 $(".msg-btn-close").on('click',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
     hide("#cont_recover_pwd");
+    res_recover_pwd.innerHTML = "";
+    recover_email.value = "";
 });
 
 $(".msg-btn-send").on('click',function( event ){ //abrir modal captacha al dar submit en  ##sign-in

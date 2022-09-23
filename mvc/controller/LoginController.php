@@ -83,10 +83,6 @@
 			}
 			
 			$newPwd = generatePassword(6);
-			if (!$this->LoginModel->updatePwd($_POST["email"], password_hash( $newPwd, PASSWORD_DEFAULT ))){
-				echo "Ocurrió un error al recuperar la contraseña.";
-				exit();
-			}
 			
 			$to = $_POST["email"]; 
 			$subject = "OrganizApp"; 
@@ -107,8 +103,13 @@
 			// Para enviar un correo HTML, debe establecerse la cabecera Content-type
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			if(mail($to,$subject,$body,$headers))
-				echo 'Te hemos enviado un mensaje con asunto "OrganizApp"';
+			if(mail($to,$subject,$body,$headers)){
+				if ($this->LoginModel->updatePwd($_POST["email"], password_hash( $newPwd, PASSWORD_DEFAULT ))){
+					echo 'Te hemos enviado un mensaje con asunto "OrganizApp"';
+				}else{
+					echo "Ocurrió un error al recuperar la contraseña.";
+				}
+			}
 			else 
 				echo 'Se produjo un error al enviar el correo electrónico';
 			exit();
