@@ -30,7 +30,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
+	<title>OrganizApp</title>
         <meta charset="UTF-8">
         <meta http-equiv="pragma" content="no-cache"/>
         <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0, maiximum-scale1.0, minimum-scale=1.0">

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lightsoft.com</title>
+  <title>LightSoft.com</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta property="Gilberto VR" content="">

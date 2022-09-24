@@ -74,7 +74,7 @@
 
 <head>
 
-    <title>Organizap</title>
+    <title>OrganizApp</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="pragma" content="no-cache" />

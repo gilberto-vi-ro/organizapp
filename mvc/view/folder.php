@@ -57,13 +57,13 @@
 <html>
 <head>
     
-    <title>Organizap</title>
+    <title>OrganizApp</title>
        
-        <meta charset="UTF-8">
-        <meta http-equiv="pragma" content="no-cache"/>
-        <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0, maiximum-scale1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0, maiximum-scale1.0, minimum-scale=1.0">
      
-        <link rel="icon"  href="<?= BASE_URL ?>public/img/icon/logoapp.png"">
+    <link rel="icon"  href="<?= BASE_URL ?>public/img/icon/logoapp.png"">
 
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/plugins/ka-f.fontawesome.v5.15.4.free.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-vertical.css">
