@@ -59,7 +59,7 @@
 	 SIGN UP
 	=================================================================================-->
 	<?php if (isset($_GET['sign_up']) ){?>
-		<div class="center-sign-up">
+		<div class="center-login">
 			<form class="login-container" action="<?= BASE_URL ?>login" method="POST">
 				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png"></a>
 				<p class="organizapp">OrganizApp</p>

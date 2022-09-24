@@ -20,38 +20,24 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
      transition: background-color 5000s ease-in-out 0s;
 }
 
-.center-login, .center-sign-up{
-
-	top : 0px;
-	/* top : middle; */
-	left: 0px;
-
-	display: flex;
-	position: relative;
-
-	/* align-items: center; */
-  	justify-content: center;
-
-    /* vertical-align: center; */
-	/* text-align: center; */
-
-  	
+.msg-container-form input:-webkit-autofill , .msg-container-form  input:-webkit-autofill:hover,.msg-container-form  input:-webkit-autofill:focus,.msg-container-form  input:-webkit-autofill:active {
+	/* -webkit-box-shadow: 0 0 0 30px red inset !important; */
+	/* background-color: blue !important; */
+	-webkit-text-fill-color: #3B3838;
+	transition: background-color 5000s ease-in-out 0s;
 }
+
 
 .center-login{
 	
-	top:  calc(50vh - 225px);
-	
-
-	
-}
-
-.center-sign-up{
-
-	top:  calc(50vh - 290px);
-
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	min-height: 100vh;
 	
 }
+
 .login-container{
 	
 	width: 350px;
@@ -61,10 +47,10 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+
 	box-shadow: 8px 8px 15px #0F2027,
 	-8px -8px 25px #203A43;
-	vertical-align: middle;
-
 
 }
 
@@ -241,19 +227,6 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	
 	}
 
-	.center-login, .center-sign-up{
-		top: 0px;
-		
-	}
-
-	.center-login{
-		padding-top: calc(50vh - 225px);
-	}
-
-	.center-sign-up{
-		margin-top: calc(50vh - 290px);
-		
-	}
 
 	.login-container .fields .data{
 		height: 60px ;
