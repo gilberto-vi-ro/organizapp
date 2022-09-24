@@ -47,16 +47,19 @@ body{
 	margin-top: 10px;
 }
 
-.my-item .fa-folder{
-	color: #3B86E8 ;
-	font-size: 60px;
-}
 
-.my-item .fa-file{
+.my-item .icon{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	color: #E8F5FB ;
 	font-size: 45px;
+}
+
+.my-item .fa-folder{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	color: #3B86E8 !important;
+	font-size: 60px !important;
 }
 
 .my-item .selected{
@@ -103,19 +106,21 @@ INFO ITEM
 
 	position: relative;
     
-    width: 450px;
+    max-width: 98%;
     min-height: 200px;
+	
     border-radius: 20px;
     border: 1px solid rgb(255, 255, 255);
     background: #E8F5FB;
     /*center-x*/
     margin: auto;
     /*center-y*/
-    //margin-top: middle;
+    /* margin-top: middle; */
     text-align: center;
     color: #3B3838;
     padding: 20px;
-    
+	word-wrap: initial!important;
+
 }
 .info-item-container-form p{
 	/*para romper linea sin espace*/
@@ -226,13 +231,14 @@ INFO ITEM
 /*=============================================================================
  SHOW FILE
 ===============================================================================*/
-#show_file .info-item-container-form{
-	width: 90%;
+/* #show_file .info-item-container-form{
+	//width: 90%;  
+	//max-height: 100vh;
 }
-#show_file .info-item-container-form #cont_file{
+/* #show_file .info-item-container-form #cont_file{
 	
-	height: 90%;
-}
+	// height: 90%; 
+}  */
 
 /*=============================================================================
  MEDIA QUERY

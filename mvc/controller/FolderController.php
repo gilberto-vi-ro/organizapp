@@ -66,61 +66,33 @@
 	    	}
 
 	    	$html = "null";
-	    	switch ($extension) {
-	    		case 'png':
-	    			$html = '<img src="'.$pathname.'" width="100%">'; 
-	    			break;
+			$img =['png', 'jpg','gif','jpeg','bmp','tif'];
+			$music =['mp3','ogg','m4a','wav','wma','aiff','au','mid'];
+			$video =['mp4','webm','mov','wmv','avi','wmv','flv','mkv','ts'];
+			$txt =['txt','html','css','js','php','sql'];
 
-	    		case 'jpg':
-	    			$html = '<img src="'.$pathname.'" width="100%">'; 
-	    			break;
-
-	    		case 'gif':
-	    			$html = '<img src="'.$pathname.'" width="100%">'; 
-	    			break;
-
-	    		case 'pdf':
-	    			$html = '<embed src="'.$pathname.'#toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="600px" />';
-	    			//$html = ' <a  target="_blank" href="'.$pathname.'">ver pdf</a> ';
-	    			break;
-	    		case 'movil-pdf':
-	    			//$html = '<embed src="'.$pathname.' #toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="400px" />';
-	    			$html = '<iframe src="'.$pathname.'" height="600px"></iframe> ';
-	    			break;
-
-	    		case 'mp3':
-	    			$html = '<audio controls autoplay src="'.$pathname.'" width="100%"></audio>';
-	    			break;
-
-	    		case 'mp4':
-	    			$html = '<video controls
-							    width="100%"
-							   	autoplay
-							    >
-							    <source src="'.$pathname.'" type="video/mp4">
-							
-							</video>';
-	    			break;
-
-	    		case 'webm':
-	    			$html = '<video controls
-							    width="100%"
-							    autoplay
-							    >
-							    <source src="'.$pathname.'"type="video/webm">
-							</video>';
-	    			break; 
-	    		case 'txt':
-	    			$text = file_get_contents($pathname); 
-					$text = nl2br($text); 
-	    			$html = $text;
-	    			break;  
-
-	    		default:
-	    			$html = "Archivo no soportado.";
-	    			break;
-	    	}
-
+	    	if (in_array($extension,$img))
+	    		$html = '<img src="'.$pathname.'" width="100%">'; 
+	    	else if ($extension=='pdf')
+				$html = '<embed src="'.$pathname.'#toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="800px" height="600px" />';
+				//$html = ' <a  target="_blank" href="'.$pathname.'">ver pdf</a> ';
+			else if ($extension=='movil-pdf')
+				//$html = '<embed src="'.$pathname.' #toolbar-0&navpanes=0&scrollbar=0"  type="application/pdf" width="100%" height="400px" />';
+				$html = '<iframe src="'.$pathname.'" width="100%" height="600px"></iframe> ';
+			else if (in_array($extension,$music))
+	    		$html = '<audio controls autoplay src="'.$pathname.'" width="100%"></audio>';
+			else if (in_array($extension,$video))
+	    		$html = '<video controls width="100%" autoplay >
+							<source src="'.$pathname.'" type="video/'.$extension.'">
+						</video>';
+			else if (in_array($extension,$txt)) {
+				$text = file_get_contents($pathname); 
+				$text = nl2br($text); 
+				$html =  '<p style="text-align: justify;"> '.$text.' </p>';
+			}
+	    	else
+	    		$html = "Archivo no soportado.";
+	    			
 	    	echo ($html);
 
 	        exit();

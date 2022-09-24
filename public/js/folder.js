@@ -470,7 +470,10 @@ $(function(){
 	function renderFileRow(i , data) {
 		
 		var icon = null;
-		if (data.info.is_dir) icon = '<i class="fas fa-folder"></i>'; else icon = '<i class="fas fa-file"></i>';
+		if (data.info.is_dir) 
+			icon = '<i class="fas fa-folder"></i>';
+		else
+			icon  = getIcon(data.info.extension);
 		
 		var $html =
 			`<div  class="my-item">
@@ -482,6 +485,36 @@ $(function(){
             </div> `;
                    
 		return $html;
+	}
+
+	function getIcon(extension){
+		let $img =['png', 'jpg','gif','jpeg','bmp','tif'];
+		let	$music =['mp3','ogg','m4a','wav','wma','aiff','au','mid'];
+		let	$video =['mp4','webm','mov','wmv','avi','wmv','flv','mkv','ts'];
+		let	$word =['doc','docx','dot'];
+		let	$excel =['xls','xlsx','xlsm','xlt'];
+		let	$powerPoint =['ppt','pptx','pps','pot'];
+		//let	$txt =['txt','html','css','js','php','sql'];
+
+		if ($word.indexOf(extension)  >= 0) 
+			icon = '<i class="fas fa-file-word icon"></i>';
+		else if  ($excel.indexOf(extension)  >= 0) 
+			icon = '<i class="fas fa-file-excel icon"></i>';
+		else if  ($powerPoint.indexOf(extension)  >= 0) 
+			icon = '<i class="fas fa-file-powerpoint icon"></i>';
+		else if (extension == "pdf")  
+			icon = '<i class="fas fa-file-pdf icon"></i>';
+		else if (extension == "zip" || extension == "rar")  
+			icon = '<i class="fas fa-file-archive icon"></i>';
+		else if ( $img.indexOf(extension)  >= 0)  
+			icon = '<i class="fas fa-file-image icon"></i>';
+		else if ( $music.indexOf(extension)  >= 0)  
+			icon = '<i class="fas fa-headphones-alt icon"></i>';
+		else if ($video.indexOf(extension)  >= 0)  
+			icon = '<i class="fas fa-file-video icon"></i>';
+		else 
+			icon = '<i class="fas fa-file icon"></i>';
+		return icon;
 	}
 
 	function renderBreadcrumbs(pathname) {
