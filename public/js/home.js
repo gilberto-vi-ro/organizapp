@@ -178,13 +178,13 @@ function list(path=false, priority = 0, search = "", range = null){
 
 	function getInfoItem(data){
 
-		//console.log(data);
+		console.log(data);
 		let date = data.tarea_fecha_entrega;
 			date = date.replace(new RegExp(" ","g") ,"T");
 		$("#edit_task_name").val(data.tarea_nombre);
 		$("#edit_task_delivery_date").val(date);//date.toLocaleDateString('en-GB')
 		$("#edit_task_status").val(data.tarea_estado);
-		$("#edit_task_description").html(data.tarea_descripcion);
+		$("#edit_task_description").val(data.tarea_descripcion);
 		$("#edit_task_priority").val(data.tarea_prioridad); 
 		$("#edit_task_name_file").text(data.archivo_nombre);
 
