@@ -109,7 +109,7 @@
                         <div class="selected hidde"><i class="fas fa-check"></i></div>
                         <input type="hidden" value="-1">
                         <i class="fas fa-folder"></i>
-                        <i class="fas fa-file"></i>
+                        <i class="fas fa-file icon"></i>
                         <div class="active-tooltip" >
                             <p class="tooltip-content" > nombre </p>
                             <p class="item-name">nombre</p>

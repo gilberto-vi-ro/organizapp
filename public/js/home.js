@@ -382,8 +382,7 @@ function list(path=false, priority = 0, search = "", range = null){
 				
 				$.each(data.results,function(k,v){ //recorremos los resultados
 					
-						$cont_list_task.append(renderTaskRow(k,v));
-					
+					$cont_list_task.append(renderTaskRow(k,v));
 				
 				});
 				!data.results.length && $cont_list_task.append('<tr><td class="empty" colspan=5>No hay tareas.</td></tr>')

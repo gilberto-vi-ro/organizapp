@@ -423,7 +423,14 @@ $(function(){
 
 				$( "#list" ).attr("data-pathname",data.path_name); //asignamos el pathname a #list
 				$.each(data.results,function(k,v){ //recorremos los resultados
-					$div_list.append(renderFileRow(k,v));
+					if (v.info.is_dir) { //listar carpetas
+						$div_list.append(renderFileRow(k,v));
+					}
+				});
+				$.each(data.results,function(k,v){ //recorremos los resultados
+					if (!v.info.is_dir) { //listar archivos
+						$div_list.append(renderFileRow(k,v));
+					}
 				});
 				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>Esta carpeta está vacía</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
@@ -455,9 +462,18 @@ $(function(){
 			if(data.success ) {
 
 				$( "#list" ).attr("data-pathname",data.path_name); //asignamos el pathname a #list
+				
 				$.each(data.results,function(k,v){ //recorremos los resultados
-					$div_list.append(renderFileRow(k,v));
+					if (v.info.is_dir) { //listar carpetas
+						$div_list.append(renderFileRow(k,v));
+					}
 				});
+				$.each(data.results,function(k,v){ //recorremos los resultados
+					if (!v.info.is_dir) { //listar archivos
+						$div_list.append(renderFileRow(k,v));
+					}
+				});
+
 				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>No se encontraron resultados.</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {

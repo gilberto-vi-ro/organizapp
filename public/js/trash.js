@@ -219,7 +219,7 @@ $(function(){
 	function renderFileRow(i , data) {
 		
 		var icon = null;
-		if (data.info.is_dir) icon = '<i class="fas fa-folder"></i>'; else icon = '<i class="fas fa-file"></i>';
+		if (data.info.is_dir) icon = '<i class="fas fa-folder icon"></i>'; else icon = '<i class="fas fa-file icon"></i>';
 		
 		var $html =
 			`<div  class="my-item">
