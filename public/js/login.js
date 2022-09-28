@@ -106,3 +106,27 @@ $(".msg-btn-send").on('click',function( event ){ //abrir modal captacha al dar s
         res_recover_pwd.innerHTML = response;
     });
 });
+/*=============================================================================
+ Show Hide PASSWORD
+===============================================================================*/
+function oculPassword(){
+    var value=document.getElementById("showPwd");
+    if (value.type=="password") {
+        value.type="text";
+    }else{
+        value.type="password";
+    }
+    
+
+}
+showEye.onclick = function(){
+    showEye.style.display = "none";
+    hideEye.style.display = "block";
+    oculPassword();
+}
+hideEye.onclick = function(){
+    hideEye.style.display = "none";
+    showEye.style.display = "block";
+    oculPassword();
+}
+

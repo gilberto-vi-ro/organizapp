@@ -108,7 +108,9 @@
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
-						<input type="password" placeholder="Contraseña" name="pwd" required="">
+						<input type="password" id="showPwd" placeholder="Contraseña" name="pwd" required="">
+						<i class="far fa-eye" id="showEye"></i>
+						<i class="far fa-eye-slash" id="hideEye"></i>
 					</div>
 					<div class="login-captcha">
 						<i class="fas fa-shield-alt"></i>
@@ -190,6 +192,7 @@
 		  }
 	?>
     <script src="<?= BASE_URL ?>public/js/login.js"></script>
+		
 	
 </body>
 </html>
