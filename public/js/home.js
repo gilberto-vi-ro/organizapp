@@ -2,6 +2,8 @@
 /*====================================================
 ITEM
 ====================================================*/ 
+hide("#_msg");
+
 let dataItem = [];//array contenedor de item selected
 let this_data = null;//contiene info del ultimo item selected
 
@@ -58,7 +60,7 @@ function list(path=false, priority = 0, search = "", range = null){
 		list(path, priority, search);
 	});
 	/*====================================================
-	EVENTS SUBMIT
+	ADD TASK EVENTS SUBMIT
 	====================================================*/
 	$("#add_task_form").on('submit',function( event ){ //agregar nueva tarea al dar click submit #add_task_form
 		//let form = $("#add_task_form").serialize() ;
@@ -68,10 +70,15 @@ function list(path=false, priority = 0, search = "", range = null){
 		
 		//console.log(form);
 		let res = loadAjax("home", "POST" , form);
-
-		console.log(res);
+		//console.log(res);
+		res = JSON.parse(res);
+		
+		$('.msg-lbl-txt').html(res.response[0].msg);
+		show("#_msg");
+		
 		list();
 		$('#add_task_form')[0].reset();
+		hide("#add_task");
 		return false;//para que no envie get o post automatico
 
 	});

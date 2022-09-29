@@ -91,7 +91,7 @@
 	    	$pathname = $this->FileManager->convertToPathname($data['path_name']);
 	    	$idFolder = $this->HomeModel->getIdFolder($pathname, $this->idUser);
 	    	$data["id_folder"] = $idFolder;
-			echo"$idFolder \n";
+			//echo"$idFolder \n";
 	    	$res = $this->HomeModel->addNewTask($data, $idFolder);
 			if ($res === 2) setMsg( "error","La tarea ya existe en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			else if ($res) {
