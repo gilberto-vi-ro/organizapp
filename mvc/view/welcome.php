@@ -251,10 +251,8 @@
               <div class="col-sm-12">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="blog-sec">
-                    <div class="blog-img">
-                      <h3>OrganizApp</h3> <p>Es una aplicación  web que tiene como objetivo organizar las tareas o actividades de un usuario indicándole la fecha de entrega de cada una, manteniendo tres estados: pendiente, listo y entregado.  <a href="<?= BASE_URL ?>login" style="font-size: 16px ">< visitar ></a> </p>
-                    </div>
                     <div class="portfolio-item padding-right-zero mr-btn-15" height="150%">
+                        <h3 class="color-text">OrganizApp</h3> 
                         <figure><a href="<?= BASE_URL ?>login"> 
                           <img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="img-responsive" style="height: 250px" >
                           <figcaption>
@@ -262,17 +260,17 @@
                             <p>Organiza tus actividades  y respalda tus archivos listos en la nube.</p>
                           </figcaption></a>
                         </figure>
-                      </div>
+                    </div>
+                    <div class="blog-img">
+                      <p>Es una aplicación  web que tiene como objetivo organizar las tareas o actividades de un usuario indicándole la fecha de entrega de cada una, manteniendo tres estados: pendiente, listo y entregado.  <a href="<?= BASE_URL ?>login" style="font-size: 16px ">< visitar ></a> </p>
+                    </div>
                   </div>
                 </div>
 
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="blog-sec">
-                    <div class="blog-img">
-                        <h3 >English Game</h3>
-                        <p>Es una aplicación Web para aprender ingles básico, su objetivo es presentar un juego con palabras en ingles para que los alumnos se vayan familiarizando y mejorando su nivel de ingles. <a href="<?= BASE_URL ?>../englishGame">< visitar ></a> </p></p>
-                    </div>
                     <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
+                      <h3 class="color-text">English Game</h3>
                       <figure><a href="<?= BASE_URL ?>../englishGame">
                         <img src="<?= BASE_URL ?>public/img/project/english-game.png" class="img-responsive" style="height: 250px"/>
                         <figcaption>
@@ -281,6 +279,9 @@
                         </figcaption><a/>
                       </figure></a>
                     </div>
+                    <div class="blog-img">
+                        <p>Es una aplicación Web para aprender ingles básico, su objetivo es presentar un juego con palabras en ingles para que los alumnos se vayan familiarizando y mejorando su nivel de ingles. <a href="<?= BASE_URL ?>../englishGame">< visitar ></a> </p></p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -288,11 +289,8 @@
               <div class="col-sm-12">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="blog-sec">
-                      <div class="blog-img">
-                        <h3 >Backup-Restore</h3>
-                        <p>Es una aplicación web con diseño intuitivo para hacer backup y restore de una base de datos de manera local o remota, la aplicación soporta el gestor de base de datos MySql y MariaDB, y se espera que un futuro soporte otros gestores. <a href="<?= BASE_URL ?>../Backup-Restore">< visitar > </a> </p>
-                      </div>
                       <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
+                        <h3 class="color-text">Backup-Restore</h3>
                         <figure><a href="<?= BASE_URL ?>../backup-restore">
                           <img src="<?= BASE_URL ?>public/img/project/backup-restore-gl.png" class="img-responsive" style="height: 250px">
                           <figcaption>
@@ -301,16 +299,17 @@
                           </figcaption><a/>
                         </figure>
                       </div>
+                      
+                      <div class="blog-img">
+                        <p class="color-text">Es una aplicación web con diseño intuitivo para hacer backup y restore de una base de datos de manera local o remota, la aplicación soporta el gestor de base de datos MySql y MariaDB, y se espera que un futuro soporte otros gestores. <a href="<?= BASE_URL ?>../Backup-Restore" style="color:#23527C">< visitar > </a> </p>
+                      </div>
                   </div>
                 </div>
 
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="blog-sec">
-                      <div class="blog-img"></a>
-                        <h3 >Tienda-gl</h3>
-                        <p>Es una aplicación web que ofrece partes de aplicaciones web que se pueden reutilizar para un proyecto nuevo, obtén el frontend o backend y frontend. Tienda-gl tiene integrado a PayPal  para realizar el pago de los proyectos que se ofrece. <a href="<?= BASE_URL ?>../tienda-gl">< visitar > </a> 
-                      </div>
                       <div class="portfolio-item padding-right-zero mr-btn-15"  height="150%">
+                        <h3 class="color-text">Tienda-gl</h3>
                         <figure><a href="<?= BASE_URL ?>../tienda-gl">
                           <img src="<?= BASE_URL ?>public/img/project/tienda-gl.png" class="img-responsive" style="height: 250px">
                           <figcaption>
@@ -318,6 +317,9 @@
                             <p>Obtén aplicaciones web ya echas la cual puedes reutilizar.</p>
                           </figcaption><a/>
                         </figure>
+                      </div>
+                      <div class="blog-img"></a>
+                        <p>Es una aplicación web que ofrece partes de aplicaciones web que se pueden reutilizar para un proyecto nuevo, obtén el frontend o backend y frontend. Tienda-gl tiene integrado a PayPal  para realizar el pago de los proyectos que se ofrece. <a href="<?= BASE_URL ?>../tienda-gl">< visitar > </a> 
                       </div>
                   </div>
                 </div>

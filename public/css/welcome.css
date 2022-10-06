@@ -28,6 +28,12 @@ h1, h2, h3, h4, h5, h6{
     font-family: Futura, Helvetica, sans-serif;
     font-weight: 600;
 }
+.color-text{
+    color: #3B3838;
+}
+.color-text a{
+    color: #3B3838 ;
+}
 .section-padding
 {
     padding: 60px 0px;

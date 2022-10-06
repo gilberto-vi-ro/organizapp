@@ -10,6 +10,7 @@ function toggleMenu()
     if( menu_header.className.indexOf('active')>=0 ){
         menu_header.classList.remove("active");
         btn_bar.innerHTML="<i class='bars' > &#9776; </i>";
+        _perfil.classList.remove("active");
     }
     else{ 
         menu_header.className += " active";
