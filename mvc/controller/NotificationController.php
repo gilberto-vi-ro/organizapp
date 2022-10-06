@@ -102,6 +102,7 @@
 	    }
 
 		private static function sendMail($data){
+			$pathName = str_replace("/","%2F",$data["path_name"]);
 			$to = $data["email"]; 
 			$subject = "OrganizApp"; 
 			$body = ' 
@@ -110,16 +111,16 @@
 				<title>OrganizApp</title> 
 				</head> 
 				<body> 
-				<h1>OranizApp</h1> 
-				<h2><p>
+				<h1>OrganizApp</h1> 
+				<div style="font-size: 20px;"><p>
 						'.$data["mensaje"].', <strong> nombre: </strong> '.$data["nombre"].',
 						<strong>ruta: </strong>'.$data["path_name"].'
 					</p>
-				</h2> 
+				</div> 
 				<br>
 				<p> 
 					<b>Puedes acceder desde el siguiente link, primero inicia sesion :</b>
-					<a href="https://myproyecto.com/organizapp/home#'.$data["path_name"].'" >https://myproyecto.com/organizapp/home#'.$data["path_name"].'</a>
+					<a href="https://myproyecto.com/organizapp/home#'.$pathName.'" >https://myproyecto.com/organizapp/home#'.$data["path_name"].'</a>
 				</p> 
 				<br>
 				<p> No responda a este email ya que fue generado automaticamente.</p> 
