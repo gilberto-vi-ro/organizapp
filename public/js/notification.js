@@ -61,7 +61,9 @@ $(function(){
 		if (event.detail == 2) {  clearTimeout(timer); // Manejo de eventos dblclick
 			$.get('notification?seenNotification=1&idNotification='+ this_data.id_notificacion  ,'json').done(function(data) {
 				//console.log(data);
-				window.location.href = $(_this).attr('href');
+				var _href =$(_this).attr('href');
+				_href = _href.split('#');
+				window.location.href = _href[0]+"#"+ _href[1].replace( new RegExp("/","g") , "%2F");
 			});
 			return ; // end dblclick
 		}
