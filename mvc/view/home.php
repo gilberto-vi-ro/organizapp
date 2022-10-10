@@ -88,7 +88,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/msg.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/home.css">
 
-     <!-- ===============================================================================
+    <!-- ===============================================================================
      MENU HORIZONTAL
     =================================================================================-->
     <?php include_once ROOT_PATH."mvc/view/general/horizontally_menu.php";?>
@@ -306,7 +306,7 @@
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt">
                     <p class="task-item-txt">Nombre:</p>
-                    <input id="edit_task_name" type="text" name="name" placeholder="Nombre" required="">
+                    <textarea id="edit_task_name" name="name" required="">descripcion </textarea>
                 </div>
                 <div class="task-item-cont-txt">
                     <p class="task-item-txt">Fecha Entrega:</p>

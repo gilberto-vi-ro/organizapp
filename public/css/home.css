@@ -380,7 +380,9 @@ ADD NEW TASK
 .my-task textarea{
 	padding-top: 10px;
 	padding-left: -3px;
-	min-width: 100px;
+	min-width: 200px;
+	max-width: 100%;
+	min-height: 30px;
 }
 .my-task select{
 	margin-right: 3px;
@@ -603,9 +605,9 @@ LIST FOLDER
     display: none;
     position: absolute;
     min-width: 100px;  
-    max-width: 120px;  
+    max-width: 200px;  
     padding: 10px;
-    margin: 0 0 12px 0;    
+    margin: 0 0 12px 5px;    
     z-index: 12;
     //bottom: 100%;
     background-color: #3B3838;
