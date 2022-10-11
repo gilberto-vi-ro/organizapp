@@ -32,8 +32,8 @@ body{
 
 .text-path ul{
 	display: flex;
-	position: absolute;
-	width: calc( 100% - 400px);
+	position: fixed;
+	
 }
 .text-path ul li{
  padding-left: 8px;
@@ -42,9 +42,9 @@ body{
 .text-path ul li #breadcrumb{
 
 	display: flex;
-	position: absolute;
- 	width: 100%;
- 	
+	position: fixed; 
+	width: calc( 100% - 390px);
+ 	/* width: 100%; */
 	overflow: auto;
  	white-space: nowrap;
 
@@ -184,7 +184,7 @@ estilo de contenido de home
 .cont-text-hijo{
 	margin-top: -30px;
 	display: block;
-	position: absolute;
+	position: fixed;
 	z-index: 1;
 	
 	width: 20%;
@@ -695,6 +695,9 @@ LIST FOLDER
 
 	}
 	
+	.text-path ul li #breadcrumb{
+		width: calc( 100% - 80px);
+	}
 
 	.text-path ul{
 		margin-top: 20px;

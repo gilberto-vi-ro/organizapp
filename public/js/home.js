@@ -492,7 +492,7 @@ function list(path=false, priority = 0, search = "", range = null){
 		if(draggableElement == null || draggableElement == "undefined" ) return false;
 		const dropzone = document.getElementById(idStatus);
 		dropzone.append(draggableElement);
-		event.dataTransfer.clearData();
+		//event.dataTransfer.clearData();
 		updateStatus(id, idStatus);
 		//document.getElementById("miDemo").innerHTML = "El elemento p fue eliminado";
 	}
