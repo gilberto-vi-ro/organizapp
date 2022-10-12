@@ -62,7 +62,7 @@ $(function(){
 		if (dataItem.length == 1) 
 			var opcion = confirm("Esta seguro que deseas eliminar a "+ dataItem[0].name +"?");
 		if (dataItem.length > 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar los archivos seleccionados?");
+			var opcion = confirm("Si eliminas carpetas, las tareas en ellas tambioen se eliminaran. Esta seguro que deseas eliminar los elementos seleccionados?");
 		if (!opcion) return;
 
 		$.post("trash",{'deleteTrash':'1',"item": dataItem  }

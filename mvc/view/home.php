@@ -64,6 +64,11 @@
         $HomeController->deleteTask( $_POST['item'] );
         exit();
     }
+    else if ( isset($_POST['moveTask']) ){
+        $HomeController->moveTask( $_POST['newPathname'], $_POST['item'] );
+        
+    }
+        
        
 
 
@@ -239,7 +244,7 @@
                 <!-- diseño de los contenedores de carpetas -->
                 <div class="myflex-hijo">
                     <p class="close-modal">×</p>
-                    <div id="list_item_folder" data-path="null" class="center-item">
+                    <div id="list_item_folder" data-path="null" data-pathname="null" class="center-item">
                         <div class="my-item">
                             <input type="hidden" value="-1">
                             <i class="fas fa-folder"></i>
@@ -399,11 +404,18 @@
                     </div>
                 </div>
 
-                <div class="items">
-                    <a href="<?= BASE_URL ?>home" class="group">
-                        <span class="fas fa-sync-alt"></span>
-                        <span class="title">Recargar</span>
-                    </a>
+                <div id="menu_move" class="items">
+                    <div class="group">
+                        <span class="fas fa-cut"></span>
+                        <span class="title">Mover</span>
+                    </div>
+                </div>
+
+                <div id="menu_paste" class="items" style="display: none;">
+                    <div class="group">
+                        <span class="fas fa-paste"></span>
+                        <span class="title">Mover Aqui</span>
+                    </div>
                 </div>
 
             </div>

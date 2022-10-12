@@ -80,6 +80,116 @@ class HomeModel extends DB
 		}
 	}
 
+	public function getIdPathnameInDB($pathname){
+		try {
+			$this->prepare("SELECT carpeta.id_carpeta FROM carpeta
+							WHERE carpeta.path_name=? ");
+			$this->bindParam(1,$pathname);
+			$this->execute();
+			return $this->fetchAll(PDO::FETCH_OBJ)[0]->id_carpeta;
+			
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public function updatePathTaskInDB($idPathname,$idTask){
+		try {
+			#=====================edit task=========================
+			$dataTask['id_carpeta'] = $idPathname;
+			$where = "tarea.id_tarea=".$idTask;
+			$this->update("tarea", $dataTask , $where);
+			#=====================return=========================
+			return $this->response;
+			
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public function updatePathFolderInDB($oldPathName, $newPathName){
+		try {
+			
+			$this->prepare("call updatePathname( '$oldPathName', '$newPathName' );");
+			$this->execute();
+			if ($this->rowCount()>0)
+				return true;
+			else
+				return false;
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public function updatePathFileInDB($idFile,$newPathName){
+		try {
+			
+			$this->prepare("SELECT id_carpeta FROM carpeta WHERE path_name = ? ;");
+			$this->bindParam(1,$newPathName);
+			$this->execute();
+			$newIdFolder = $this->fetch()["id_carpeta"];
+
+			$data['id_carpeta'] = $newIdFolder;
+			$where = "id_archivo = '$idFile' ;";
+			$this->update("archivo",$data,$where);
+			if ($this->rowCount()>0)
+				return true;
+			else
+				return false;
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public function renameFolderInDB($oldPathName, $newPathName){
+		try {
+			#=====================exists folder=========================
+			$this->prepare("SELECT * FROM carpeta WHERE path_name = ?  ; "); 
+			$this->bindParam(1, $newPathName);
+			$this->execute();
+			if ($this->rowCount()>0)
+				return 2;
+			#=====================update pathname folder=========================
+			$this->prepare("call updatePathname( '$oldPathName', '$newPathName' );");
+			$this->execute();
+			if ($this->rowCount()>0)
+				return true;
+			else
+				return false;
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
+	public function getIdFile($oldName, $oldExt, $idFolder){
+		try {
+			$PDO = DB::conn();
+			$query = $PDO->prepare("SELECT id_archivo FROM archivo WHERE nombre = ?  AND extension = ? AND id_carpeta = ? ; ");
+			$query->bindParam(1, $oldName);
+			$query->bindParam(2, $oldExt);
+			$query->bindParam(3, $idFolder);
+			$query->execute();
+
+
+			return $query->fetch()["id_archivo"];
+
+		} catch (PDOException $e) {
+			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			print_r( json_encode(getMsg()));
+			exit();
+		}
+	}
+
 	public function reInsertFileInDB($file, $idFolder){
 		try {
 			#=====================exists tarea=========================

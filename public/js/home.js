@@ -5,7 +5,9 @@ ITEM
 hide("#_msg");
 
 let dataItem = [];//array contenedor de item selected
+let dataItemTask = [];//array contenedor de task selected
 let this_data = null;//contiene info del ultimo item selected
+let move = false;// move is false
 
 dateRange();
 list();
@@ -228,6 +230,40 @@ function list(path=false, priority = 0, search = "", range = null){
 		}
 	}
 
+	// move and paste fie
+	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
+		if (dataItem.length == 0 ) 
+			{ alert("Selecciona un o varios Items"); return false; }
+		move = true;
+		dataItemTask = dataItem;
+		
+		hide("#menu_move");
+		show("#menu_paste");
+		return false;
+
+	});
+
+	$("#menu_paste").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
+		
+		let newPathname = $( "#list_item_folder" ).attr("data-pathname");
+
+		//console.log (dataItemTask);return;
+		
+		$.post("home",{'moveTask':'1',"newPathname":newPathname,"item": dataItemTask  }
+			,'json').done(function(response){
+				list();
+				//response = JSON.parse(response);
+				console.log(response);
+				move = false;
+		});
+
+		hide("#menu_paste");
+		show("#menu_move");
+		dataItemTask = [];
+		
+		return false;
+
+	});
 
 	
 	
@@ -318,6 +354,7 @@ function list(path=false, priority = 0, search = "", range = null){
 			}
 			if(data.success ) {
 
+				$( "#list_item_folder" ).attr("data-pathname",data.path_name); //asignamos el pathname a #list
 				$( "#breadcrumb" ).attr("data-path",data.path); //asignamos el path a #list_item_folder
 				let i=0;
 				$.each(data.results,function(k,v){ //recorremos los resultados

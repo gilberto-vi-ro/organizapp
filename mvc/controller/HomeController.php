@@ -133,6 +133,70 @@
 			exit();
 	    }
 
+		public  function moveTask($_newPathname, $item) 
+	    {   
+			$newPathname = $this->FileManager->convertToPathname($_newPathname) ;
+			
+			$idPathname = $this->HomeModel->getIdPathnameInDB($newPathname) ;
+	   		foreach ( $item as $key => $value) {
+
+				if($value["archivo_nombre"] != "null"){
+					$oldPathname = $this->FileManager->convertToPathname ($value["carpeta_path_name"]."/".$value["archivo_nombre"]);
+					if(!$this->moveFile($oldPathname , $newPathname, $value["archivo_nombre"]))
+						continue;
+				}
+				$res = $this->HomeModel->updatePathTaskInDB($idPathname, $value["id_tarea"]);
+				if ($res) 
+					setMsg( "success","La tarea Se movio correctamente en la BD." );
+				else {setMsg( "error","Ocurrio un error al mover la tarea en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
+				}
+			}
+			print_r( json_encode(getMsg()) );
+			exit();
+	    }
+
+		public  function moveFile($oldPathname, $newPathname, $nameFile) 
+	    {   
+				//renombramos en la bd
+				
+				if ( is_dir($oldPathname) )
+					$res = $this->HomeModel->updatePathFolderInDB($oldPathname, $newPathname);
+				else
+					$res = $this->HomeModel->updatePathFileInDB( $this->getIdFile($oldPathname), $this->FileManager->convertToPathname($newPathname) );
+				
+				if ($res) setMsg( "success","El archivo Se movio correctamente en la BD." );
+				else {
+					setMsg( "error","Ocurrio un error al mover el archivo en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+					return false;
+				}
+				
+				//renombramos en el FileManager
+				$res2 = $this->FileManager->move( $oldPathname , $newPathname."/".$nameFile );
+				if ($res2) setMsg( "success","El archivo Se movio correctamente en el Gestor." );
+				else {
+					setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
+					return false;
+				}
+				
+			print_r( json_encode(getMsg()) );
+			return true;
+	    }
+
+		/**
+		* get id file : return id of database of file
+		* @param string $oldPathname old pathname of file
+		* @return string $idFile id of file
+		*/
+		private function getIdFile($oldPathname){
+			$pathFolder = $this->FileManager->getPath($oldPathname);
+			$idFolder = $this->HomeModel->getIdFolder( $this->FileManager->convertToPathname($pathFolder) , $this->idUser);
+			$oldName = $this->FileManager->getName( $oldPathname);
+			$oldExt = $this->FileManager->getExtension($oldName);
+
+			$idFile = $this->HomeModel->getIdFile($oldName,$oldExt,$idFolder);
+			return $idFile;
+		}
+
 		public  function deleteTask($item) 
 	    {   
 			foreach ( $item as $key => $value) {

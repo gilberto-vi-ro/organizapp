@@ -7,7 +7,7 @@ $(function(){
 	var MAX_UPLOAD_SIZE = FileManager_values.value.MAX_UPLOAD_SIZE;
 	let dataItem = [];//array contenedor de item selected
 	let this_data = null;//contiene info del ultimo item selected
-	let move = false;// move is false
+	let move = false;// move is false 
 	var $div_list = $('#list');// contain of items
 	//$(window).on('hashchange',list).trigger('hashchange');
 	list(); // list items
@@ -174,7 +174,7 @@ $(function(){
 
 	});
 
-
+	// move and paste fie
 	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
 			{ alert("Selecciona un o varios Items"); return false; }
