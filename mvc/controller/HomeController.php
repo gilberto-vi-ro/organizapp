@@ -143,15 +143,18 @@
 				if($value["archivo_nombre"] != "null"){
 					$oldPathname = $this->FileManager->convertToPathname ($value["carpeta_path_name"]."/".$value["archivo_nombre"]);
 					if(!$this->moveFile($oldPathname , $newPathname, $value["archivo_nombre"]))
+					{
+						setMsg( "error","Ocurrio un error al mover la tarea en la BD: ".$value["tarea_nombre"]);
 						continue;
+					}
 				}
 				$res = $this->HomeModel->updatePathTaskInDB($idPathname, $value["id_tarea"]);
 				if ($res) 
-					setMsg( "success","La tarea Se movio correctamente en la BD." );
-				else {setMsg( "error","Ocurrio un error al mover la tarea en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
+					setMsg( "success","La tarea Se movio correctamente en la BD: ".$value["tarea_nombre"] );
+				else {setMsg( "error","Ocurrio un error al mover la tarea en la BD: ".$value["tarea_nombre"], __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
 				}
 			}
-			print_r( json_encode(getMsg()) );
+			print_r( getMsgInText() );
 			exit();
 	    }
 
@@ -164,9 +167,9 @@
 				else
 					$res = $this->HomeModel->updatePathFileInDB( $this->getIdFile($oldPathname), $this->FileManager->convertToPathname($newPathname) );
 				
-				if ($res) setMsg( "success","El archivo Se movio correctamente en la BD." );
+				if ($res) setMsg( "success","El archivo Se movio correctamente en la BD: ". $nameFile );
 				else {
-					setMsg( "error","Ocurrio un error al mover el archivo en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+					setMsg( "error","Ocurrio un error al mover el archivo en la BD:  $nameFile, puede que la ruta del archivo sea diferente a la ruta de la tarea.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 					return false;
 				}
 				
@@ -178,7 +181,7 @@
 					return false;
 				}
 				
-			print_r( json_encode(getMsg()) );
+			//print_r( json_encode(getMsg()) );
 			return true;
 	    }
 

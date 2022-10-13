@@ -196,10 +196,11 @@ function list(path=false, priority = 0, search = "", range = null){
 
 	function getInfoItem(data){
 
-		console.log(data);
+		//console.log(data);
 		let date = data.tarea_fecha_entrega;
 			date = date.replace(new RegExp(" ","g") ,"T");
 		$("#edit_task_name").val(data.tarea_nombre);
+		$("#edit_task_path").val(data.carpeta_path_name+"/");
 		$("#edit_task_delivery_date").val(date);//date.toLocaleDateString('en-GB')
 		$("#edit_task_status").val(data.tarea_estado);
 		$("#edit_task_description").val(data.tarea_descripcion);
@@ -208,12 +209,13 @@ function list(path=false, priority = 0, search = "", range = null){
 
 		let filePath = loadAjax("home?getPathFile=1&idFile="+data.id_archivo, "GET");
 		let path = (data.archivo_nombre == "null")?"null": filePath;
-		$("#edit_task_path").text(path );
+		
+		$("#edit_task_path_file").text(path);
 		if (path==null || path=="null")
-			$("#edit_task_path").attr("href","#") ;
+			$("#edit_task_path_file").attr("href","#") ;
 		else{
 			path = path.replace( new RegExp("/","g") ,"%2F");
-			$("#edit_task_path").attr("href",BASE_URL + "folder#" + path) ;
+			$("#edit_task_path_file").attr("href",BASE_URL + "folder#" + path) ;
 		}
 			
 		
@@ -221,24 +223,27 @@ function list(path=false, priority = 0, search = "", range = null){
 
 	function InfoItemEnabled(enabled=true){
 
+		$("#edit_task_path").attr("disabled" , "disabled");
 		if (enabled){
 			$(".txt-new-task").text("Edit task");
 			$("#edit_task_name").removeAttr("disabled");
+			$("#cont_edit_task_path").hide();
 			$("#edit_task_delivery_date").removeAttr("disabled");
 			$("#edit_task_status").removeAttr("disabled");
 			$("#edit_task_description").removeAttr("disabled");
 			$("#edit_task_priority").removeAttr("disabled");
 			$("#edit_task_name_file").removeAttr("disabled");
-			$("#edit_task_path").removeAttr("disabled");
+			$("#edit_task_path_file").removeAttr("disabled");
 		}else{
 			$(".txt-new-task").text("My task");
 			$("#edit_task_name").attr("disabled" , "disabled");
+			$("#cont_edit_task_path").show();
 			$("#edit_task_delivery_date").attr("disabled" , "disabled");
 			$("#edit_task_status").attr("disabled" , "disabled");
 			$("#edit_task_description").attr("disabled" , "disabled");
 			$("#edit_task_priority").attr("disabled" , "disabled");
 			$("#edit_task_name_file").attr("disabled" , "disabled");
-			$("#edit_task_path").attr("disabled" , "disabled");
+			$("#edit_task_path_file").attr("disabled" , "disabled");
 		}
 	}
 
@@ -264,9 +269,11 @@ function list(path=false, priority = 0, search = "", range = null){
 		$.post("home",{'moveTask':'1',"newPathname":newPathname,"item": dataItemTask  }
 			,'json').done(function(response){
 				list();
-				//response = JSON.parse(response);
-				console.log(response);
 				move = false;
+
+				//response = JSON.parse(response);
+				swal("INFO", response , "info"); 
+				return false;
 		});
 
 		hide("#menu_paste");

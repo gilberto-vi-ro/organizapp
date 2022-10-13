@@ -249,6 +249,14 @@
 		return msg();
 	}
 
+	function getMsgIntext() {
+		$text = "";
+		foreach ( $GLOBALS["msg"]["response"] as $key => $val) {
+			$text .=  $val["msg"]."\r\n";
+		}
+		return $text;
+	}
+
 	/**
 	* Descargar archivo
 	* @param string $fileName

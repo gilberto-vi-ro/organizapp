@@ -179,9 +179,10 @@ class HomeModel extends DB
 			$query->bindParam(2, $oldExt);
 			$query->bindParam(3, $idFolder);
 			$query->execute();
-
-
-			return $query->fetch()["id_archivo"];
+			if ($query->rowCount()>0)
+				return $query->fetch()["id_archivo"];
+			else 
+				return false;
 
 		} catch (PDOException $e) {
 			setMsg( "error", $e->getMessage(), __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );

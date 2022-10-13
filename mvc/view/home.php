@@ -306,11 +306,15 @@
         =================================================================================-->
         <div id="edit_task" class="cont-modal my-task">
             <form id="edit_task_form" class="task-item-container-form" action="#" method="GET|POST" enctype="multipart/form-data" onSubmit="return false;">
-                <p ><img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-new-task"><span class="txt-new-task">Edit task</span></p>
+                <p ><img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-new-task"><span class="txt-new-task">Editar Tarea</span></p>
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt">
                     <p class="task-item-txt">Nombre:</p>
                     <textarea id="edit_task_name" name="name" required="">descripcion </textarea>
+                </div>
+                <div id="cont_edit_task_path" class="task-item-cont-txt">
+                    <p class="task-item-txt">Path:</p>
+                    <textarea id="edit_task_path" required="">Default </textarea>
                 </div>
                 <div class="task-item-cont-txt">
                     <p class="task-item-txt">Fecha Entrega:</p>
@@ -341,12 +345,12 @@
                 </div>
                 <div class="task-item-line-form"></div>
                     <div class="task-item-cont-txt">
-                        <p class="task-item-txt">archivo:</p>
+                        <p class="task-item-txt">Archivo:</p>
                         <label id="edit_task_name_file" type="text" >name_file</label>
                     </div>
                     <div class="task-item-cont-txt">
-                        <p class="task-item-txt">Path:</p>
-                        <a id="edit_task_path" href="<?= BASE_URL ?>folder#" type="text" >null</a>
+                        <p class="task-item-txt">Path Archivo:</p>
+                        <a id="edit_task_path_file" href="<?= BASE_URL ?>folder#" type="text" >null</a>
                     </div>
                     <div class="task-item-cont-txt">
                         <p class="task-item-txt"></p>
