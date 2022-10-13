@@ -97,9 +97,9 @@ $(function(){
 
 	$("#menu_rename_folder").on('click',function( event ){ //abrir modal rename al dar click en  #menu_rename_folder
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un Item"); return false; }
-		if ( dataItem.length > 1 ) 
-			{ alert("No se puede renombrar multiples Items"); return false; }
+			{ swal("INFO", "Selecciona un elemento.", "info"); return false; }
+		else if ( dataItem.length > 1 ) 
+			{ swal("INFO", "No se puede editar multiples Items.", "info"); return false; }
 
 		let name = dataItem[0].name;
 		let isDir = dataItem[0].info.is_dir;
@@ -127,7 +127,7 @@ $(function(){
 	});
 
 	$("#btn_add_file").on('click',function( event ){ //agregar archivo al dar click en  #btn_add_file
-		alert("inventa algo al precionar");
+		{ swal("INFO", "Los archivos se cargan automaticamente", "info"); return false; }
 		// let pathname = $( "#list" ).attr("data-pathname");
 		// let name = $( "#input_add_name_folder" ).val();
 	
@@ -159,7 +159,7 @@ $(function(){
 
 	$("#menu_delete").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
+			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
 		
 		//console.log(dataItem);
 
@@ -177,7 +177,7 @@ $(function(){
 	// move and paste fie
 	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
+			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
 		move = true;
 		
 		hide("#menu_move");

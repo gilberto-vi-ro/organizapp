@@ -341,6 +341,7 @@
     </script>
     
     <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>
+    <script src="<?= BASE_URL ?>public/js/plugins/sweetalert.min.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/all.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-horizontal.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-vertical.js"></script>

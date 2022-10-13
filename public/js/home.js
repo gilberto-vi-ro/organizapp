@@ -2,7 +2,7 @@
 /*====================================================
 ITEM
 ====================================================*/ 
-hide("#_msg");
+
 
 let dataItem = [];//array contenedor de item selected
 let dataItemTask = [];//array contenedor de task selected
@@ -75,8 +75,7 @@ function list(path=false, priority = 0, search = "", range = null){
 		//console.log(res);
 		res = JSON.parse(res);
 		
-		$('.msg-lbl-txt').html(res.response[0].msg);
-		show("#_msg");
+		swal("INFO", res.response[0].msg, "info");
 		
 		list();
 		$('#add_task_form')[0].reset();
@@ -123,9 +122,9 @@ function list(path=false, priority = 0, search = "", range = null){
 
 	$("#menu_edit").on('click',function( event ){ //abrir modal edit  task al dar click en  #menu_edit
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un Item"); return false; }
-		if ( dataItem.length > 1 ) 
-			{ alert("No se puede editar multiples Task."); return false; }
+			{  swal("INFO", ("Selecciona una tarea o actividad."), "info"); return false; }
+		else if ( dataItem.length > 1 ) 
+			{  swal("INFO", ("No se puede editar multiples tareas."), "info"); return false; }
 
 		InfoItemEnabled(true);
 		getInfoItem(dataItem[0]); 
@@ -154,15 +153,26 @@ function list(path=false, priority = 0, search = "", range = null){
 
 
 	$("#menu_delete").on('click',function( event ){ //borrar item al dar click en  #menu_delete
+		var myText = null;
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
-		if (dataItem.length == 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar a "+ dataItem[0].tarea_nombre +"?");
-		if (dataItem.length > 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar los archivos seleccionados?");
-		if (!opcion) return;
+			{ swal("INFO", "Selecciona una o varias tareas.", "info"); return false; }
+		else if (dataItem.length == 1) 
+			myText =("Esta seguro que deseas eliminar a: "+ dataItem[0].tarea_nombre +"?");
+		else if (dataItem.length > 1) 
+			myText =("Esta seguro que deseas eliminar las tareas seleccionadas?");
 
+		swal({
+			title:"INFO", 
+			text: myText,
+			//content: myDiv, 
+			buttons: ["Cancelar","Eliminar"],
+			icon: "info"
+			}).then(function (delet) {
+				if(delet) deleteTask();
+			});
+	});
 
+	function deleteTask(){
 		$.post("home",{'deleteTask':'1',"item": dataItem  }
 			,'json').done(function(response){
 				let path = window.location.hash.substr(1);
@@ -171,9 +181,8 @@ function list(path=false, priority = 0, search = "", range = null){
 			
 				console.log(response);
 		});
-		
 		return false;
-	});
+	}
 
 	$(".task-item-button-right").on('click',function( event ){ //cerrar modal al dar click en  .info-item-button-right
 		hide("#add_task");
@@ -202,8 +211,11 @@ function list(path=false, priority = 0, search = "", range = null){
 		$("#edit_task_path").text(path );
 		if (path==null || path=="null")
 			$("#edit_task_path").attr("href","#") ;
-		else
+		else{
+			path = path.replace( new RegExp("/","g") ,"%2F");
 			$("#edit_task_path").attr("href",BASE_URL + "folder#" + path) ;
+		}
+			
 		
 	}
 
@@ -233,7 +245,7 @@ function list(path=false, priority = 0, search = "", range = null){
 	// move and paste fie
 	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
+			{  swal("INFO", ("Selecciona una o varias tareas."), "info"); return false; }
 		move = true;
 		dataItemTask = dataItem;
 		

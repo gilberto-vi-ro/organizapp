@@ -55,29 +55,43 @@ $(function(){
 	});
 
 	$("#menu_delete_trash").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
-		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
+		var myText = null;
 		//let pathname = $( "#list" ).attr("data-pathname");
-		//console.log(dataItem);
-		if (dataItem.length == 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar a "+ dataItem[0].name +"?");
-		if (dataItem.length > 1) 
-			var opcion = confirm("Si eliminas carpetas, las tareas en ellas tambioen se eliminaran. Esta seguro que deseas eliminar los elementos seleccionados?");
-		if (!opcion) return;
+		if (dataItem.length == 0 ) 
+			{ swal("INFO", "Selecciona uno o varios elementos", "info"); return false; }
+		else if (dataItem.length == 1) {
+			if(dataItem[0].info.is_dir)
+				myText = "Si eliminas carpetas, las tareas en ellas tambien se eliminaran. Esta seguro que deseas eliminar a: "+ dataItem[0].name +"?";
+			else
+				myText = "Esta seguro que deseas eliminar a: "+ dataItem[0].name +"?";
+		}
+		else if (dataItem.length > 1) 
+			myText = "Si eliminas carpetas, las tareas en ellas tambien se eliminaran. Esta seguro que deseas eliminar los elementos seleccionados?";
 
+		swal({
+			title:"INFO", 
+			text: myText,
+			//content: myDiv, 
+			buttons: ["Cancelar","Eliminar"],
+			icon: "info"
+			}).then(function (delet) {
+				if(delet) deleteFile();
+			});
+
+	});
+
+	function deleteFile(){
 		$.post("trash",{'deleteTrash':'1',"item": dataItem  }
 			,'json').done(function(response){
 				listTrash();
 				console.log(response);
 		});
-		
 		return false;
-
-	});
+	}
 
 	$("#menu_restore_trash").on('click',function( event ){ //restaurar Items al dar click en  #menu_restore
 		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
+			{ swal("INFO", "Selecciona uno o varios elementos.", "info"); return false; }
 		//let pathname = $( "#list" ).attr("data-pathname");
 		//console.log(dataItem);
 

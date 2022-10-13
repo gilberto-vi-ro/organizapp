@@ -30,19 +30,32 @@ $(function(){
 	EVENTS Click
 	====================================================*/
 	$("#menu_delete").on('click',function( event ){ //borrar item al dar click en  #menu_delete
-		if (dataItem.length == 0 ) 
-			{ alert("Selecciona un o varios Items"); return false; }
-		if (dataItem.length == 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar a "+ dataItem[0].tarea_nombre +"?");
-		if (dataItem.length > 1) 
-			var opcion = confirm("Esta seguro que deseas eliminar los archivos seleccionados?");
-		if (!opcion) return;
-		$.get("notification?deleteNotification=1&dataItem="+ JSON.stringify(dataItem)  ,'json').done(function(response){
-				console.log(response);
-				listNotification();
-		});
 		
-		return false;
+		var myText = null;
+		if (dataItem.length == 0 ) 
+			{ swal("INFO", "Selecciona una o varias notificaciones.", "info"); return false; }
+		else if (dataItem.length == 1) 
+			myText =("Esta seguro que deseas eliminar la notificacion?");
+		else if (dataItem.length > 1) 
+			myText =("Esta seguro que desea eliminar las notificaciones?");
+
+		swal({
+			title:"INFO", 
+			text: myText,
+			//content: myDiv, 
+			buttons: ["Cancelar","Eliminar"],
+			icon: "info"
+			}).then(function (delet) {
+				if(delet) {
+					$.get("notification?deleteNotification=1&dataItem="+ JSON.stringify(dataItem)  ,'json').done(function(response){
+						console.log(response);
+						listNotification();
+					});
+					
+					return false;
+				}
+			});
+		
 	});
 
 	$(".info-item-button-right").on('click',function( event ){ //cerrar modal al dar click en  .info-item-button-right

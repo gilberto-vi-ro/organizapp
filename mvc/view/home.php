@@ -90,7 +90,6 @@
     <link rel=" stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/plugins/ka-f.fontawesome.v5.15.4.free.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-vertical.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-horizontal.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/msg.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/home.css">
 
     <!-- ===============================================================================
@@ -423,11 +422,9 @@
 
     </div>
 
-    <!-- ===============================================================================
-    MSG
-    =================================================================================-->
+    
 
-    <?php include_once ROOT_PATH."mvc/view/general/msg.php";?>
+    
 
     <!-- ===============================================================================
     JS
@@ -437,11 +434,13 @@
         var section = "<?= $section ?>";
     </script>
     <script src="<?= BASE_URL ?>public/js/plugins/jquery.min.3.3.1.js"></script>
+    <script src="<?= BASE_URL ?>public/js/plugins/sweetalert.min.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/all.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-horizontal.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-vertical.js"></script>
-    <script src="<?= BASE_URL ?>public/js/general/msg.js"></script>
     <script src="<?= BASE_URL ?>public/js/home.js"></script>
+ 
+    
 
 </body>
 
