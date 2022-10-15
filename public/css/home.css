@@ -175,8 +175,8 @@ estilo de contenido de home
 	background-color: #E8F5FB;
 	width: 100%;
 	overflow: auto;
-	padding-left: 3vw;
-	padding-right: 3vw;
+	/* padding-left: 3vw;
+	padding-right: 3vw; */
 	
 	
 }
@@ -290,7 +290,7 @@ estilo de contenido de home
 	-o-box-orient:vertical;
 	-o-line-clamp:2;
 
-	height: 38px;
+	height: 36px;
 }
 
 
@@ -423,11 +423,11 @@ ADD NEW TASK
     background: #E8F5FB;
     /*center-x*/
     margin: auto;
-    /*center-y*/
-    //margin-top: middle;
+   
     text-align: center;
     color: #3B3838;
     padding: 20px;
+	
     
 }
 .task-item-container-form p{
@@ -532,6 +532,7 @@ LIST FOLDER
       height: 100%; /* Full height */
       overflow: auto; /* Enable scroll if needed */
       background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	  padding: 10px;
 }
 
 .cont-modal  .myflex-padre{
@@ -652,10 +653,10 @@ LIST FOLDER
  MEDIA QUERY
 ===============================================================================*/
 @media screen and (max-width: 1000px){
-	.myflex-padre {
+	/* .myflex-padre {
 		padding-left: 1vw;
 		padding-right: 1vw;
-	}
+	} */
 
 	.cont-text-hijo{
 		width: 26%;
@@ -696,10 +697,12 @@ LIST FOLDER
 	}
 	
 	.text-path ul li #breadcrumb{
-		width: calc( 100% - 80px);
+		position: absolute;
+		width: 100% ;
 	}
 
 	.text-path ul{
+		position: absolute;
 		margin-top: 20px;
 	 	margin-left:  5px;
 

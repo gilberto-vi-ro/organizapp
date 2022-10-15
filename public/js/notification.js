@@ -98,8 +98,8 @@ $(function(){
 		info_item_name_task.innerHTML =(`${this_data.tarea_nombre}`);
 		info_item_url.innerHTML =(`${this_data.carpeta_path_name}`);
 		info_item_url.href =(BASE_URL+"home#"+`${this_data.carpeta_path_name}`);
-		info_item_status.innerHTML =(`${this_data.tarea_estado==1?"pendiente":this_data.tarea_estado==2?"listo":"entregado"}`);	
-		info_item_priority.innerHTML =(`${this_data.tarea_prioridad==1?"urgente":this_data.tarea_prioridad==2?"importante":"no urgente"}`);	
+		info_item_status.innerHTML =(`${this_data.tarea_estado==1?"Pendiente":this_data.tarea_estado==2?"Listo":"Entregado"}`);	
+		info_item_priority.innerHTML =(`${this_data.tarea_prioridad==1?"Urgente":this_data.tarea_prioridad==2?"Importante":"No urgente"}`);	
 		info_item_date_notification.innerHTML =(`${this_data.notificacion_fecha_registro}`);							
 								
 		show("#info_item", "flex");
