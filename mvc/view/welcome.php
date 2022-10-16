@@ -125,7 +125,7 @@
           <div class="col-md-12 text-center"">
             <div class="wrap-item text-center">
               <div class="item-im">
-                <img class="log_em" src="<?= BASE_URL ?>public/img/icon/logoEmpresa.jpg">
+                <img class="log_em" src="<?= BASE_URL ?>public/img/icon/logo-lightsoft.jpg">
               </div>
               <label>LIGHTSOFT, Empresa de desarrollo Web y Móvil</label>
               <p id="text">Somos una empresa comprometida con nuestros clientes y además  contamos con desarrolladores con experiencias en el mundo de la programación web y móvil, contamos con capacitaciones de actualización para nuestros desarrolladores en las nuevas tecnologías por lo que somos tu mejor opción para hacer crecer tu negocio o empresa. <br>El software que se desarrolla en estas instalaciones cuentan con soporte a los clientes, será atendido por personal capacitado y con experiencia.</p>
@@ -333,16 +333,16 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center white">
-              <h2 class="service-title pad-bt15"><!-- Mantente en contacto con nosotros. -->Síguenos en nuestras redes sociales </h2>
+              <h2 class="service-title pad-bt15"><!-- Mantente en contacto con nosotros. -->Contáctanos </h2>
               <p></p>
             <!-- <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p> -->
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="loction-info white contact-center-x">
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayón, Chiapas,México</p>
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Gmail.png"></i>gilberto.vi.ro@gmail.com</p>
+              <p><a href="https://goo.gl/maps/ArMLuQhHW9B9h8rR8"  target="_blank" style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Marker.png"></i>C.P: 29740, Rayón, Chiapas,México</a></p>
+              <p><a href="mailto:gilberto.vi.ro@gmail.com?Subject=Cliente%20LightSoft" style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Gmail.png"></i>gilberto.vi.ro@gmail.com</a></p>
               <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/Phone.png"></i>+52 919 153 8136</p>
-              <p style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/WhatsApp.png"></i>+52 919 153 8136</p>
+              <p><a href="https://wa.me/529191538136" target="_blank" style="color: #E8F5FB "><i><img src="<?= BASE_URL ?>public/img/icon/WhatsApp.png" alt="whatsapp"></i>+52 919 153 8136</a></p>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">

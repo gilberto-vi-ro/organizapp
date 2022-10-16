@@ -27,6 +27,12 @@
 	=============================================*/
 	#https://boxicons.com/
 
+	/*=============================================
+	LOCATION OF THE COMPANY
+	=============================================*/
+	#https://support.google.com/maps/answer/144361?hl=es&co=GENIE.Platform%3DDesktop
+	#https://console.cloud.google.com/apis/library?project=ace-memento-136508&hl=ES
+
 
 
 ?>
