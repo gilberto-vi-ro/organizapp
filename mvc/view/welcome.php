@@ -51,7 +51,7 @@
                     <li class="ref-id"><a href="#vision">Visión</a></li>
                     <li class="ref-id"><a href="#objetivo">Objetivo</a></li>
                     <li class="ref-id"><a href="#proyect">Proyectos</a></li>
-                    <li class="ref-id"><a href="#contact">Contactos</a></li>
+                    <li class="ref-id"><a href="#contact">Contácto</a></li>
                   </ul>
                 </div>
               </div>
@@ -319,7 +319,7 @@
                         </figure>
                       </div>
                       <div class="blog-img"></a>
-                        <p>Es una aplicación web que ofrece partes de aplicaciones web que se pueden reutilizar para un proyecto nuevo, obtén el frontend o backend y frontend. Tienda-gl tiene integrado a PayPal  para realizar el pago de los proyectos que se ofrece. <a href="<?= BASE_URL ?>../tienda-gl">< visitar > </a> 
+                        <p>Es una aplicación web que ofrece partes de aplicaciones para reutilizarlo en un proyecto nuevo, obtén el frontend o backend. Tienda-gl tiene integrado a PayPal, y pagos con targetas desde cualquier parte del mundo para realizar el pago de lo que se ofrece. <a href="<?= BASE_URL ?>../tienda-gl">< visitar > </a> 
                       </div>
                   </div>
                 </div>

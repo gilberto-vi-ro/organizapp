@@ -83,7 +83,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .log_em{
-    width: 20%;
+    max-width: 100%;
+    margin-bottom : 20px; 
 
 }
 .log{
