@@ -114,14 +114,14 @@
 					</div>
 					<div class="login-captcha">
 						<i class="fas fa-shield-alt"></i>
-						<label for="" >Captacha</label>
+						<label for="" >Captcha</label>
 					</div>
 				</div>
 				
-				<button type="submit" class="btn-login"> iniciar sesion</button>
+				<button type="submit" class="btn-login"> Iniciar sesion</button>
 				<div class="cont-text-bottom">
-					<a href="?sign_up" class="text-login">Registrate aqui!</a>
-					<a id="recover_pwd" href="#" class="text-login">Recuperar Contraseña</a>
+					<a href="?sign_up" class="text-login">¡Registrate aquí!</a>
+					<a id="recover_pwd" href="#" class="text-login">Recuperar contraseña</a>
 				</div>
 				
 			</form>
@@ -142,11 +142,11 @@
 			<div class="my-captcha" >
 				<input type="text" id="randomfield" disabled="disabled">
 				<label>Captcha</label>
-				<input id="captchaEnter" size="20" maxlength="6" placeholder="Escribe elcaptcha" enabled="enabled">
+				<input id="captchaEnter" size="20" maxlength="6" placeholder="Escribe el captcha" enabled="enabled">
 			</div>
 	  		<div class="msg-cont-buttons">
 				<input type="button" class="ms-button msg-btn-refresh" value="Recargar">
-				<input type="button" class="ms-button msg-btn-ok" value="ok">
+				<input type="button" class="ms-button msg-btn-ok" value="Ok">
 			</div>
 		</div>
 	</div>
