@@ -191,8 +191,28 @@ INFO ITEM
     border: none;
 }
 
+.info-item-button-fa {
+   
+    height: 35px;
+	width: 35px;
+
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #3B86E8 ;
+    font-size: 17px;
+    color: #E8F5FB;
+    border-radius: 20px;
+    border: none;
+}
+.info-item-button-fa i{
+	color: #E8F5FB;
+	margin: 0;
+	line-height: 0.1;
+}
+
 .info-item-button-left:hover,
-.info-item-button-right:hover{
+.info-item-button-right:hover,
+.info-item-button-fa:hover{
     background-color:  #3B3838 ;
     cursor: pointer;
 }

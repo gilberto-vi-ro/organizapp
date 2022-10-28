@@ -3,8 +3,6 @@ $(function(){
 
 	var XSRF = (document.cookie.match('(^|; )_sfm_xsrf=([^;]*)')||0)[2]; //generate cookie
 	
-	FileManager_values = JSON.parse(FileManager_values); // values of class FileManager.php
-	var MAX_UPLOAD_SIZE = FileManager_values.value.MAX_UPLOAD_SIZE;
 	let dataItem = [];//array contenedor de item selected
 	let this_data = null;//contiene info del ultimo item selected
 	let move = false;// move is false 
@@ -57,17 +55,16 @@ $(function(){
 		var is_dir = this_data.info.is_dir? 1 : 0;
 
 		$(".js_btn_download").attr("disabled","disabled");
-		//document.location.href='folder?download=1&pathname='+ path_name+'&is_dir='+is_dir;
-		window.open('folder?download=1&pathname='+ this_data.path_name+'&is_dir='+is_dir, '_blank');
+		//document.location.href='view_file?download=1&pathname='+ path_name+'&is_dir='+is_dir;
+		window.open('view_file?download=1&pathname='+ this_data.path_name+'&is_dir='+is_dir, '_blank');
 		return false;
 	});
 
 	$(".js_btn_share").on('click',function( event ){ //descargar item al dar click en  .js_btn_download
-		
-		var pathname = this_data.path_name;//.replace( new RegExp("/","g") , "%2F");
-		pathname = utf8_to_b64(utf8_to_b64(pathname));
 		console.log(this_data.path_name);
-		swal("SHARE", window.location.protocol+"//"+window.location.host+BASE_URL+ "view_file?v="+ pathname);
+		var pathname = utf8_to_b64(utf8_to_b64(this_data.path_name));
+		console.log(b64_to_utf8(b64_to_utf8(pathname)));
+		swal("SHARE", window.location.protocol+"//"+window.location.host+BASE_URL+ "viewFile?v="+ pathname);
 
 		return false;
 	});
@@ -75,147 +72,12 @@ $(function(){
 
 	$(".info-item-button-right").on('click',function( event ){ //cerrar modal al dar click en  .info-item-button-right
 		hide("#info_item");
-		hide("#add_folder");
-		hide("#add_file");
-		hide("#rename_folder");
 		hide("#show_file");
 		$(".js_btn_download").removeAttr("disabled");
 	});
 
-	$("#menu_add_folder").on('click',function( event ){ //abrir modal add folder al dar click en  #menu_add_folder
-		show("#add_folder","flex");
-	});
 
-	$("#menu_add_file").on('click',function( event ){ //abrir modal add  file al dar click en #menu_add_file
-		show("#add_file","flex");
-	});
 
-	$("#menu_add").on('click',function( event ){ //abrir submenu  al dar click en  #menu_add
-		
-		if( this.classList.contains("menu-hidde") ){
-			$(this).removeClass("menu-hidde");
-			$(this).addClass("menu-show");
-			show("#menu_add_file");
-			show("#menu_add_folder");
-		}else{
-			$(this).removeClass("menu-show");
-			$(this).addClass("menu-hidde");
-			hide("#menu_add_file");
-			hide("#menu_add_folder");
-		}
-	});
-
-	$("#menu_rename_folder").on('click',function( event ){ //abrir modal rename al dar click en  #menu_rename_folder
-		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona un elemento.", "info"); return false; }
-		else if ( dataItem.length > 1 ) 
-			{ swal("INFO", "No se puede editar multiples Items.", "info"); return false; }
-
-		let name = dataItem[0].name;
-		let isDir = dataItem[0].info.is_dir;
-
-		if (isDir) $("#type_rename").html('<i class="fas fa-folder"></i><span>Renombrar Carpeta</span>');
-		else  $("#type_rename").html('<i class="fas fa-file"></i><span>Renombrar Archivo</span>');
-
-		$("#input_rename_folder").val(name);
-		show("#rename_folder","flex");
-	});
-
-	$("#btn_add_folder").on('click',function( event ){ //agregar carpeta al dar click en  #btn_add_folder
-		let pathname = $( "#list" ).attr("data-pathname");
-		let name = $( "#input_add_name_folder" ).val();
-	
-		$.post("folder",{'createFolder':'1',"pathname":pathname, "name": name }
-			,'json').done(function(response){
-				response = JSON.parse(response);
-				console.log(response); 
-				list();
-		});
-		hide("#add_folder");
-		$( "#input_add_name_folder" ).val("name folder");
-		return false;
-	});
-
-	$("#btn_add_file").on('click',function( event ){ //agregar archivo al dar click en  #btn_add_file
-		{ swal("INFO", "Los archivos se cargan automaticamente", "info"); return false; }
-		// let pathname = $( "#list" ).attr("data-pathname");
-		// let name = $( "#input_add_name_folder" ).val();
-	
-		// $.post("folder",{'createFolder':'1',"pathname":pathname+"/", "name": name }
-		// 	,'json').done(function(response){
-		// 		list();
-		// 		console.log(response);
-		// });
-		// hide("#add_folder");
-		// $( "#input_add_name_folder" ).val("name folder");
-		// return false;
-	});
-
-	$("#btn_rename_folder").on('click',function( event ){ //renombrar Item al dar click en  #btn_rename_folder
-		
-		let oldPathname = dataItem[0].path_name;
-		let newname = $( "#input_rename_folder" ).val();
-		$.post("folder",{'rename':'1',"oldPathname": oldPathname, "newname": newname }
-			,'json').done(function(response){
-				console.log(response);
-				list();
-				response = JSON.parse(response);
-				
-		});
-		hide("#rename_folder");
-		$( "#input_rename_folder" ).val("name folder");
-		return false;
-	});
-
-	$("#menu_delete").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
-		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
-		
-		//console.log(dataItem);
-
-		$.post("folder",{'delete':'1',"item": dataItem  }
-			,'json').done(function(response){
-				list();
-				response = JSON.parse(response);
-				console.log(response);
-		});
-		
-		return false;
-
-	});
-
-	// move and paste fie
-	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
-		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
-		move = true;
-		
-		hide("#menu_move");
-		show("#menu_paste");
-		return false;
-
-	});
-
-	$("#menu_paste").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
-		
-		let newPathname = $( "#list" ).attr("data-pathname");
-		//console.log(dataItem);
-
-		$.post("folder",{'move':'1',"newPathname":newPathname,"item": dataItem  }
-			,'json').done(function(response){
-				list();
-				response = JSON.parse(response);
-				console.log(response);
-				move = false;
-		});
-
-		hide("#menu_paste");
-		show("#menu_move");
-		dataItem = [];
-		
-		return false;
-
-	});
 
 	/*====================================================
 	ITEMS CLICK, DBLCLICK, CONTEXTMENU
@@ -237,7 +99,7 @@ $(function(){
 			return ; // end dblclick
 		}
 		timer = setTimeout(function() { // Manejo de eventos de un click
-    		itemSelected(_this);
+    		
 		}, 300); // end click
 		
 	});
@@ -255,37 +117,38 @@ $(function(){
 	});
 
 
-	function itemSelected(_this){
-		let selected = _this.querySelector(".selected");
-		let pathname = this_data.path_name;
-		if ( selected.classList.contains("hidde") ) {
-			$(selected).removeClass("hidde");
-			$(selected).addClass("show");
-			$(selected).show();
-			dataItem.push( this_data );//agregar datos al array dataItem
-		}else{
-			$(selected).removeClass("show");
-			$(selected).addClass("hidde");
-			$(selected).hide();
+	// function itemSelected(_this){
+	// 	let selected = _this.querySelector(".selected");
+	// 	let pathname = this_data.path_name;
+	// 	if ( selected.classList.contains("hidde") ) {
+	// 		$(selected).removeClass("hidde");
+	// 		$(selected).addClass("show");
+	// 		$(selected).show();
+	// 		dataItem.push( this_data );//agregar datos al array dataItem
+	// 	}else{
+	// 		$(selected).removeClass("show");
+	// 		$(selected).addClass("hidde");
+	// 		$(selected).hide();
 
-			dataItem.forEach(function(array, index, object) {// eliminar array dataItem por valor
-			    if(array.path_name === pathname){
-			      object.splice(index, 1);
-			    }
-			});
-		}
-   		console.log(dataItem);
-   		//console.log("mousedown");
-	}
+	// 		dataItem.forEach(function(array, index, object) {// eliminar array dataItem por valor
+	// 		    if(array.path_name === pathname){
+	// 		      object.splice(index, 1);
+	// 		    }
+	// 		});
+	// 	}
+   	// 	console.log(dataItem);
+   	// 	//console.log("mousedown");
+	// }
 
 	function showItemSelected(_this){
 		let pathname = this_data.path_name;
+		console.log(pathname);
 		let ext = this_data.info.extension;
 
 		if (ext == "pdf"  && innerWidth <= 800) 
 			ext = "movil-pdf";
 	
-		$.get('folder?showFile=1&pathname='+ pathname+'&extension='+ext,'json').done(function(res) {
+		$.get('view_file?showFile=1&pathname='+ pathname+'&extension='+ext,'json').done(function(res) {
 		
 			//console.log(res);
 
@@ -324,87 +187,7 @@ $(function(){
 		$("#perm_delete").html(perm_delete);
 		$("#perm_exec").html(perm_exec);
 	}
-	/*====================================================
-	UPLOAD FILE
-	====================================================*/
-	var allow_upload = FileManager_values.value.allow_upload;
-	if(allow_upload){
-		// file upload stuff
-		$('#file_drop_target').on('dragover',function(){
-			$(this).addClass('drag_over');
-			return false;
-		}).on('dragend',function(){
-			$(this).removeClass('drag_over');
-			return false;
-		}).on('drop',function(e){
-			e.preventDefault();
-			var files = e.originalEvent.dataTransfer.files;
-			$.each(files,function(k,file) {
-				uploadFile(file);
-			});
-			$(this).removeClass('drag_over');
-		});
-		$('#load_file').change(function(e) {
-			e.preventDefault();
-			$.each(this.files,function(k,file) {
-				uploadFile(file);
-			});
-		});
-
-
-		function uploadFile(file) {
-			var pathname = decodeURIComponent(window.location.hash.substr(1));
-			
-			if(file.size > MAX_UPLOAD_SIZE) {
-				var $error_row = renderFileSizeErrorRow(file,pathname);
-				$('#upload_progress').append($error_row);
-				window.setTimeout(function(){$error_row.fadeOut();},5000);
-				return false;
-			}
-
-			var $row = renderFileUploadRow(file,pathname);
-			$('#upload_progress').append($row);
-			var fd = new FormData();
-			fd.append('file_data',  file ); 
-			fd.append('pathname',pathname);
-			fd.append('xsrf',XSRF);
-			fd.append('upload','1');
-
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'folder',true);
-			xhr.onload = function(e) {
-				
-				$row.remove();
-	    		list();
-				console.log(e.target.response);
-	  		};
-			xhr.upload.onprogress = function(e){
-				if(e.lengthComputable) {
-					$row.find('.progress').css('width',(e.loaded/e.total*100 | 0)+'%' );
-				}
-			};
-			xhr.onerror = function(e,i) {
-				console.log(e);
-	  		};
-
-		    xhr.send(fd);
-		    //console.log(  xhr);
-
-		    
-		}
-		function renderFileUploadRow(file,folder) {
-			return $row = $('<div/>')
-				.append( $('<span class="fileuploadname" />').text( (folder ? folder+'/':'')+file.name))
-				.append( $('<div class="progress_track"><div class="progress"></div></div>')  )
-				.append( $('<span class="size" />').text(formatFileSize(file.size)) )
-		};
-		function renderFileSizeErrorRow(file,folder) {
-			return $row = $('<div class="error" />')
-				.append( $('<span class="fileuploadname" />').text( 'Error: ' + (folder ? folder+'/':'')+file.name))
-				.append( $('<span/>').html(' file size - <b>' + formatFileSize(file.size) + '</b>'
-					+' exceeds max upload size of <b>' + formatFileSize(MAX_UPLOAD_SIZE) + '</b>')  );
-		}
-	}
+	
 
 	/*====================================================
 	LIST
@@ -415,9 +198,10 @@ $(function(){
 
 		var setPathname = pathname ? pathname : window.location.hash.substr(1);
 
-		$.get('folder?list=all&pathname='+ setPathname,'json').done(function(data) {
+		$.get('view_file?list=all&pathname='+ setPathname,'json').done(function(data) {
 			
 			//console.log(data);
+			
 			data = JSON.parse(data); // convertimos el resultado a formato JSON
 			//console.log(data);
 			$div_list.empty();
@@ -457,7 +241,7 @@ $(function(){
 		
 		var setPathname = pathname ? pathname : window.location.hash.substr(1);
 	
-		$.get('folder?listSearch=all&pathname='+ setPathname+'&search='+search,'json').done(function(data) {
+		$.get('view_file?listSearch=all&pathname='+ setPathname+'&search='+search,'json').done(function(data) {
 			data = JSON.parse(data); // convertimos el resultado a formato JSON
 			//console.log(data);
 			$div_list.empty();

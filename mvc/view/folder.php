@@ -182,7 +182,8 @@
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
                     <button type="button"  class="info-item-button-right"> Cerrar </button>
-                    <button type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
+                    <button type="button"  class="info-item-button-fa js_btn_share"> <i class="fas fa-share"></i> </button>
+                    <button type="button"  class="info-item-button-fa js_btn_download"> <i class="fas fa-download"></i> </button>
                 </div>
             </div>
         </div>

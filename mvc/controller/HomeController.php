@@ -46,7 +46,7 @@
 	    private  function pathIgnored($path) 
 	    {   
 			$search =  $this->idUser;
-			if (!stripos($path, $search) ) 
+			if (stripos($path, $search) === false)  
 			 	return true;
 			 
     		return $this->FileManager->pathIgnored($path);
