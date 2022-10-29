@@ -15,7 +15,6 @@
 
 		static public  function decodePathName() 
 	    {   
-			
 			$data = base64_decode($_GET["v"]);
 			$pathname = base64_decode($data);
 			

@@ -22,6 +22,7 @@ function list(path=false, priority = 0, search = "", range = null){
 	listTask( $("#list_task_pending") , 'listTaskPending', priority, search, range); // list task
 	listTask( $("#list_task_done") , "listTaskDone", priority, search, range) // list task
 	listTask( $("#list_task_delivered"), "listTaskDelivered", priority, search, range) // list task
+	countNotification();
 
 }
 	/*====================================================
@@ -563,5 +564,6 @@ function list(path=false, priority = 0, search = "", range = null){
 		console.log(res);
 		list();
 	}
+
 	
  

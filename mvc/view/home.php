@@ -101,7 +101,9 @@
 
 <body>
 
-
+    <div class="cont-loader">
+        <div class="loader"></div>
+    </div>
     <div class="body">
         <!-- ===============================================================================
         BODY
@@ -178,8 +180,9 @@
                     <h3>Pendiente</h3>
                 </div>
                 <div id="list_task_pending" class="center-item js_list_task" >
-                    <div id="draggable-1" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
-                        <!-- tareas pendientes -->
+                    <!-- tareas pendientes -->
+                    <div  class="loader" ></div>
+                    <!-- <div id="draggable-1" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
                         <div class="selected hidde"><i class="fas fa-check"></i></div>
                         <input type="hidden" value="0" data-this="null" class="js-data-this">
 
@@ -188,7 +191,7 @@
 
                         <img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-task">
                         <p class="item-expired">24/11/2021</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -199,7 +202,8 @@
                 <div class="center-item">
                     <div id="list_task_done" class="center-item js_list_task" >
                         <!-- tareas listas -->
-                        <div id="draggable-2" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
+                        <div  class="loader" ></div>
+                        <!-- <div id="draggable-2" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
                             <div class="selected hidde"><i class="fas fa-check"></i></div>
                             <input type="hidden" value="0" data-this="null" class="js-data-this">
 
@@ -208,7 +212,7 @@
 
                             <img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-task">
                             <p class="item-expired">24/11/2021</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -220,7 +224,8 @@
                 <div class="center-item">
                     <div id="list_task_delivered" class="center-item js_list_task" >
                         <!-- tareas entregadas -->
-                        <div id="draggable-3" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
+                        <div  class="loader" ></div>
+                        <!-- <div id="draggable-3" class="my-item" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
                             <div class="selected hidde"><i class="fas fa-check"></i></div>
                             <input type="hidden" value="0" data-this="null" class="js-data-this">
 
@@ -229,7 +234,7 @@
 
                             <img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-task">
                             <p class="item-expired">24/11/2021</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

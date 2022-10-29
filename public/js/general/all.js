@@ -136,6 +136,16 @@ function loadAjax(_url, _type , _data=null, _async=false){
     return response;
 }
 
+/*====================================================
+ON PETITION
+====================================================*/
+$(document).ajaxStart(function(e,b) {
+  $('.cont-loader').show();
+});
+  $(document).ajaxStop(function() {
+    $('.cont-loader').hide();
+});
+
 
 
 

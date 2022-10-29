@@ -6,6 +6,8 @@
     include_once ROOT_PATH."mvc/controller/ViewFileController.php";
     $message=null;
     
+    if ( isset($_GET['v']) )
+        ViewFileController::decodePathName();
     $ViewFileController = new ViewFileController();
     $pathDefault =  str_replace("drive/", "", $ViewFileController->getPathDefault());
     $getFileManagerValues = $ViewFileController->getValues(); 
@@ -20,11 +22,8 @@
     else if ( isset($_GET['download']) )
         $ViewFileController->download( $_GET['pathname'], $_GET['is_dir'] );
 
-    if ( isset($_GET['v']) ){
-        ViewFileController::decodePathName();
-    }
-    else
-        href(BASE_URL."login");
+
+        
 
  ?>
 
@@ -52,7 +51,6 @@
     <header id="bar-header">
 
         <a href="<?= BASE_URL ?>home" ><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo-bar"></a>
-        <button class="btn-bar"><i class="bars"> &#9776; </i></button>
             <nav>   
                 <li class="text-organizapp"><a href="<?= BASE_URL ?>home">OrganizApp </a></li>
                 <ul class="menu-header">
@@ -65,7 +63,9 @@
 </head>
 <body>
 
-
+    <div class="cont-loader">
+        <div class="loader"></div>
+    </div>
     <div class="body">
         <!-- ===============================================================================
         BODY
@@ -163,14 +163,15 @@
             <!-- diseño de los contenedores de tareas -->
             <div  class="myflex-hijo">
                 <div id="list" data-pathname="null" class="center-item">
-                    <div  class="my-item" >
+                    <div  id="loader" ></div>
+                    <!-- <div  class="my-item" >
                         <div class="selected hidde"><i class="fas fa-check"></i></div>
                         <input type="hidden" value="-1">
                         <i class="fas fa-folder"></i>
                         <i class="fas fa-file"></i>
                         <p data-tooltip="nombre item" class="tooltip_elemento"><span class="item-name">nombre item</span></p>
                         <div class="tooltip">Texto del tooltip</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

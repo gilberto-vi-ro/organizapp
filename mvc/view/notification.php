@@ -66,6 +66,9 @@
     
 </head>
 <body>
+    <div class="cont-loader">
+        <div class="loader"></div>
+    </div>
     <div class="body">
         <!-- ===============================================================================
         BODY
@@ -97,14 +100,14 @@
             <!-- diseño de los contenedores de tareas -->
             <div  class="myflex-hijo">
                 <div id="list" class="center-item">
-                
-                    <a href="<?= BASE_URL ?>home#" class="my-item" type="text" >
+                    <div  class="loader" ></div>
+                    <!-- <a href="<?= BASE_URL ?>home#" class="my-item" type="text" >
                         <div class="selected hidde" ><i class="fas fa-check"></i></div>
                         <input type="hidden" value="-1" data-this="null">
                         <i class="fas fa-bell item"></i>
                         <p class="item-name item">Usted tiene una tarea vencida</p>
                         <p class="item-name item">null </p>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

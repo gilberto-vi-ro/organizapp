@@ -79,7 +79,9 @@
 </head>
 <body>
 
-
+    <div class="cont-loader">
+        <div class="loader"></div>
+    </div>
     <div class="body">
         <!-- ===============================================================================
         BODY
@@ -127,14 +129,15 @@
             <!-- diseño de los contenedores de tareas -->
             <div  class="myflex-hijo">
                 <div id="list" data-pathname="null" class="center-item">
-                    <div  class="my-item" >
+                    <div  class="loader" ></div>
+                    <!-- <div  class="my-item" >
                         <div class="selected hidde"><i class="fas fa-check"></i></div>
                         <input type="hidden" value="-1">
                         <i class="fas fa-folder"></i>
                         <i class="fas fa-file"></i>
                         <p data-tooltip="nombre item" class="tooltip_elemento"><span class="item-name">nombre item</span></p>
                         <div class="tooltip">Texto del tooltip</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -83,7 +83,8 @@ NOTIFICATION WITH CSS
 ====================================================*/
 
 /* count notification */
-setInterval(countNotification, 1000);
+//setInterval(countNotification, 1000);
+countNotification();
 function countNotification() {
   $.get('notification?countNotification' ,'json').done(function(data) {
     //console.log(data);
