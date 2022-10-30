@@ -11,5 +11,5 @@ jobs:
       - name: run multi-line
         run: |
              echo OrganizApp multi-line
-             time
+             echo Hello again
              ls -la
