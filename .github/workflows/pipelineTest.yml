@@ -1,0 +1,15 @@
+name: pipelineTest
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+        name: check Out Project
+      - name: run Welcome
+        run: echo Welcome to OrganizApp
+      - name: run multi-line
+        run: echo OrganizApp multi-line
+             time
+             /*touch organizapp.txt*/
+             ls -la
