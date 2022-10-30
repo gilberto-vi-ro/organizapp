@@ -9,6 +9,7 @@ jobs:
       - name: run Welcome
         run: echo Welcome to OrganizApp
       - name: run multi-line
-        run: echo OrganizApp multi-line
+        run: |
+             echo OrganizApp multi-line
              time
              ls -la
