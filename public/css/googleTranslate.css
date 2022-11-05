@@ -98,9 +98,12 @@ body {top: 0px!important;}
     Mediaqueries
 \* ================================== */
 @media (max-width: 800px) {
-	#google_translate_element {
+  #google_translate_element {
+    margin-left: -265px;
+  }
+	/* #google_translate_element {
 		bottom: calc(100% - 50% - 53px);
-		/* width: 100%!important; */
+		//width: 100%!important;
   }
 
   .goog-te-gadget {
@@ -111,8 +114,8 @@ body {top: 0px!important;}
     width:100%!important;			
   }
 	.goog-te-gadget-simple {
-    /* width: calc(100% - 32px)!important; */
+    //width: calc(100% - 32px)!important;
     text-align: center;
-  }	
+  }	 */
 	
 }
