@@ -5,9 +5,9 @@
 ===========================================================================================*/
 #google_translate_element {
   padding: 5px;
-  position: absolute;
-  /* margin-top: -305px; */
-  margin-left: -285px;
+  position: relative;
+  left: 145px;
+  
 }
 .goog-te-banner-frame {display:none;}  /*Don't show Google Topbar */
 #goog-gt-tt {display:none!important;visibility:hidden!important;}
@@ -99,7 +99,8 @@ body {top: 0px!important;}
 \* ================================== */
 @media (max-width: 800px) {
   #google_translate_element {
-    margin-left: -265px;
+    left: calc(50% - 30px);
+    
   }
 	/* #google_translate_element {
 		bottom: calc(100% - 50% - 53px);

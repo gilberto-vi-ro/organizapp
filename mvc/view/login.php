@@ -64,9 +64,9 @@
 	<?php if (isset($_GET['sign_up']) ){?>
 		<div class="center-login">
 			<form class="login-container" action="<?= BASE_URL ?>login" method="POST">
+				<div id="google_translate_element" class=" pb-2"></div>
 				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
 				<p class="organizapp">OrganizApp</p>
-				<div id="google_translate_element" class=" pb-2" style="margin-top: -545px;"></div>
 				<input type="text" hidden="" name="register">
 				<div class="fields">
 					<div class="data">
@@ -104,9 +104,9 @@
 
 		<div class="center-login">
 			<form id="sign-in" class="login-container" action="<?= BASE_URL ?>login" method="POST">
+				<div id="google_translate_element" class=" pb-2"></div>
 				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
 				<p class="organizapp">OrganizApp</p>
-				<div id="google_translate_element" class=" pb-2" style="margin-top: -475px;"></div>
 				<input type="text" hidden="" name="login">
 				<div class="fields">
 					<div class="data">
