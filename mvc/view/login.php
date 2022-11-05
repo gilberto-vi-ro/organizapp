@@ -50,6 +50,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/plugins/ka-f.fontawesome.v5.15.4.free.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/msg.css">
 	<link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/login.css">
+	<!----========googleTranslate ======== -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/googleTranslate.css">
 	
 	
 </head>
@@ -58,11 +60,13 @@
 	<!-- ===============================================================================
 	 SIGN UP
 	=================================================================================-->
+	
 	<?php if (isset($_GET['sign_up']) ){?>
 		<div class="center-login">
 			<form class="login-container" action="<?= BASE_URL ?>login" method="POST">
-				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png"></a>
+				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
 				<p class="organizapp">OrganizApp</p>
+				<div id="google_translate_element" class=" pb-2" style="margin-top: -545px;"></div>
 				<input type="text" hidden="" name="register">
 				<div class="fields">
 					<div class="data">
@@ -75,7 +79,9 @@
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
-						<input type="password" placeholder="Contraseña" name="pwd" required="">
+						<input id="showPwd" type="password" placeholder="Contraseña" name="pwd" required="">
+						<i class="far fa-eye" id="showEye"></i>
+						<i class="far fa-eye-slash" id="hideEye"></i>
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
@@ -98,8 +104,9 @@
 
 		<div class="center-login">
 			<form id="sign-in" class="login-container" action="<?= BASE_URL ?>login" method="POST">
-				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png"></a>
+				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
 				<p class="organizapp">OrganizApp</p>
+				<div id="google_translate_element" class=" pb-2" style="margin-top: -475px;"></div>
 				<input type="text" hidden="" name="login">
 				<div class="fields">
 					<div class="data">
@@ -192,6 +199,10 @@
 		  }
 	?>
     <script src="<?= BASE_URL ?>public/js/login.js"></script>
+
+	<!----=====GOOGLE TRANSLATE ===== -->
+	<script src="<?= BASE_URL ?>public/js/plugins/translate.google.js"></script>
+    <script src="<?= BASE_URL ?>public/js/googleTranslate.js"></script>
 		
 	
 </body>

@@ -66,7 +66,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 
 }
 
-.login-container img{
+.login-container .logo{
 	width: 90px;
 	height: 90px;
 	border-radius: 50%;
@@ -126,6 +126,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 
 .login-container .organizapp{
 	 color:#E8F5FB;
+	 /* margin-left: 110px; */
 }
 .login-container .btn-login{
 	display: block;
