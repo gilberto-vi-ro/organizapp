@@ -58,6 +58,8 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/home.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/folder.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/notification.css">
+    <!----========googleTranslate ======== -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/googleTranslate.css">
   
     <!-- ===============================================================================
      MENU HORIZONTAL
@@ -203,6 +205,9 @@
     <script src="<?= BASE_URL ?>public/js/general/menu-vertical.js"></script>
     <script src="<?= BASE_URL ?>public/js/general/menu-horizontal.js"></script>
     <script src="<?= BASE_URL ?>public/js/notification.js"></script>
+    <!----=====GOOGLE TRANSLATE ===== -->
+	<script src="<?= BASE_URL ?>public/js/plugins/translate.google.js"></script>
+    <script src="<?= BASE_URL ?>public/js/googleTranslate.js"></script>
 
 </body>
 

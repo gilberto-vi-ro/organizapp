@@ -33,7 +33,7 @@
 			</div>
             <center>
 			    <p class="p-err"> Su licencia a caducado le sugerimos que pague por una licencia nueva para seguir usando la aplicacion OrganizApp.</p>
-				<p class="p-err"> Puede comunicarse a 9191538136 y gilberto.vi.ro@gmail.com para solicitar una nueva licencia.</p>
+				<p class="p-err"> Puede comunicarse a <a href="https://wa.me/529191538136" target="_blank">9191538136</a> y <a href="mailto:gilberto.vi.ro@gmail.com?Subject=Cliente%20OrganizApp">gilberto.vi.ro@gmail.com</a> para solicitar una nueva licencia.</p>
 				<br><br><br>
             </center>
 		<footer>

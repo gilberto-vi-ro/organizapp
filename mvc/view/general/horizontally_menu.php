@@ -11,6 +11,8 @@
                     <li><a id="_folder" class="" href="<?= BASE_URL ?>folder"><i class="fas fa-folder"></i>Carpetas</a> </li>
                     <li><a id="_trash" class="" href="<?= BASE_URL ?>trash"> <i class="fas fa-recycle"></i>Papelera</a></li>
                     <li><a id="_bell" class="" href="<?= BASE_URL ?>notification"> <i class="fas fa-bell"></i> </a> </li>
+                    <li> <div id="google_translate_element" class="justify-content-start" style="margin-top: -3px;"></div> </li>
+                    
                     <li> <img class="icon-perfil" src="<?= $getImg; ?>"></li>
                     <div id="_perfil" class="perfil-cont-modal">
                         <div class="perfil-container-form">
