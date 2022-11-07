@@ -10,8 +10,12 @@
             return;
         }
     }else{
-        if (isset($_GET['sendNotificationEmail']) )
+        $type = session('data_user')["tipo"];
+        if (isset($_GET['sendNotificationEmail']) && $type == 0)
             NotificationController::sendNotificationEmail();
+        else
+            href(BASE_URL."login");
+        return;
     }
     
     $message=null;

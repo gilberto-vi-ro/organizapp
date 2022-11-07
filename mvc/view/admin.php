@@ -68,7 +68,8 @@
             <nav>   
                 <li class="text-organizapp"><a href="<?= BASE_URL ?>admin">OrganizApp </a></li>
                 <ul class="menu-header" >
-                    <li><a id="_admin" href="<?= BASE_URL ?>admin"> Admin </a> </li>
+                    <li><a id="_admin" href="<?= BASE_URL ?>admin">Admin</a> </li>
+                    <li><a href="<?= BASE_URL ?>notification?sendNotificationEmail">Enviar emails</a> </li>
                     <li> <img class="icon-perfil" src="<?=  $AdminController->getImg(); ?>"></li>
                     <div id="_perfil" class="perfil-cont-modal">
                         <div class="perfil-container-form">
@@ -78,7 +79,7 @@
                             <a href="<?= BASE_URL ?>edit_profile"> <p class="perfil-txt"><i class="fas fa-user-edit"></i>Editar perfil</p></a>
                             <a href="<?= BASE_URL ?>general/logout"> <p class="perfil-txt"><i class="fas fa-sign-in-alt"></i>Cerrar sesion</p></a>
                         </div>
-                    </div>
+                    </div> 
                 </ul>
             </nav>
     </header>

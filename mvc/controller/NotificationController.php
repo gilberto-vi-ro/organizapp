@@ -97,6 +97,25 @@
 				setMsg( "error","No hay notificacion por enviar.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			}
 				
+			echo ' <button style="
+			background-color: #3B86E8;
+			outline: none;
+			border: none;
+			cursor: pointer;
+			min-height: 35px;
+			font-size: 17px;
+			/* font-weight: 700; */
+			border-radius: 30px;
+			transition: .5s;
+			color: #E8F5FB;
+			padding-left: 20px;
+			padding-right: 20px;
+			margin: 5px;
+			position:fixed;
+			top:0;
+			">
+				<a type="button" href="'.BASE_URL.'admin" style="text-decoration: none;color: #E8F5FB;"> Volver </a>
+			</button>';
 			print_r( json_encode(getMsg()) );
 			exit();
 	    }
