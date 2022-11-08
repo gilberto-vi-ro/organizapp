@@ -502,7 +502,7 @@ $(function(){
 			icon  = getIcon(data.info.extension);
 		
 		var $html =
-			`<div  class="my-item">
+			`<div  class="my-item" translate="no">
 				<div class="selected hidde"><i class="fas fa-check"></i></div>
                 <input type="hidden" value="${i}" data-this="${utf8_to_b64(JSON.stringify(data))}">
                 ${icon}

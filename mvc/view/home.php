@@ -366,7 +366,7 @@
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt row">
                     <button type="button" class="task-item-button-right"> Close modal</button>
-                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Save </button>
+                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Update </button>
                 </div>
             </form>
         </div>

@@ -400,7 +400,7 @@ function list(path=false, priority = 0, search = "", range = null){
 		if (data.info.is_dir) icon = '<i class="fas fa-folder"></i>'; else icon = '<i class="fas fa-file"></i>';
 		
 		var $html =
-			`<div  class="my-item">
+			`<div  class="my-item" translate="no">
                 <input type="hidden" value="${i}" data-this="${utf8_to_b64(JSON.stringify(data))}">
                 ${icon}
                 <p data-tooltip="${data.name}" class="tooltip_elemento"><span class="item-name">${data.name}</span></p>
@@ -464,7 +464,7 @@ function list(path=false, priority = 0, search = "", range = null){
 		let taskIsTomorrow = ( taskIsTomorrow2(data.tarea_fecha_entrega)&&data.tarea_estado!=3 )?"task-warning":"";
 
 		var $html =
-			`<div  id="${data.id_tarea}"  class="my-item ${taskIsTomorrow }"   ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
+			`<div  id="${data.id_tarea}"  class="my-item ${taskIsTomorrow }" translate="no" ondragstart="dragStart(event)" ondrag="drag(event)" draggable="true">
 				<div class="selected hidde"><i class="fas fa-check"></i></div>
                 <input type="hidden" value="${i}" data-this="${utf8_to_b64(JSON.stringify(data))}" class="js-data-this">
                 
