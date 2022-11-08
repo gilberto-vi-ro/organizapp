@@ -74,13 +74,13 @@
 			//agregamos en la BD
 			$res = $this->HomeModel->reInsertFileInDB( $file, $idFolder );
 			if ($res) {
-				setMsg( "success","Se guardo correctamente en la BD." );
+				setMsg( "success","It was saved correctly in the Database." );
 				//agregamos en FileManager
 				$res2 = $this->FileManager->uploadFile( $_FILE_ );
-				if ($res2) setMsg( "success","Se cargo correctamente en el Gestor." );
+				if ($res2) setMsg( "success","Successfully uploaded to Archive Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
-			else setMsg( "error","ocurrio un error al guardar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			else setMsg( "error","An error occurred when saving to the database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 			
 			print_r( json_encode(getMsg()) );
 	        //exit();
@@ -93,11 +93,11 @@
 	    	$data["id_folder"] = $idFolder;
 			//echo"$idFolder \n";
 	    	$res = $this->HomeModel->addNewTask($data, $idFolder);
-			if ($res === 2) setMsg( "error","La tarea ya existe en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+			if ($res === 2) setMsg( "error","The task already exists in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			else if ($res) {
-	    		setMsg( "success","La tarea se agrego en la BD." ); 
+	    		setMsg( "success","The task was added in the Database." ); 
 	    	}else{
-	    		setMsg( "error","ocurrio un error al agregar la tarea en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+	    		setMsg( "error","An error occurred while adding the task to the database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 	    	}
 			print_r( json_encode(getMsg()) );
 	    	exit();
@@ -108,9 +108,9 @@
 			//renombramos en la bd
 			$res = $this->HomeModel->editStatusTaskInDB($post);
 			if ($res) {
-	    		setMsg( "success","La tarea se actualizó en la BD." ); 
+	    		setMsg( "success","The task was updated in the Database." ); 
 	    	}else{
-	    		setMsg( "error","ocurrio un error al editar la tarea en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+	    		setMsg( "error","An error occurred when editing the task in the database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 	    	}
 			print_r( json_encode(getMsg(),JSON_UNESCAPED_UNICODE) );
 			exit();
@@ -123,11 +123,11 @@
 			
 			//renombramos en la bd
 			$res = $this->HomeModel->editTaskInDB($post);
-			if ($res === 2) setMsg( "error","La tarea ya existe en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+			if ($res === 2) setMsg( "error","The task already exists in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			else if ($res) {
-	    		setMsg( "success","La tarea se actualizó en la BD." ); 
+	    		setMsg( "success","The task was updated in the Database." ); 
 	    	}else{
-	    		setMsg( "error","ocurrio un error al editar la tarea en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+	    		setMsg( "error","An error occurred when editing the task in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 	    	}
 			print_r( json_encode(getMsg(),JSON_UNESCAPED_UNICODE) );
 			exit();
@@ -144,14 +144,14 @@
 					$oldPathname = $this->FileManager->convertToPathname ($value["carpeta_path_name"]."/".$value["archivo_nombre"]);
 					if(!$this->moveFile($oldPathname , $newPathname, $value["archivo_nombre"]))
 					{
-						setMsg( "error","Ocurrio un error al mover la tarea en la BD: ".$value["tarea_nombre"]);
+						setMsg( "error","An error occurred when moving the task in the Database: ".$value["tarea_nombre"]);
 						continue;
 					}
 				}
 				$res = $this->HomeModel->updatePathTaskInDB($idPathname, $value["id_tarea"]);
 				if ($res) 
-					setMsg( "success","La tarea Se movio correctamente en la BD: ".$value["tarea_nombre"] );
-				else {setMsg( "error","Ocurrio un error al mover la tarea en la BD: ".$value["tarea_nombre"], __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
+					setMsg( "success","The task was successfully moved in the Database: ".$value["tarea_nombre"] );
+				else {setMsg( "error","An error occurred when moving the task in the Database: ".$value["tarea_nombre"], __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
 				}
 			}
 			print_r( getMsgInText() );
@@ -167,15 +167,15 @@
 				else
 					$res = $this->HomeModel->updatePathFileInDB( $this->getIdFile($oldPathname), $this->FileManager->convertToPathname($newPathname) );
 				
-				if ($res) setMsg( "success","El archivo Se movio correctamente en la BD: ". $nameFile );
+				if ($res) setMsg( "success","The file was successfully moved to the database.: ". $nameFile );
 				else {
-					setMsg( "error","Ocurrio un error al mover el archivo en la BD:  $nameFile, puede que la ruta del archivo sea diferente a la ruta de la tarea.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+					setMsg( "error","An error occurred while moving the file in the database:  $nameFile, file path may be different from task path.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 					return false;
 				}
 				
 				//renombramos en el FileManager
 				$res2 = $this->FileManager->move( $oldPathname , $newPathname."/".$nameFile );
-				if ($res2) setMsg( "success","El archivo Se movio correctamente en el Gestor." );
+				if ($res2) setMsg( "success","The file was successfully moved in the File Manager." );
 				else {
 					setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 					return false;

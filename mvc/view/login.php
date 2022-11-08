@@ -21,18 +21,18 @@
 	MSG
 	========================================================================*/
 	if (isset($_GET['notuser']) )
-		$message="Email incorrecto.";
+		$message="Wrong email.";
 	elseif (isset($_GET['notpwd'])) {
-		$message="Contraseña incorrecta.";
+		$message="Incorrect password.";
 	}
 	elseif (isset($_GET['user_registered'])) {
-		$message="Usuario registrado Correctamente.";
+		$message="Successfully registered user.";
 	}
 	elseif (isset($_GET['user_exist'])) {
-		$message="El Email ya existe.";
+		$message="Email already exists.";
 	}
 	elseif (isset($_GET['user_not_register'])) {
-		$message="Ocurrio un error al registrar.";
+		$message="An error occurred while registering.";
 	}
 	
   ?>
@@ -71,27 +71,27 @@
 				<div class="fields">
 					<div class="data">
 						<i class="fas fa-user"></i>
-						<input type="text" placeholder="Nombre" name="nombre_c" required="">
+						<input type="text" placeholder="Name" name="nombre_c" required="">
 					</div>
 					<div class="data">
 						<i class="fas fa-user"></i>
-						<input type="email" placeholder="Email" name="email" required="">
+						<input type="email" placeholder="E-mail" name="email" required="">
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
-						<input id="showPwd" type="password" placeholder="Contraseña" name="pwd" required="">
+						<input id="showPwd" type="password" placeholder="Write Password" name="pwd" required="">
 						<i class="far fa-eye" id="showEye"></i>
 						<i class="far fa-eye-slash" id="hideEye"></i>
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
-						<input type="password" placeholder="Confirma la Contraseña" name="repeat_pwd" required="">
+						<input type="password" placeholder="Confirm Password" name="repeat_pwd" required="">
 					</div>
 				</div>
 				
 				<div class="cont-text-bottom">
-					<button type="submit" class="btn-login"> Registrarse</button>
-					<a href="?" class="text-login">Login</a>
+					<button type="submit" class="btn-login">Register</button>
+					<a href="?" class="text-login">Log in</a>
 				</div>
 			</form>
 		</div>
@@ -111,11 +111,11 @@
 				<div class="fields">
 					<div class="data">
 						<i class="fas fa-user"></i>
-						<input type="email" placeholder="Email" name="email" required="">
+						<input type="email" placeholder="E-mail" name="email" required="">
 					</div>
 					<div class="data">
 						<i class="fas fa-lock"></i>
-						<input type="password" id="showPwd" placeholder="Contraseña" name="pwd" required="">
+						<input type="password" id="showPwd" placeholder="Write Password" name="pwd" required="">
 						<i class="far fa-eye" id="showEye"></i>
 						<i class="far fa-eye-slash" id="hideEye"></i>
 					</div>
@@ -125,10 +125,10 @@
 					</div>
 				</div>
 				
-				<button type="submit" class="btn-login"> Iniciar sesion</button>
+				<button type="submit" class="btn-login">Log in</button>
 				<div class="cont-text-bottom">
-					<a href="?sign_up" class="text-login">¡Registrate aquí!</a>
-					<a id="recover_pwd" href="#" class="text-login">Recuperar contraseña</a>
+					<a href="?sign_up" class="text-login">Sign up here!</a>
+					<a id="recover_pwd" href="#" class="text-login">Recover password</a>
 				</div>
 				
 			</form>
@@ -140,7 +140,7 @@
 	<div class="msg-cont-modal" id="captcha" style="display: none;">
 		<div class="msg-container-form">	
 			<div class="msg-container-label">
-				<label class="msg-lbl-txt"><p>Ayudanos a verificar que no eres un robot.</p> 
+				<label class="msg-lbl-txt"><p>Help us verify that you are not a robot.</p> 
 				 	<label class="msg-lbl-delete"> </label> 
 				</label>
 			</div> 
@@ -149,10 +149,10 @@
 			<div class="my-captcha" >
 				<input type="text" id="randomfield" disabled="disabled">
 				<label>Captcha</label>
-				<input id="captchaEnter" size="20" maxlength="6" placeholder="Escribe el captcha" enabled="enabled">
+				<input id="captchaEnter" size="20" maxlength="6" placeholder="Write the captcha" enabled="enabled">
 			</div>
 	  		<div class="msg-cont-buttons">
-				<input type="button" class="ms-button msg-btn-refresh" value="Recargar">
+				<input type="button" class="ms-button msg-btn-refresh" value="Reload">
 				<input type="button" class="ms-button msg-btn-ok" value="Ok">
 			</div>
 		</div>
@@ -165,20 +165,20 @@
 	<div class="msg-cont-modal" id="cont_recover_pwd" style="display: none;">
 		<div class="msg-container-form">	
 			<div class="msg-container-label">
-				<label class="msg-lbl-txt"><p>Enviaremos la contraseña a tu correo.</p> 
+				<label class="msg-lbl-txt"><p>We will send the password to your email.</p> 
 				 	<label class="msg-lbl-delete"> </label> 
 				</label>
 			</div> 
 			<div class="msg-line-form"></div>
 			<!-- Cambia esta ID por otra deseada, asegúrate de cambiarla también en Los archivos CSS y JS. -->
 			<div class="my-captcha" >
-				<input id="recover_email" type="email" placeholder="Escribe tu email" enabled="enabled" style="height:30px">
+				<input id="recover_email" type="email" placeholder="Write your email" enabled="enabled" style="height:30px">
 				<label id="res_recover_pwd" for=""></label>
 			</div>
 			
 	  		<div class="msg-cont-buttons">
-				<input type="button" class="ms-button msg-btn-close" value="Cerrar">
-				<input type="button" class="ms-button msg-btn-send" value="Enviar">
+				<input type="button" class="ms-button msg-btn-close" value="Close modal">
+				<input type="button" class="ms-button msg-btn-send" value="Send">
 			</div>
 		</div>
 	</div>

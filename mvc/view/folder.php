@@ -110,7 +110,7 @@
                             <img class="icon-search" src="<?= BASE_URL ?>public/img/icon/search.png">
                         </li>
                         <li>
-                             <input id="search" type="text" class="form-control" name="bus" placeholder="Buscar" >
+                             <input id="search" type="text" class="form-control" name="bus" placeholder="Search" >
                         </li>
 
                     </ul>
@@ -118,7 +118,7 @@
             </div>
             <!-- filtrado de actividades por importante -->
             <div class="text-activity">
-                  <h3 >Carpetas</h3>  
+                  <h3 >Folders</h3>  
             </div>
         </div>
       
@@ -149,10 +149,10 @@
         =================================================================================-->
         <div id="info_item" class="info-item-cont-modal" >
             <div class="info-item-container-form">
-                <p id="name"><i class="fas fa-folder"></i><span>folder</span></p>
+                <p id="name"><i class="fas fa-folder"></i><span>Folder</span></p>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Tipo:</p>
+                    <p class="info-item-txt">Type file:</p>
                     <p id="type">Folder</p>
                 </div>
                 <div class="info-item-cont-txt">
@@ -160,24 +160,24 @@
                     <textarea id="path"  disabled="" class="info-item-textarea" >path/default</textarea>
                 </div>
                  <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Tamaño:</p>
+                    <p class="info-item-txt">Size:</p>
                     <p id="size">20 MB</p>
                 </div>
                  <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Contiene:</p>
+                    <p class="info-item-txt">Contains:</p>
                     <p id="contain">4 folders, 2 files</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Creado:</p>
+                    <p class="info-item-txt">Created:</p>
                     <p id="create_at">Nov 25, 2021 12:40 AM</p>
                 </div>
                 <div id="cont_modified" class="info-item-cont-txt">
-                    <p class="info-item-txt">Modificado:</p>
+                    <p class="info-item-txt">Modified:</p>
                     <p id="modified">Nov 9, 2021 10:40 AM</p>
                 </div>
                 <div class="info-item-line-form"></div>
                   <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Atributos:</p>
+                    <p class="info-item-txt">Attributes:</p>
                     <div class="info-item-space"></div>
                     <p>Writeable:<span id="perm_write">yes</span></p>
                     <p>Readable:<span id="perm_read">yes</span></p>
@@ -186,7 +186,7 @@
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
                     <button type="button"  class="info-item-button-fa js_btn_share"> <i class="fas fa-share"></i> </button>
                     <button type="button"  class="info-item-button-fa js_btn_download"> <i class="fas fa-download"></i> </button>
                 </div>
@@ -201,8 +201,8 @@
                 <div id="cont_file"></div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
-                    <button id="btn_download_file" type="button"  class="info-item-button-left js_btn_download"> Descargar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
+                    <button id="btn_download_file" type="button"  class="info-item-button-left js_btn_download"> Download</button>
                 </div>
             </div>
         </div>
@@ -211,16 +211,16 @@
         =================================================================================-->
         <div id="add_folder" class="info-item-cont-modal">
             <div class="info-item-container-form">
-                <p><i class="fas fa-folder"></i><span>Agregar Carpeta</span></p>
+                <p><i class="fas fa-folder"></i><span>Add folder</span></p>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Nombre:</p>
+                    <p class="info-item-txt">Name:</p>
                     <input id="input_add_name_folder" type="text" name="name-folder" value="name folder" class="info-item-input">
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
-                    <button id="btn_add_folder" type="button"  class="info-item-button-left"> Agregar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
+                    <button id="btn_add_folder" type="button"  class="info-item-button-left"> Add </button>
                 </div>
             </div>
         </div>
@@ -229,12 +229,12 @@
         =================================================================================-->
         <div id="add_file" class="info-item-cont-modal">
             <div class="info-item-container-form">
-                <p><i class="fas fa-file"></i><span>Agregar Archivo</span></p>
+                <p><i class="fas fa-file"></i><span>Add File</span></p>
                 <div class="info-item-line-form"></div>
                      
 
                 <div id="file_drop_target">
-                    Arrastre los archivos aquí para cargar
+                    Drag files here to upload
                     <b>or</b>
                     <input id="load_file" type="file" multiple />
                 </div>
@@ -245,8 +245,8 @@
                 </div> -->
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
-                    <button id="btn_add_file" type="button"  class="info-item-button-left"> Agregar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
+                    <button id="btn_add_file" type="button"  class="info-item-button-left"> Add </button>
                 </div>
             </div>
         </div>
@@ -255,16 +255,16 @@
         =================================================================================-->
         <div id="rename_folder" class="info-item-cont-modal">
             <div class="info-item-container-form">
-                <p id="type_rename"><i class="fas fa-folder"></i><span>Renombrar Carpeta</span></p>
+                <p id="type_rename"><i class="fas fa-folder"></i><span>Rename Folder</span></p>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Nombre:</p>
+                    <p class="info-item-txt">Name:</p>
                     <input id="input_rename_folder" type="text" name="name-folder" value="name folder" class="info-item-input">
                 </div>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
-                    <button id="btn_rename_folder" type="button"  class="info-item-button-left"> Renombrar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
+                    <button id="btn_rename_folder" type="button"  class="info-item-button-left"> Rename </button>
                 </div>
             </div>
         </div>
@@ -285,50 +285,50 @@
                 <div class="items">
                     <a href="<?= BASE_URL ?>home" class="group">
                         <span class="fas fa-home"></span>
-                        <span class="title">Home</span>
+                        <span class="title" translate="no">Home</span>
                     </a>
                 </div>
 
                 <div class="items">
                     <div id="menu_add" class="group menu-hidde">
                         <span class="fas fa-plus-circle"></span>
-                        <span class="title">Agregar</span>
+                        <span class="title">Add</span>
                     </div>
                     <div id="menu_add_file" class="items-child hidde">
                         <span class="fas fa-file"></span>
-                        <span class="title">file</span>
+                        <span class="title">File</span>
                     </div>
                     <div id="menu_add_folder" class="items-child hidde">
                         <span class="fas fa-folder" ></span>
-                        <span class="title">folder</span>
+                        <span class="title">Folder</span>
                     </div>
                 </div>
 
                 <div id="menu_rename_folder" class="items">
                     <div class="group">
                         <span class="fas fa-edit"></span>
-                        <span class="title">Editar</span>
+                        <span class="title">Edit</span>
                     </div>
                 </div>
 
                 <div id="menu_delete" class="items">
                     <div class="group">
                         <span class="fas fa-trash-alt"></span>
-                        <span class="title">Eliminar</span>
+                        <span class="title">Delete</span>
                     </div>
                 </div>
 
                 <div id="menu_move" class="items">
                     <div class="group">
                         <span class="fas fa-cut"></span>
-                        <span class="title">Mover</span>
+                        <span class="title" style="text-align:start">Move items</span>
                     </div>
                 </div>
 
                 <div id="menu_paste" class="items" style="display: none;">
                     <div class="group">
                         <span class="fas fa-paste"></span>
-                        <span class="title">Mover Aqui</span>
+                        <span class="title" style="text-align:start">Move items here</span>
                     </div>
                 </div>
 

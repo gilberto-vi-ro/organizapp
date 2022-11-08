@@ -123,9 +123,9 @@ function list(path=false, priority = 0, search = "", range = null){
 
 	$("#menu_edit").on('click',function( event ){ //abrir modal edit  task al dar click en  #menu_edit
 		if (dataItem.length == 0 ) 
-			{  swal("INFO", ("Selecciona una tarea o actividad."), "info"); return false; }
+			{  swal("INFO", ("Select a task or activity."), "info"); return false; }
 		else if ( dataItem.length > 1 ) 
-			{  swal("INFO", ("No se puede editar multiples tareas."), "info"); return false; }
+			{  swal("INFO", ("You can't edit multiple tasks."), "info"); return false; }
 
 		InfoItemEnabled(true);
 		getInfoItem(dataItem[0]); 
@@ -156,17 +156,17 @@ function list(path=false, priority = 0, search = "", range = null){
 	$("#menu_delete").on('click',function( event ){ //borrar item al dar click en  #menu_delete
 		var myText = null;
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona una o varias tareas.", "info"); return false; }
+			{ swal("INFO", "Select one or more tasks.", "info"); return false; }
 		else if (dataItem.length == 1) 
-			myText =("Esta seguro que deseas eliminar a: "+ dataItem[0].tarea_nombre +"?");
+			myText =("Are you sure you want to remove: "+ dataItem[0].tarea_nombre +"?");
 		else if (dataItem.length > 1) 
-			myText =("Esta seguro que deseas eliminar las tareas seleccionadas?");
+			myText =("Are you sure you want to delete the selected tasks?");
 
 		swal({
 			title:"INFO", 
 			text: myText,
 			//content: myDiv, 
-			buttons: ["Cancelar","Eliminar"],
+			buttons: ["Cancel","Delete"],
 			icon: "info"
 			}).then(function (delet) {
 				if(delet) deleteTask();
@@ -251,7 +251,7 @@ function list(path=false, priority = 0, search = "", range = null){
 	// move and paste fie
 	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{  swal("INFO", ("Selecciona una o varias tareas."), "info"); return false; }
+			{  swal("INFO", ("Select one or more tasks."), "info"); return false; }
 		move = true;
 		dataItemTask = dataItem;
 		
@@ -384,8 +384,8 @@ function list(path=false, priority = 0, search = "", range = null){
 					}
 					
 				});
-				i==0? $div_list_folder.append('<tr><td class="empty" colspan=5>No hay mas carpetas.</td></tr>'): "";
-				!data.results.length && $div_list_folder.append('<tr><td class="empty" colspan=5>Esta carpeta está vacía</td></tr>')
+				i==0? $div_list_folder.append('<tr><td class="empty" colspan=5>No more folders.</td></tr>'): "";
+				!data.results.length && $div_list_folder.append('<tr><td class="empty" colspan=5>This folder is empty.</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);
@@ -449,7 +449,7 @@ function list(path=false, priority = 0, search = "", range = null){
 					$cont_list_task.append(renderTaskRow(k,v));
 				
 				});
-				!data.results.length && $cont_list_task.append('<tr><td class="empty" colspan=5>No hay tareas.</td></tr>')
+				!data.results.length && $cont_list_task.append('<tr><td class="empty" colspan=5>No homework.</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);

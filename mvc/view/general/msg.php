@@ -7,8 +7,8 @@
 			</div> 
 			<div class="msg-line-form"></div>
 	  		<div class="msg-cont-buttons">
-				<input type="button"  class="ms-button msg-btn-cancel" value="Cerrar">
-				<input type="button"  class="ms-button msg-btn-aceptar" value="ok">
+				<input type="button"  class="ms-button msg-btn-cancel" value="Close modal">
+				<input type="button"  class="ms-button msg-btn-aceptar" value="Ok">
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 
  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'es', /*includedLanguages: 'en,es,ca,eu,gl,en,fr,it,pt,de',*/ layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: false,autoDisplay: false}, 'google_translate_element');
+    new google.translate.TranslateElement({pageLanguage: 'en', /*includedLanguages: 'en,es,ca,eu,gl,en,fr,it,pt,de',*/ layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: false,autoDisplay: false}, 'google_translate_element');
     setTimeout(function() {
         $$("body").removeAttribute("style"); //remove style of body
         // var removePopup = document.getElementById('goog-gt-tt'); //remove cont of suggest a better translation

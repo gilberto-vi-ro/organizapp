@@ -73,12 +73,12 @@
 		
 		public function recoverEmail(){
 			if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-				echo "El correo electrónico no tiene un formato de correo electrónico válido.";
+				echo "The email does not have a valid email format.";
 				exit();
 			}
 
 			if (!$this->LoginModel->emailExists($_POST["email"])){
-				echo "El correo electrónico no existe en la base de datos.";
+				echo "The email does not exist in the database.";
 				exit();
 			}
 			
@@ -105,13 +105,13 @@
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			if(mail($to,$subject,$body,$headers)){
 				if ($this->LoginModel->updatePwd($_POST["email"], password_hash( $newPwd, PASSWORD_DEFAULT ))){
-					echo 'Te hemos enviado un mensaje con asunto "OrganizApp"';
+					echo 'We have sent you a message with the subject "OrganizApp"';
 				}else{
-					echo "Ocurrió un error al recuperar la contraseña.";
+					echo "An error occurred while retrieving the password.";
 				}
 			}
 			else 
-				echo 'Se produjo un error al enviar el correo electrónico';
+				echo 'There was an error sending the emai.';
 			exit();
 		}
 

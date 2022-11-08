@@ -84,9 +84,11 @@
 }
 
 .ms-button {
-    width: 100px;
+    min-width: 100px;
     height: 35px;
     padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     background: #3B86E8;
     font-size: 17px;
     color: #ddd;

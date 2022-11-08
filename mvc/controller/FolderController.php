@@ -91,7 +91,7 @@
 				$html =  '<p style="text-align: justify;"> '.$text.' </p>';
 			}
 	    	else
-	    		$html = "Archivo no soportado.";
+	    		$html = "File not supported.";
 	    			
 	    	echo ($html);
 
@@ -130,13 +130,13 @@
 			$idFolder = $this->FolderModel->getIdFolder($pathname, $this->idUser);
 			$res = $this->FolderModel->reInsertFileInDB( $file, $idFolder );
 			if ($res) {
-				setMsg( "success","Se guardo correctamente en la BD." );
+				setMsg( "success","It was saved correctly in the Database." );
 				//agregamos en FileManager
 				$res2 = $this->FileManager->uploadFile( $_FILE_ );
-				if ($res2) setMsg( "success","Se cargo correctamente en el Gestor." );
+				if ($res2) setMsg( "success","Successfully uploaded to Archive Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
-			else setMsg( "error","ocurrio un error al guardar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			else setMsg( "error","An error occurred when saving to the database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 			
 			print_r( json_encode(getMsg()) );
 	        exit();
@@ -149,19 +149,19 @@
 	    	}
 		
 	   		if ($isDir){
-	   			echo "Espere mientras zipiamos la carpeta...";
+	   			echo "Please wait while we zip the folder...";
 				   $file['name']= $this->FileManager->getName($pathname).".zip";
 				   $file['size']=0;
 				   $file['extension']="zip";
 				   $myPathname = $this->FileManager->getPath($pathname);
 				   $idFolder = $this->FolderModel->getIdFolder(substr($myPathname,0,-1), $this->idUser);
 				   $res = $this->FolderModel->reInsertFileInDB( $file, $idFolder );
-				   if ($res) echo"Se guardo correctamente en la BD";
-				   else echo "ocurrio un error al guardar en la BD";
+				   if ($res) echo"It was saved correctly in the Database";
+				   else echo "An error occurred when saving to the Database";
 	   			$this->FileManager->downloadFolder($pathname);
 	   		}
 	   		else{
-	   			echo "Espere mientras preparomos el archivo...";
+	   			echo "Please wait while we prepare the file...";
 	   			$this->FileManager->downloadFile($pathname);
 	   		}
 	        exit();
@@ -178,13 +178,13 @@
 			$data['id_user'] = $this->idUser;
 			$res = $this->FolderModel->createFolderInDB($data);
 
-			if($res==2) {setMsg( "error","La carpeta ya existe en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );}
-			else if($res==0) {setMsg( "error","Ocurrio un error al crear en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );}
+			if($res==2) {setMsg( "error","The folder already exists in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );}
+			else if($res==0) {setMsg( "error","An error occurred when creating in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );}
 			else{
-				setMsg( "success","La carpeta se creo en la BD.") ;
+				setMsg( "success","The folder was created in the Database.") ;
 				$this->FileManager->setPath($pathname);
 				$res2 = $this->FileManager->createDir($name);
-				if ($res2) setMsg( "success","La carpeta se creo en el Gestor." );
+				if ($res2) setMsg( "success","The folder was created in the File Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
 			print_r( json_encode(getMsg()) );
@@ -205,16 +205,16 @@
 				$res = $this->FolderModel->renameFileInDB($idFolder, $newname, $newExt, $this->getIdFile($oldPathname));
 			}
 
-			if ($res === 2) setMsg( "error","El nombre ya existe en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+			if ($res === 2) setMsg( "error","The name already exists in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			else if ($res) {
-				setMsg( "success","Se renombro correctamente en la BD." );
+				setMsg( "success","It was renamed correctly in the Database." );
 				//renombramos en el FileManager
 				$res2 = $this->FileManager->rename($oldPathname, $newPathname);
 
-				if ($res2) setMsg( "success","Se renombro correctamente en el Gestor." );
+				if ($res2) setMsg( "success","It was successfully renamed in Archive Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
-			else setMsg( "error","ocurrio un error al renombrar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+			else setMsg( "error","An error occurred when renaming in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 
 			print_r( json_encode(getMsg()) );
 			exit();
@@ -234,12 +234,12 @@
 					$res = $this->FolderModel->updatePathFileInDB( $this->getIdFile($oldPathname), $this->FileManager->convertToPathname($_newPathname) );
 				
 
-				if ($res) setMsg( "success","Se movio correctamente en la BD." );
-				else {setMsg( "error","ocurrio un error al mover en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
+				if ($res) setMsg( "success","It was moved correctly in the Database." );
+				else {setMsg( "error","An error occurred when moving in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
 				}
 				//renombramos en el FileManager
 				$res2 = $this->FileManager->move( $oldPathname , $newPathname );
-				if ($res2) setMsg( "success","Se movio correctamente en el Gestor." );
+				if ($res2) setMsg( "success","Moved successfully in Archive Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
 			print_r( json_encode(getMsg()) );
@@ -259,14 +259,14 @@
 					//$ext = $this->FileManager->getExtension($name);
 					$res = $this->FolderModel->updateFileToTrashInDB($name.".trash", "trash", $this->getIdFile($pathName));
 				} 
-				if ($res) setMsg( "success","Se elimino correctamente en la BD." );
-				else {setMsg( "error","ocurrio un error al eliminar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );	continue;
+				if ($res) setMsg( "success","It was deleted correctly in the Database." );
+				else {setMsg( "error","An error occurred when deleting in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );	continue;
 				}
 				
 				//renombramos en el FileManager
 				$res2 = $this->FileManager->rename( $pathName, $pathName.".trash" );
 
-				if ($res2) setMsg( "success","Se elimino correctamente en el Gestor." );
+				if ($res2) setMsg( "success","Deleted successfully in Archive Manager." );
 				else setMsg( "error",$this->FileManager->getMsg("msg"), $this->FileManager->getMsg("where") ,$this->FileManager->getMsg("line") );
 			}
 			print_r( json_encode(getMsg()) );

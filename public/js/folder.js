@@ -107,15 +107,15 @@ $(function(){
 
 	$("#menu_rename_folder").on('click',function( event ){ //abrir modal rename al dar click en  #menu_rename_folder
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona un elemento.", "info"); return false; }
+			{ swal("INFO", "Select an item.", "info"); return false; }
 		else if ( dataItem.length > 1 ) 
-			{ swal("INFO", "No se puede editar multiples Items.", "info"); return false; }
+			{ swal("INFO", "Can't edit multiple Items.", "info"); return false; }
 
 		let name = dataItem[0].name;
 		let isDir = dataItem[0].info.is_dir;
 
-		if (isDir) $("#type_rename").html('<i class="fas fa-folder"></i><span>Renombrar Carpeta</span>');
-		else  $("#type_rename").html('<i class="fas fa-file"></i><span>Renombrar Archivo</span>');
+		if (isDir) $("#type_rename").html('<i class="fas fa-folder"></i><span>Rename Folder</span>');
+		else  $("#type_rename").html('<i class="fas fa-file"></i><span>Rename File</span>');
 
 		$("#input_rename_folder").val(name);
 		show("#rename_folder","flex");
@@ -137,7 +137,7 @@ $(function(){
 	});
 
 	$("#btn_add_file").on('click',function( event ){ //agregar archivo al dar click en  #btn_add_file
-		{ swal("INFO", "Los archivos se cargan automaticamente", "info"); return false; }
+		{ swal("INFO", "Files are uploaded automatically", "info"); return false; }
 		// let pathname = $( "#list" ).attr("data-pathname");
 		// let name = $( "#input_add_name_folder" ).val();
 	
@@ -169,7 +169,7 @@ $(function(){
 
 	$("#menu_delete").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
+			{ swal("INFO", "Select one or more Elements.", "info"); return false; }
 		
 		//console.log(dataItem);
 
@@ -187,7 +187,7 @@ $(function(){
 	// move and paste fie
 	$("#menu_move").on('click',function( event ){ //eliminar Items al dar click en  #menu_delete
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios Elementos.", "info"); return false; }
+			{ swal("INFO", "Select one or more Elements.", "info"); return false; }
 		move = true;
 		
 		hide("#menu_move");
@@ -442,7 +442,7 @@ $(function(){
 						$div_list.append(renderFileRow(k,v));
 					}
 				});
-				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>Esta carpeta está vacía</td></tr>')
+				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>This folder is empty</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);
@@ -484,7 +484,7 @@ $(function(){
 					}
 				});
 
-				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>No se encontraron resultados.</td></tr>')
+				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>No results found.</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);

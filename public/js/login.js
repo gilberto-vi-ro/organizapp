@@ -63,7 +63,7 @@ $("#sign-in").on('submit',function( event ){ //abrir modal captacha al dar submi
     
     }else {
         // El mensaje de alerta que se mostrará cuando el usuario ingrese un Captcha incorrecto 
-        alert('Por favor, verifica el captcha');
+        alert('Please verify the captcha');
     }
     return false ;
 });

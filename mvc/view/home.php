@@ -136,7 +136,7 @@
                             <img class="icon-search" src="<?= BASE_URL ?>public/img/icon/search.png">
                         </li>
                         <li>
-                            <input id="id_search" type="text" class="form-control" name="bus" placeholder="Buscar">
+                            <input id="id_search" type="text" class="form-control" name="bus" placeholder="Search">
                         </li>
                     </ul>
                 </div>
@@ -145,15 +145,15 @@
             <!-- filtrado de actividades por importante -->
 
             <div class="text-activity">
-                <h3>Actividades</h3>
+                <h3>Activities</h3>
             </div>
             <div>
                 <form class="combo">
                     <select id="task_priority">
                         <option value="0"> All </option>
-                        <option value="1"> Urgente </option>
-                        <option value="2">Importante </option>
-                        <option value="3">No urgente </option>
+                        <option value="1"> Urgent </option>
+                        <option value="2">Important </option>
+                        <option value="3">Not urgent </option>
                     </select>
                 </form>
             </div>
@@ -179,7 +179,7 @@
             <!-- contenedor numero 1 -->
             <div class="myflex-hijo" ondrop="drop(event,'list_task_pending')" ondragover="dragover(event)">
                 <div class="cont-text-hijo">
-                    <h3>Pendiente</h3>
+                    <h3>Pending</h3>
                 </div>
                 <div id="list_task_pending" class="center-item js_list_task" >
                     <!-- tareas pendientes -->
@@ -199,7 +199,7 @@
 
             <div class="myflex-hijo" ondrop="drop(event,'list_task_done')" ondragover="dragover(event)">
                 <div class="cont-text-hijo">
-                    <h3>Listo</h3>
+                    <h3>Done</h3>
                 </div>
                 <div class="center-item">
                     <div id="list_task_done" class="center-item js_list_task" >
@@ -221,7 +221,7 @@
 
             <div class="myflex-hijo" ondrop="drop(event,'list_task_delivered')" ondragover="dragover(event)">
                 <div class="cont-text-hijo">
-                    <h3>Entregado</h3>
+                    <h3>Delivered</h3>
                 </div>
                 <div class="center-item">
                     <div id="list_task_delivered" class="center-item js_list_task" >
@@ -270,41 +270,41 @@
                 <p id="add_task_type"><img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-new-task"><span class="txt-new-task">New task</span></p>
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Nombre:</p>
+                    <p class="task-item-txt">Name:</p>
                     <input id="add_task_name" type="text" name="name" placeholder="Nombre" required="">
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Fecha Entrega:</p>
+                    <p class="task-item-txt">Deliver date:</p>
                     <input id="add_task_delivery_date" type="datetime-local" name="delivery_date" min="2022-01-01T08:30" max="2099-06-30T16:30" required="">
                     <!--value="2022-01-01T08:30" -->
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Estado:</p>
+                    <p class="task-item-txt">Status:</p>
                     <select id="add_task_status" name="status" required="">
-                        <option hidden="" value="">Seleccione una opcion</option>
-                        <option value="1">Pendiente </option>
-                        <option value="2">Listo </option>
-                        <option value="3">Entregado </option>
+                        <option hidden="" value="">Select an option</option>
+                        <option value="1">Pending </option>
+                        <option value="2">Done </option>
+                        <option value="3">Delivered </option>
                     </select>
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Descripcion:</p>
-                    <textarea id="add_task_description" name="description" placeholder="descripcion" required=""></textarea>
+                    <p class="task-item-txt">Description:</p>
+                    <textarea id="add_task_description" name="description" placeholder="Description" required=""></textarea>
                 </div>
                 <div id="cont_modified" class="task-item-cont-txt">
-                    <p class="task-item-txt">Prioridad:</p>
+                    <p class="task-item-txt">Priority:</p>
                     <select id="add_task_priority" name="priority" required="">
-                        <option hidden="" value="">Seleccione una opcion</option>
-                        <option value="1"> Urgente </option>
-                        <option value="2">Importante </option>
-                        <option value="3">No urgente </option>
+                        <option hidden="" value="">Select an option</option>
+                        <option value="1"> Urgent </option>
+                        <option value="2">Important </option>
+                        <option value="3">Not urgent </option>
                     </select>
                 </div>
                 <div class="task-item-line-form"></div>
 
                 <div class="task-item-cont-txt row">
-                    <button type="button" class="task-item-button-right"> Cerrar </button>
-                    <button type="submit" class="task-item-button-left js_btn_add_task"> Agregar </button>
+                    <button type="button" class="task-item-button-right"> Close modal</button>
+                    <button type="submit" class="task-item-button-left js_btn_add_task"> Add </button>
                 </div>
             </form>
         </div>
@@ -316,47 +316,47 @@
                 <p ><img src="<?= BASE_URL ?>public/img/icon/task.png" class="logo-new-task"><span class="txt-new-task">Editar Tarea</span></p>
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Nombre:</p>
-                    <textarea id="edit_task_name" name="name" required="">descripcion </textarea>
+                    <p class="task-item-txt">Name:</p>
+                    <textarea id="edit_task_name" name="name" required="">description </textarea>
                 </div>
                 <div id="cont_edit_task_path" class="task-item-cont-txt">
                     <p class="task-item-txt">Path:</p>
                     <textarea id="edit_task_path" required="">Default </textarea>
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Fecha Entrega:</p>
+                    <p class="task-item-txt">Deliver date:</p>
                     <input id="edit_task_delivery_date" type="datetime-local" name="delivery_date" min="2022-01-01T08:30" max="2099-06-30T16:30" required="">
                     <!--value="2022-01-01T08:30" -->
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Estado:</p>
+                    <p class="task-item-txt">Status:</p>
                     <select id="edit_task_status" name="status" required="">
-                        <option hidden="" value="">Seleccione una opcion</option>
-                        <option value="1">Pendiente </option>
-                        <option value="2">Listo </option>
-                        <option value="3">Entregado </option>
+                        <option hidden="" value="">Select an option</option>
+                        <option value="1">Pending </option>
+                        <option value="2">Done </option>
+                        <option value="3">Delivered </option>
                     </select>
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Descripcion:</p>
-                    <textarea id="edit_task_description" name="description" required="">descripcion </textarea>
+                    <p class="task-item-txt">Description:</p>
+                    <textarea id="edit_task_description" name="description" required="">Description </textarea>
                 </div>
                 <div class="task-item-cont-txt">
-                    <p class="task-item-txt">Prioridad:</p>
+                    <p class="task-item-txt">Priority:</p>
                     <select id="edit_task_priority" name="priority" required="">
-                        <option hidden="" value="">Seleccione una opcion</option>
-                        <option value="1"> Urgente </option>
-                        <option value="2">Importante </option>
-                        <option value="3">No urgente </option>
+                        <option hidden="" value="">Select an option</option>
+                        <option value="1"> Urgent </option>
+                        <option value="2">Important </option>
+                        <option value="3">Not urgent </option>
                     </select>
                 </div>
                 <div class="task-item-line-form"></div>
                     <div class="task-item-cont-txt">
-                        <p class="task-item-txt">Archivo:</p>
+                        <p class="task-item-txt">File:</p>
                         <label id="edit_task_name_file" type="text" >name_file</label>
                     </div>
                     <div class="task-item-cont-txt">
-                        <p class="task-item-txt">Path Archivo:</p>
+                        <p class="task-item-txt">Path File:</p>
                         <a id="edit_task_path_file" href="<?= BASE_URL ?>folder#" type="text" >null</a>
                     </div>
                     <div class="task-item-cont-txt">
@@ -365,8 +365,8 @@
                     </div>
                 <div class="task-item-line-form"></div>
                 <div class="task-item-cont-txt row">
-                    <button type="button" class="task-item-button-right"> Cerrar </button>
-                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Guardar </button>
+                    <button type="button" class="task-item-button-right"> Close modal</button>
+                    <button type="submit" class="task-item-button-left js_btn_edit_task"> Save </button>
                 </div>
             </form>
         </div>
@@ -389,42 +389,42 @@
                 <div class="items">
                     <a href="<?= BASE_URL ?>home" class="group">
                         <span class="fas fa-home"></span>
-                        <span class="title">Home</span>
+                        <span class="title" translate="no">Home</span>
                     </a>
                 </div>
 
                 <div class="items">
                     <div id="menu_add" class="group menu-hidde">
                         <span class="fas fa-plus-circle"></span>
-                        <span class="title">Agregar</span>
+                        <span class="title">Add</span>
                     </div>
                 </div>
 
                 <div id="menu_edit" class="items">
                     <div class="group">
                         <span class="fas fa-edit"></span>
-                        <span class="title">Editar</span>
+                        <span class="title">Edit</span>
                     </div>
                 </div>
 
                 <div id="menu_delete" class="items">
                     <div class="group">
                         <span class="fas fa-trash-alt"></span>
-                        <span class="title">Eliminar</span>
+                        <span class="title">Delete</span>
                     </div>
                 </div>
 
                 <div id="menu_move" class="items">
                     <div class="group">
                         <span class="fas fa-cut"></span>
-                        <span class="title">Mover</span>
+                        <span class="title" style="text-align:start">Move items</span>
                     </div>
                 </div>
 
                 <div id="menu_paste" class="items" style="display: none;">
                     <div class="group">
                         <span class="fas fa-paste"></span>
-                        <span class="title">Mover Aqui</span>
+                        <span class="title" style="text-align:start">Move items here</span>
                     </div>
                 </div>
 
