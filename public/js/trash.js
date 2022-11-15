@@ -58,21 +58,21 @@ $(function(){
 		var myText = null;
 		//let pathname = $( "#list" ).attr("data-pathname");
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios elementos", "info"); return false; }
+			{ swal("INFO", "Select one or more Elements.", "info"); return false; }
 		else if (dataItem.length == 1) {
 			if(dataItem[0].info.is_dir)
-				myText = "Si eliminas carpetas, las tareas en ellas tambien se eliminaran. Esta seguro que deseas eliminar a: "+ dataItem[0].name +"?";
+				myText = "If you delete folders, the tasks in them will also be deleted. Are you sure you want to delete: "+ dataItem[0].name +"?";
 			else
-				myText = "Esta seguro que deseas eliminar a: "+ dataItem[0].name +"?";
+				myText = "Are you sure you want to delete: "+ dataItem[0].name +"?";
 		}
 		else if (dataItem.length > 1) 
-			myText = "Si eliminas carpetas, las tareas en ellas tambien se eliminaran. Esta seguro que deseas eliminar los elementos seleccionados?";
+			myText = "If you delete folders, the tasks in them will also be deleted. Are you sure you want to delete the selected items?";
 
 		swal({
 			title:"INFO", 
 			text: myText,
 			//content: myDiv, 
-			buttons: ["Cancelar","Eliminar"],
+			buttons: ["Cancel","Delete"],
 			icon: "info"
 			}).then(function (delet) {
 				if(delet) deleteFile();
@@ -91,7 +91,7 @@ $(function(){
 
 	$("#menu_restore_trash").on('click',function( event ){ //restaurar Items al dar click en  #menu_restore
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona uno o varios elementos.", "info"); return false; }
+			{ swal("INFO", "Select one or more Elements.", "info"); return false; }
 		//let pathname = $( "#list" ).attr("data-pathname");
 		//console.log(dataItem);
 
@@ -190,7 +190,7 @@ $(function(){
 				$.each(data.results,function(k,v){ //recorremos los resultados
 					$div_list.append(renderFileRow(k,v));
 				});
-				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>Esta carpeta está vacía</td></tr>')
+				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>This folder is empty</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);
@@ -221,7 +221,7 @@ $(function(){
 				$.each(data.results,function(k,v){ //recorremos los resultados
 					$div_list.append(renderFileRow(k,v));
 				});
-				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>No se encontraron resultados.</td></tr>')
+				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>No results found.</td></tr>')
 				//data.is_writable ? $('#body').removeClass('no_write') : $('body').addClass('no_write');
 			} else {
 				console.warn(data.results);
@@ -236,7 +236,7 @@ $(function(){
 		if (data.info.is_dir) icon = '<i class="fas fa-folder icon"></i>'; else icon = '<i class="fas fa-file icon"></i>';
 		
 		var $html =
-			`<div  class="my-item">
+			`<div  class="my-item" translate="no">
 					<div class="selected hidde"><i class="fas fa-check"></i></div>
 	                <input type="hidden" value="${i}" data-this="${utf8_to_b64(JSON.stringify(data))}">
 	                ${icon}
@@ -267,7 +267,7 @@ $(function(){
 		let name = this_data.info.is_dir? '<i class="fas fa-folder"></i><span>'+this_data.name+'</span>':'<i class="fas fa-file"></i><span>'+this_data.name+'</span>';
 			type = this_data.info.is_dir? "Folder":"File";
 			size = formatFileSize(this_data.size);
-			contain = this_data.info.is_dir? this_data.info.dirs +' Carpetas, '+this_data.info.files+' Archivos':'1 Archivo';
+			contain = this_data.info.is_dir? this_data.info.dirs +' Folders, '+this_data.info.files+' Files':'1 File';
 			create_at = formatTimestamp(this_data.ctime);
 			modified = formatTimestamp(this_data.mtime);
 			perm_write = this_data.is_writable? "true":"false";

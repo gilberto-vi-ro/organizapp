@@ -156,7 +156,7 @@
                     <p id="type">Folder</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Path:</p>
+                    <p class="info-item-txt">File path:</p>
                     <textarea id="path"  disabled="" class="info-item-textarea" >path/default</textarea>
                 </div>
                  <div class="info-item-cont-txt">

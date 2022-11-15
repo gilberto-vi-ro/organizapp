@@ -95,15 +95,15 @@
 					$res = $this->TrashModel->restoreFileOfTrashInDB($name, $ext, $this->getIdFile($pathName));
 				} 
 
-				if ($res) setMsg( "success","Se restauro correctamente en la BD." );
-				else {setMsg( "error","ocurrio un error al restaurar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); continue;
+				if ($res) setMsg( "success","It was successfully restored in the Database." );
+				else {setMsg( "error","An error occurred while restoring to the database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); continue;
 				}
 				
 				//renombramos en el FileManager
 				$res2 = $this->FileManager->rename( $pathName , replaceTrash($pathName) );
 
-				if ($res2) setMsg( "success","Se restauro correctamente en el Gestor." );
-				else setMsg( "error","ocurrio un error al restaurar en el Gestor.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+				if ($res2) setMsg( "success","Restored successfully in Archive Manager." );
+				else setMsg( "error","An error occurred while restoring in Archive Manager.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 			}
 			print_r( json_encode(getMsg()));
 			exit();
@@ -122,14 +122,14 @@
 					$res = $this->TrashModel->deleteFileInDB($this->getIdFile($pathName));	
 				
 
-				if ($res) setMsg( "success","Se elimino correctamente en la BD." );
-				else {setMsg( "error","ocurrio un error al eliminar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
+				if ($res) setMsg( "success","It was deleted correctly in the Database." );
+				else {setMsg( "error","An error occurred when deleting in the Database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );		continue;
 				}
 				//borramos en el FileManager
 				$res2=$this->FileManager->delete( $value["path_name"] );
 
-				if ($res2) setMsg( "success","Se elimino correctamente en el Gestor." );
-				else setMsg( "error","ocurrio un error al eliminar en el Gestor.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+				if ($res2) setMsg( "success","It was successfully deleted in the File Manager." );
+				else setMsg( "error","An error occurred while deleting in File Manager.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 			}
 			print_r( json_encode(getMsg()));
 			exit();

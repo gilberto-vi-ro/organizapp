@@ -33,11 +33,11 @@ $(function(){
 		
 		var myText = null;
 		if (dataItem.length == 0 ) 
-			{ swal("INFO", "Selecciona una o varias notificaciones.", "info"); return false; }
+			{ swal("INFO", "Select one or more notifications.", "info"); return false; }
 		else if (dataItem.length == 1) 
-			myText =("Esta seguro que deseas eliminar la notificacion?");
+			myText =("Are you sure you want to remove the notification?");
 		else if (dataItem.length > 1) 
-			myText =("Esta seguro que desea eliminar las notificaciones?");
+			myText =("Are you sure you want to remove notifications?");
 
 		swal({
 			title:"INFO", 
@@ -98,8 +98,8 @@ $(function(){
 		info_item_name_task.innerHTML =(`${this_data.tarea_nombre}`);
 		info_item_url.innerHTML =(`${this_data.carpeta_path_name}`);
 		info_item_url.href =(BASE_URL+"home#"+`${this_data.carpeta_path_name}`);
-		info_item_status.innerHTML =(`${this_data.tarea_estado==1?"Pendiente":this_data.tarea_estado==2?"Listo":"Entregado"}`);	
-		info_item_priority.innerHTML =(`${this_data.tarea_prioridad==1?"Urgente":this_data.tarea_prioridad==2?"Importante":"No urgente"}`);	
+		info_item_status.innerHTML =(`${this_data.tarea_estado==1?"Pending":this_data.tarea_estado==2?"Done":"Delivered"}`);	
+		info_item_priority.innerHTML =(`${this_data.tarea_prioridad==1?"Urgent":this_data.tarea_prioridad==2?"Important":"Not urgent"}`);	
 		info_item_date_notification.innerHTML =(`${this_data.notificacion_fecha_registro}`);							
 								
 		show("#info_item", "flex");
@@ -150,7 +150,7 @@ $(function(){
 						$div_list.append(renderFolderRow(k,v));
 				});
 				
-				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>Esto está vacío</td></tr>')
+				!data.results.length && $div_list.append('<tr><td class="empty" colspan=5>This is empty</td></tr>')
 				
 			} else {
 				console.warn(data.results);
@@ -166,8 +166,8 @@ $(function(){
 					<input type="hidden" value="${i}" data-this="${utf8_to_b64(JSON.stringify(data))}">
 					
 					<p class="item-name item"><i class="fas fa-bell item"></i>
-						${data.mensaje_mensaje}, <span> nombre: </span> ${data.tarea_nombre},
-						<span>ruta: </span>${data.carpeta_path_name}
+						${data.mensaje_mensaje}, <span> Name: </span> ${data.tarea_nombre},
+						<span>Path: </span>${data.carpeta_path_name}
 					</p>
 					<p class="item-name item"><span>${data.notificacion_fecha_registro}</span></p>
 				</a>

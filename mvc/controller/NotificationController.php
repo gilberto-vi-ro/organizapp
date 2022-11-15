@@ -73,9 +73,9 @@
 					$res = $this->NotificationModel->insertNotification( $task->id_tarea, $idMsg );
 					if ($res == 2 ) echo '';
 					else if ($res) {
-						setMsg( "success","La notificacion se inserto en la BD." ); 
+						setMsg( "success","The notification was inserted in the Database." ); 
 					}else{
-						setMsg( "error","ocurrio un error al insertar notificacion en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+						setMsg( "error","An error occurred when inserting notification in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 					}
 				}
 			}
@@ -94,7 +94,7 @@
 					echo "<br>";
 				}
 			}else{
-				setMsg( "error","No hay notificacion por enviar.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+				setMsg( "error","There is no notification to send.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			}
 				
 			echo ' <button style="
@@ -162,9 +162,9 @@
 			$res = $this->NotificationModel->seenNotification( $idNotification );
 			
 			if ($res) {
-				setMsg( "success","La notificacion ha sido vista en la BD." ); 
+				setMsg( "success","The notification has been seen in the Database." ); 
 			}else{
-				setMsg( "error","ocurrio un error al ver notificacion en la BD.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
+				setMsg( "error","An error occurred when viewing notification in the Database.",  __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() ); 
 			}
 				
 			print_r( json_encode(getMsg()) );
@@ -185,8 +185,8 @@
 				//borramos en la bd
 				$res = $this->NotificationModel->deleteNotification($key->id_notificacion);
 				
-				if ($res) setMsg( "success","Se elimino correctamente en la BD." );
-				else {setMsg( "error","ocurrio un error al eliminar en la BD.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
+				if ($res) setMsg( "success","It was successfully removed from the Data Base." );
+				else {setMsg( "error","An error occurred while deleting the database.", __CLASS__."->".__FUNCTION__ , (new Exception(""))->getLine() );
 				}
 			}
 			print_r( json_encode(getMsg()));

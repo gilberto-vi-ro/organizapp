@@ -19,9 +19,9 @@
     MSG
     ========================================================================*/
     if (isset($_GET['saved_profile']) )
-        $message="Datos actualizados.";
+        $message="Updated data.";
     elseif (isset($_GET['not_saved_profile'])) {
-        $message="Ocurrio un error al actualizar.";
+        $message="An error occurred while updating.";
     }
   
 
@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/msg.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/general/menu-horizontal.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/edit_profile.css">
+    <!----========googleTranslate ======== -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/googleTranslate.css">
     
 	<!-- ===============================================================================
      MENU HORIZONTAL
@@ -59,8 +61,8 @@
     </header>
 </head>
 <body>
-	<h1 class="body-txt">Editando perfil</h1>
-
+	<h1 class="body-txt">Edit profile</h1>
+    <div id="google_translate_element" style="display:none"></div>
 
     <div  class="edit-perfil-cont-modal" >
         <form class="edit-perfil-container-form" action="<?= BASE_URL ?>edit_profile" method="POST" enctype="multipart/form-data">
@@ -75,20 +77,20 @@
             <input id="input_file" type="file" name="img"  value="hola" hidden="">
 
             <div class="div-cont-label-input">
-                <label class="lbl">Nombre Completo:</label>
+                <label class="lbl">Full name:</label>
                 <input type="text" name="name_c" class="input-form-trasparent" value="<?= $EditProfileController->getName(); ?>" >
             </div>
             <div class="div-cont-label-input">
-                <label class="lbl" >Nueva Contraseña:</label>
+                <label class="lbl" >New Password:</label>
                 <input type="password" name="new_pwd" class="input-form-trasparent" value="default" >
             </div>
              <div class="div-cont-label-input">
-                <label class="lbl" >Confirmar Contraseña:</label>
+                <label class="lbl" >Confirm Password:</label>
                 <input type="password" name="confirm_pwd" class="input-form-trasparent" value="default" >
             </div>
           
             <div class="edit-perfil-line-form"></div>
-            <button type="subnit" class="edit-perfil-btn">Guardar cambios</button>
+            <button type="subnit" class="edit-perfil-btn">Save Changes</button>
         </form>
     </div>
 
@@ -106,7 +108,9 @@
                 echo "<script src=".BASE_URL."public/js/general/msg.js></script>";
           }
     ?>
-
     <script src="<?= BASE_URL ?>public/js/edit_profile.js"></script>
+    <!----=====GOOGLE TRANSLATE ===== -->
+	<script src="<?= BASE_URL ?>public/js/plugins/translate.google.js"></script>
+    <script src="<?= BASE_URL ?>public/js/googleTranslate.js"></script>
 </body>
 </html>

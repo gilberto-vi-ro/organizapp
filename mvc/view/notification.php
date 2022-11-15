@@ -84,7 +84,7 @@
         
             <!-- filtrado de actividades por importante -->
             <div class="text-activity">
-                  <h3 >Notificaciones</h3>  
+                  <h3 >Notifications</h3>  
             </div>
             <!-- rango de fecha -->
             <div class="date-range">
@@ -123,34 +123,34 @@
         =================================================================================-->
         <div id="info_item" class="info-item-cont-modal" >
             <div class="info-item-container-form">
-                <p id="info_item_msg"><i class="fas fa-bell item"></i>Usted tiene una tarea que ya expiro.</p>
+                <p id="info_item_msg"><i class="fas fa-bell item"></i>You have a task that has already expired.</p>
                 <div class="info-item-line-form"></div>
 
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Nombre de la tarea:</p>
+                    <p class="info-item-txt">Name of the homework:</p>
                     <p id="info_item_name_task">null</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Ruta:</p>
+                    <p class="info-item-txt">File path:</p>
                     <a id="info_item_url" href="#">url</a>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Estado:</p>
+                    <p class="info-item-txt">Status:</p>
                      <p id="info_item_status">null</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Prioridad:</p>
+                    <p class="info-item-txt">Priority:</p>
                      <p id="info_item_priority">null</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Fecha de notificacion:</p>
+                    <p class="info-item-txt">Date of notification:</p>
                     <p id="info_item_date_notification">mydate</p>
                 </div>
                 
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
                     <!--button type="button"  class="info-item-button-left"> Descargar </button-->
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
                 </div>
             </div>
         </div>
@@ -173,19 +173,19 @@
                 <div class="items">
                     <a href="<?= BASE_URL ?>home" class="group">
                         <span class="fas fa-home"></span>
-                        <span class="title">Home</span>
+                        <span class="title" translate="no">Home</span>
                     </a>
                 </div>
                 <div id="menu_delete" class="items">
                     <div class="group">
                         <span class="fas fa-trash-alt"></span>
-                        <span class="title">Eliminar</span>
+                        <span class="title">Delete</span>
                     </div>
                 </div>
                 <div class="items">
                     <a href="?" class="group">
                         <span class="fas fa-sync-alt"></span>
-                        <span class="title">Recargar</span>
+                        <span class="title">Reload</span>
                     </a>
                 </div>
             </div>

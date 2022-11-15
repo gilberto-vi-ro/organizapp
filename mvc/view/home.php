@@ -320,7 +320,7 @@
                     <textarea id="edit_task_name" name="name" required="">description </textarea>
                 </div>
                 <div id="cont_edit_task_path" class="task-item-cont-txt">
-                    <p class="task-item-txt">Path:</p>
+                    <p class="task-item-txt">File path:</p>
                     <textarea id="edit_task_path" required="">Default </textarea>
                 </div>
                 <div class="task-item-cont-txt">

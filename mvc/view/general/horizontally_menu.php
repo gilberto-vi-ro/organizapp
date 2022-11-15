@@ -17,7 +17,7 @@
                     <div id="_perfil" class="perfil-cont-modal">
                         <div class="perfil-container-form">
                             <img class="icon-perfil-show" src="<?= $getImg; ?>">
-                            <p><i class="fas fa-user"></i><?= $getName; ?></p>
+                            <p translate="no"><i class="fas fa-user"></i><?= $getName; ?></p>
                             <p><i class="fas fa-qrcode"></i><?= $getCode; ?></p>
                             <p>Your license expires on: <?= session('expire_license') ?></p>
                             <div class="perfil-line-form"></div>

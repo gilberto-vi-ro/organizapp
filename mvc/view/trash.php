@@ -91,7 +91,7 @@
                             <img class="icon-search" src="<?= BASE_URL ?>public/img/icon/search.png">
                         </li> 
                         <li>
-                             <input id="search" type="text" class="form-control" name="bus" placeholder="Buscar">
+                             <input id="search" type="text" class="form-control" name="bus" placeholder="Search">
                             
                         </li>
                     </ul>
@@ -99,7 +99,7 @@
             </div>
             <!-- filtrado de actividades por importante -->
             <div class="text-activity">
-                  <h3 >Papelera</h3>  
+                  <h3 >Paper bin</h3>  
             </div>
         </div>
     
@@ -130,31 +130,31 @@
         =================================================================================-->
         <div id="info_item" class="info-item-cont-modal" >
             <div class="info-item-container-form">
-                <p id="name"><i class="fas fa-folder"></i><span>folder</span></p>
+                <p id="name"><i class="fas fa-folder"></i><span>Folder</span></p>
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Tipo:</p>
+                    <p class="info-item-txt">Type file:</p>
                     <p id="type">Folder</p>
                 </div>
                  <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Tamaño:</p>
+                    <p class="info-item-txt">Size:</p>
                     <p id="size">20 MB</p>
                 </div>
                  <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Contiene:</p>
+                    <p class="info-item-txt">Contains:</p>
                     <p id="contain">4 folders, 2 files</p>
                 </div>
                 <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Creado:</p>
+                    <p class="info-item-txt">Created:</p>
                     <p id="create_at">Nov 25, 2021 12:40 AM</p>
                 </div>
                 <div id="cont_modified" class="info-item-cont-txt">
-                    <p class="info-item-txt">Eliminado:</p>
+                    <p class="info-item-txt">Deleted:</p>
                     <p id="modified">Nov 9, 2021 10:40 AM</p>
                 </div>
                 <div class="info-item-line-form"></div>
                   <div class="info-item-cont-txt">
-                    <p class="info-item-txt">Atributos:</p>
+                    <p class="info-item-txt">Attributes:</p>
                     <div class="info-item-space"></div>
                     <p>Writeable:<span id="perm_write">yes</span></p>
                     <p>Readable:<span id="perm_read">yes</span></p>
@@ -164,7 +164,7 @@
                 <div class="info-item-line-form"></div>
                 <div class="info-item-cont-txt">
                     <!--button type="button"  class="info-item-button-left"> Descargar </button-->
-                    <button type="button"  class="info-item-button-right"> Cerrar </button>
+                    <button type="button"  class="info-item-button-right"> Close modal </button>
                 </div>
             </div>
         </div>
@@ -187,28 +187,28 @@
                 <div class="items">
                     <a href="<?= BASE_URL ?>home" class="group">
                         <span class="fas fa-home"></span>
-                        <span class="title">Home</span>
+                        <span class="title" translate="no">Home</span>
                     </a>
                 </div>
 
                 <div id="menu_restore_trash" class="items">
                     <div class="group">
                         <span class="fas fa-trash-restore"></span>
-                        <span class="title">Restaurar</span>
+                        <span class="title">Restore</span>
                     </div>
                 </div>
 
                 <div id="menu_delete_trash" class="items">
                     <div class="group">
                         <span class="fas fa-trash-alt"></span>
-                        <span class="title">Eliminar</span>
+                        <span class="title">Delete</span>
                     </div>
                 </div>
 
                 <div class="items">
                     <a href="?" class="group">
                         <span class="fas fa-sync-alt"></span>
-                        <span class="title">Recargar</span>
+                        <span class="title">Reload</span>
                     </a>
                 </div>
             </div>

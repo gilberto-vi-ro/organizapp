@@ -302,7 +302,7 @@ $(function(){
 			path = this_data.path,
 			type = this_data.info.is_dir? "Folder":"File",
 			size = formatFileSize(this_data.size),
-			contain = this_data.info.is_dir? this_data.info.dirs +' Carpetas, '+this_data.info.files+' Archivos':'1 Archivo',
+			contain = this_data.info.is_dir? this_data.info.dirs +' Folders, '+this_data.info.files+' Files':'1 File',
 			create_at = formatTimestamp(this_data.ctime),
 			modified = formatTimestamp(this_data.mtime),
 			perm_write = this_data.is_writable? "true":"false",
