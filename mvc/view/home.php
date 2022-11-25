@@ -199,7 +199,7 @@
 
             <div class="myflex-hijo" ondrop="drop(event,'list_task_done')" ondragover="dragover(event)">
                 <div class="cont-text-hijo">
-                    <h3>Done</h3>
+                    <h3>Ready</h3>
                 </div>
                 <div class="center-item">
                     <div id="list_task_done" class="center-item js_list_task" >
@@ -283,7 +283,7 @@
                     <select id="add_task_status" name="status" required="">
                         <option hidden="" value="">Select an option</option>
                         <option value="1">Pending </option>
-                        <option value="2">Done </option>
+                        <option value="2">Ready </option>
                         <option value="3">Delivered </option>
                     </select>
                 </div>
@@ -333,7 +333,7 @@
                     <select id="edit_task_status" name="status" required="">
                         <option hidden="" value="">Select an option</option>
                         <option value="1">Pending </option>
-                        <option value="2">Done </option>
+                        <option value="2">Ready </option>
                         <option value="3">Delivered </option>
                     </select>
                 </div>
