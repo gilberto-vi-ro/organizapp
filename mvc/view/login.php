@@ -92,6 +92,7 @@
 				<div class="cont-text-bottom">
 					<button type="submit" class="btn-login">Register</button>
 					<a href="?" class="text-login">Log in</a>
+					<a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a>
 				</div>
 			</form>
 		</div>
@@ -129,6 +130,7 @@
 				<div class="cont-text-bottom">
 					<a href="?sign_up" class="text-login">Sign up here!</a>
 					<a id="recover_pwd" href="#" class="text-login">Recover password</a>
+					<a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a>
 				</div>
 				
 			</form>
