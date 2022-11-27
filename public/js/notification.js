@@ -93,6 +93,7 @@ $(function(){
 
 		$.get('notification?seenNotification=1&idNotification='+ this_data.id_notificacion  ,'json').done(function(data) {
 				//console.log(data);
+				countNotification();
 		});
 		info_item_msg.innerHTML =(`<i class="fas fa-bell item"></i>${this_data.mensaje_mensaje}.`);
 		info_item_name_task.innerHTML =(`${this_data.tarea_nombre}`);
@@ -156,6 +157,8 @@ $(function(){
 				console.warn(data.results);
 			}
 		});
+
+		countNotification();
 	}
 
 	function renderFolderRow(i , data) {
