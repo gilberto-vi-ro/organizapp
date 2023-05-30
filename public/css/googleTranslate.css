@@ -53,7 +53,12 @@
 
 .goog-te-menu-frame.skiptranslate{
   overflow: auto !important;
+  position: absolute !important;
+  margin: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
 }
+
 .goog-te-menu-value {
   display: none !important;
   /* color: #fff !important;
@@ -80,17 +85,19 @@
   }  
 } */
 
-.goog-te-gadget-icon{
-    background-image: url(../img/icon/Google_Translate_Icon.png)!important;
-    background-position: 0px 0px !important;
-    background-size: 25px;
-    background-repeat: no-repeat;
-    height: 25px !important;
-    width: 25px !important;
-    margin-right: 8px!important;
+.goog-te-gadget-icon {
     
-    /* display: none; */
-}
+    background-image: url(../img/icon/Google_Translate_Icon.png)!important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 25px!important;
+    width: 25px!important;
+   
+    /* // margin-right: 8px!important; 
+     //     OR
+    //display: none;  */
+  
+  }
 
 /*============ HIDE TOP BAR ============ */
 .goog-te-banner-frame.skiptranslate {display: none!important;} 

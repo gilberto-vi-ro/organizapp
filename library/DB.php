@@ -4,12 +4,12 @@
     * @category    Base de datos.
     * @package     library/DB
     * @author      Gilberto Villarreal Rodriguez  <Gil_yeung@outlook.com>
-    * @link        https://myproyecto.com/
+    * @link        https://proyecto-ti.com/
     * @license     License Open Source
     * @description Clase para conectar a la base de datos y ejecutar consultas PDO.
     * @see         https://www.php.net/manual/en/book.pdo.php
     * @since       01/2/2019
-    * @version     4.2.0
+    * @version     4.2.1
     */
 
  
@@ -30,6 +30,7 @@
 		public $bind;
 		public $response;
 		public $error;
+		public $fetch=0;
 
 		public function __construct(){
 			//$this->dbh=DB::conn();
@@ -171,9 +172,9 @@
 		}
 
 		/**
-		* Obtener solo un registro
+		* Establecer el tipo de fetch
 		*/
-		public function fetch($fetch=0)
+		public function setFetch($fetch=0)
 		{
 			//$fetch=PDO::FETCH_ASSOC;
 			//$fetch=PDO::FETCH_OBJ;
@@ -181,17 +182,26 @@
 			//$fetch=PDO::FETCH_BOUND;
 			//$fetch=PDO::FETCH_LAZY;
 			//$fetch=PDO::FETCH_NUM;
-			return $this->stmt->fetch($fetch);
-		}
+			$this->fetch = $fetch;
+			return $this;
+		} 
 
+
+		/**
+		* Obtener solo un registro
+		*/
+		public function fetch($fetch=null)
+		{
+			return $this->stmt->fetch($fetch==null?$this->fetch:$fetch);
+		}
+		
 		/**
 		* Obtener todos los registros
 		*/
-		public function fetchAll($fetch=0)
+		public function fetchAll($fetch=null)
 		{
-			//$fetch=PDO::FETCH_ASSOC;
-			//$fetch=PDO::FETCH_OBJ;
-			return $this->stmt->fetchAll($fetch);
+			
+			return $this->stmt->fetchAll($fetch==null?$this->fetch:$fetch);
 		}     
 
 		/**
@@ -246,7 +256,7 @@
 												CRUD
 		==================================================================================*/
 		/**
-		* Existe datos (Serach)
+		* Existe datos (Search)
 		* @param string $table : nombre de la tabla
 		* @param array $data : datos o columnas a verificar
 		*/
@@ -277,7 +287,7 @@
 			catch (PDOException $e) {
 				$this->response=0;
 				$this->error=$e->getMessage();
-				$this->close();
+				// $this->close();
 		    	return $this;
 			}
 		}
