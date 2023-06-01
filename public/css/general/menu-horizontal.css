@@ -55,7 +55,7 @@ ul, ol, li{
 }
 
 .menu-header .active-section {
-	border-bottom:6px solid #BFBFBF; 
+	border-bottom:3px solid #BFBFBF; 
 }
 
 .menu-header li ul {

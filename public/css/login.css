@@ -93,8 +93,9 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 }
 .login-container .fields .data{
 	border-radius: 20px;
-	box-shadow: inset 8px 8px 8px #0f2027,
-	inset -8px -8px 8px #203A43;
+	/* box-shadow: inset 8px 8px 8px #0f2027,
+	inset -8px -8px 8px #203A43; */
+	border: solid 1px  rgba(255, 255, 255, 0.8);
 	margin-bottom: 20px;
 	width: 100%;
 
@@ -102,7 +103,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 
 .login-container .fields .data i{
 	color: #fff;
-	margin: 20px 5px 20px 20px;
+	margin: 15px 5px 15px 15px;
 
 }
 
@@ -116,7 +117,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	border: none;
 	background: none;
 	font-size: 15px;
-	padding: 20px 20px 20px 5px;
+	padding: 15px 15px 15px 5px;
 	color: #fff;
 }
 
@@ -136,7 +137,7 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	border: none;
 	cursor: pointer;
 	width: 68%;
-	height: 50px;
+	height: 45px;
 	font-size: 20px;
 	font-weight: 700;
 	border-radius: 30px;
@@ -192,15 +193,19 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
   
     /* width: 200px; */
     color: black;
-    border-color: black;
+    /* border-color: black; */
 	text-align: center;
     font-size: 40px;
     /*Imagen de fonde del Captcha*/ 
     background-image: url("../img/bg/captcha.png");
 	background-image:cover;
 }
-#captchaEnter{
-	height: 30px;
+#captchaEnter, #recover_email{
+	
+	background-color: transparent ;
+	border-radius: 50px;
+	padding: 10px;
+
 }
 .my-captcha{
 	margin-top: 20px;

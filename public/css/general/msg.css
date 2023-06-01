@@ -98,8 +98,7 @@
 }
 
 .ms-button:hover{
-    background-color: rgba(204, 204, 204,0.9);
-    color: #3B86E8;
+    background-color: rgba(0, 0, 0,0.6);
     cursor: pointer;
 }
 

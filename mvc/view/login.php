@@ -174,7 +174,7 @@
 			<div class="msg-line-form"></div>
 			<!-- Cambia esta ID por otra deseada, asegúrate de cambiarla también en Los archivos CSS y JS. -->
 			<div class="my-captcha" >
-				<input id="recover_email" type="email" placeholder="Write your email" enabled="enabled" style="height:30px">
+				<input id="recover_email" type="email" placeholder="Write your email" enabled="enabled">
 				<label id="res_recover_pwd" for=""></label>
 			</div>
 			

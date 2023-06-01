@@ -52,7 +52,10 @@ function changeCaptcha() {
          changeCaptcha += chars.substring(rnum, rnum+1); 
     }
     // Parte final que cambia el valor del campo al Captcha producido.
-    document.getElementById('randomfield').value = changeCaptcha;
+    var randomfield = document.getElementById('randomfield');
+    randomfield.value = changeCaptcha;
+    randomfield.oncopy = function(){return false};
+
 }
 
 $("#sign-in").on('submit',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
