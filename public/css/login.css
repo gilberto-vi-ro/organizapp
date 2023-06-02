@@ -246,10 +246,6 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	}
 
 
-	.login-container .fields .data{
-		height: 60px ;
-
-	}
 	
 	.login-container .btn-login{
 
