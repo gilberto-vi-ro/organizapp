@@ -192,13 +192,15 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
     Importante, no debe confundirse con el atributo "deshabilitado" escrito para este campo de entrada en el código HTML. */
   
     /* width: 200px; */
-    color: black;
+    color: rgba(0, 0, 0, 0.2);
     /* border-color: black; */
 	text-align: center;
     font-size: 40px;
     /*Imagen de fonde del Captcha*/ 
     background-image: url("../img/bg/captcha.png");
 	background-image:cover;
+	outline: none;
+	border: none;
 }
 #captchaEnter, #recover_email{
 	

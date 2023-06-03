@@ -149,7 +149,7 @@
 			<div class="msg-line-form"></div>
 			<!-- Cambia esta ID por otra deseada, asegúrate de cambiarla también en Los archivos CSS y JS. -->
 			<div class="my-captcha" >
-				<input type="text" id="randomfield" disabled="disabled">
+				<input type="text" id="randomfield" readonly>
 				<label>Captcha</label>
 				<input id="captchaEnter" size="20" maxlength="6" placeholder="Write the captcha" enabled="enabled">
 			</div>

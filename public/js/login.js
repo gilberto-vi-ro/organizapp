@@ -40,7 +40,7 @@
 changeCaptcha();
 function changeCaptcha() {
 
-    var chars = "+=@#?0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     // Puede incluir caracteres especiales agregándolos a la cadena anterior, // caracteres especiales como por ejemplo: += "@#?<>";
     
     var string_length = 6; // Esta es la longitud del Captcha.
@@ -54,8 +54,11 @@ function changeCaptcha() {
     // Parte final que cambia el valor del campo al Captcha producido.
     var randomfield = document.getElementById('randomfield');
     randomfield.value = changeCaptcha;
+    randomfield.readOnly = true;
+    randomfield.onmouseover= function(){randomfield.value=""};
+    randomfield.onmouseout= function(){randomfield.value=changeCaptcha};
     randomfield.oncopy = function(){return false};
-
+    
 }
 
 $("#sign-in").on('submit',function( event ){ //abrir modal captacha al dar submit en  ##sign-in
