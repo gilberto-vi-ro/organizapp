@@ -236,6 +236,28 @@ input:-webkit-autofill , input:-webkit-autofill:hover, input:-webkit-autofill:fo
 	padding-right: 5px;
 }
 
+.recaptcha-container {
+	
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	
+ 
+  }
+.g-recaptcha{
+	display: flex;
+	position: relative !important;
+	transform: scale(0.83); 
+	transform-origin: 0;
+	margin: auto !important;
+	width: 100%;
+}
+
+@media screen and (max-width: 300px){
+	.g-recaptcha{
+		transform: scale(0.6);
+	}
+}
 
 
 @media screen and (max-width: 800px){

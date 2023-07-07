@@ -119,7 +119,7 @@
 		public function verifyCaptcha(){
 
 			// Obtén la clave secreta de reCAPTCHA
-			$secretKey = "6LdzzwAnAAAAAH2KANtd98ga8j0GAaHMgf8hl1IN"; // Reemplaza con tu clave secreta de reCAPTCHA
+			$secretKey = "6LdCNwEnAAAAAB8IKupRKjLwSBLgEWODCuTpy8-O"; // Reemplaza con tu clave secreta de reCAPTCHA
 
 			// Obtén la respuesta del reCAPTCHA enviada por el cliente
 			$recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -146,12 +146,11 @@
 			// Verifica el resultado de la verificación
 			if ($result['success']) {
 			// La respuesta del reCAPTCHA es válida, continúa con el procesamiento del formulario
-			// ...
-			return "reCAPTCHA verificado correctamente";
+				$this->login();
+			//return "reCAPTCHA verificado correctamente";
 			} else {
 			// La respuesta del reCAPTCHA no es válida, muestra un mensaje de error o toma alguna otra acción
-			// ...
-			return "Error en la verificación de reCAPTCHA";
+			return "RECAPTCHA verification failed";
 			}
 
 		}

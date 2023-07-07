@@ -8,12 +8,10 @@
 	
 	$LoginController = new LoginController;
 	
-	if (isset($_GET['captcha']))
-		$LoginController->verifyCaptcha();
+	$msgCaptchaGoogle = null;
 
 	if (isset($_POST['login']) ){
-		$LoginController->login();
-		$LoginController->verifyCaptcha();
+		$msgCaptchaGoogle = $LoginController->verifyCaptcha();
 	}
 		
 
@@ -104,7 +102,7 @@
 				<div class="cont-text-bottom">
 					<button type="submit" class="btn-login">Register</button>
 					<a href="?" class="text-login">Log in</a>
-					<a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a>
+					<!-- <a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a> -->
 				</div>
 			</form>
 		</div>
@@ -115,8 +113,8 @@
 
 	<?php }else { ?>
 
-		<div class="center-login">
-			<form id="sign-in" class="login-container" action="?captcha" method="POST">
+		<div class="center-login recaptcha-container">
+			<form id="sign-in" class="login-container" action="" method="POST">
 				
 				<div id="google_translate_element" class="translate_element_login pb-2"></div>
 				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
@@ -137,17 +135,24 @@
 						<i class="fas fa-shield-alt"></i>
 						<label for="" >Captcha</label>
 					</div> -->
+					
+					<div class="g-recaptcha" data-sitekey="6LdCNwEnAAAAABAC9JBG6Lm8NiGSKVbRjoILJcnI"></div>
+					
 				</div>
 
-				<div class="g-recaptcha" data-sitekey="6LdzzwAnAAAAAF4fciEWpC68V6A_OzHCcfqVGn0-"></div>
 				<br>
-				
+				<?php if ($msgCaptchaGoogle != null){?>
+					<div class="login-captcha">
+						<i class="fas fa-exclamation-triangle" style="color:rgba(227, 60, 47,0.9)"></i>
+						<label for="" style="color:rgba(227, 60, 47,0.9)"><?=$msgCaptchaGoogle?></label>
+					</div>
+				<?php } ?>
 				<button type="submit" class="btn-login">Log in</button>
 				
 				<div class="cont-text-bottom">
 					<a href="?sign_up" class="text-login">Sign up here!</a>
 					<a id="recover_pwd" href="#" class="text-login">Recover password</a>
-					<a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a>
+					<!-- <a href="public/privacy policies/Politica de privacidad.pdf" class="text-login">Privacy policies</a> -->
 				</div>
 				
 			</form>
