@@ -7,9 +7,15 @@
 	$message=null;
 	
 	$LoginController = new LoginController;
+	
+	if (isset($_GET['captcha']))
+		$LoginController->verifyCaptcha();
 
-	if (isset($_POST['login']) )
+	if (isset($_POST['login']) ){
 		$LoginController->login();
+		$LoginController->verifyCaptcha();
+	}
+		
 
 	else if (isset($_POST['register'])) {
 		$LoginController->registerUser();
@@ -17,6 +23,9 @@
 	else if (isset($_POST['recoverEmail'])) {
 		$LoginController->recoverEmail();
 	}
+	
+	
+	
 	/*======================================================================
 	MSG
 	========================================================================*/
@@ -52,6 +61,9 @@
 	<link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/css/login.css">
 	<!----========googleTranslate ======== -->
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/googleTranslate.css">
+	<!----========reCAPTCHA de Google ======== -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 	
 	
 </head>
@@ -104,7 +116,8 @@
 	<?php }else { ?>
 
 		<div class="center-login">
-			<form id="sign-in" class="login-container" action="<?= BASE_URL ?>login" method="POST">
+			<form id="sign-in" class="login-container" action="?captcha" method="POST">
+				
 				<div id="google_translate_element" class="translate_element_login pb-2"></div>
 				<a href="#"><img src="<?= BASE_URL ?>public/img/icon/logoapp.png" class="logo"></a>
 				<p class="organizapp">OrganizApp</p>
@@ -120,13 +133,17 @@
 						<i class="far fa-eye" id="showEye"></i>
 						<i class="far fa-eye-slash" id="hideEye"></i>
 					</div>
-					<div class="login-captcha">
+					<!-- <div class="login-captcha">
 						<i class="fas fa-shield-alt"></i>
 						<label for="" >Captcha</label>
-					</div>
+					</div> -->
 				</div>
+
+				<div class="g-recaptcha" data-sitekey="6LdzzwAnAAAAAF4fciEWpC68V6A_OzHCcfqVGn0-"></div>
+				<br>
 				
 				<button type="submit" class="btn-login">Log in</button>
+				
 				<div class="cont-text-bottom">
 					<a href="?sign_up" class="text-login">Sign up here!</a>
 					<a id="recover_pwd" href="#" class="text-login">Recover password</a>
@@ -139,16 +156,16 @@
 	<!-- ===============================================================================
 	CAPTCHA
 	=================================================================================-->
-	<div class="msg-cont-modal" id="captcha" style="display: none;">
+	<!-- <div class="msg-cont-modal" id="captcha" style="display: none;">
 		<div class="msg-container-form">	
 			<div class="msg-container-label">
 				<label class="msg-lbl-txt"><p>Help us verify that you are not a robot.</p> 
 				 	<label class="msg-lbl-delete"> </label> 
 				</label>
 			</div> 
-			<div class="msg-line-form"></div>
+			<div class="msg-line-form"></div> -->
 			<!-- Cambia esta ID por otra deseada, asegúrate de cambiarla también en Los archivos CSS y JS. -->
-			<div class="my-captcha" >
+			<!-- <div class="my-captcha" >
 				<input type="text" id="randomfield" readonly>
 				<label>Captcha</label>
 				<input id="captchaEnter" size="20" maxlength="6" placeholder="Write the captcha" enabled="enabled">
@@ -158,7 +175,7 @@
 				<input type="button" class="ms-button msg-btn-ok" value="Ok">
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 	<!-- ===============================================================================

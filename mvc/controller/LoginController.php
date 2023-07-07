@@ -14,6 +14,7 @@
 		/** login */
 		public function login()
 		{
+			
 			$myData = $this->LoginModel->userExist($_POST);
 	        if ($myData && $myData['email'] === $_POST['email']){
 	           
@@ -115,7 +116,45 @@
 			exit();
 		}
 
-	}
+		public function verifyCaptcha(){
 
+			// Obtén la clave secreta de reCAPTCHA
+			$secretKey = "6LdzzwAnAAAAAH2KANtd98ga8j0GAaHMgf8hl1IN"; // Reemplaza con tu clave secreta de reCAPTCHA
+
+			// Obtén la respuesta del reCAPTCHA enviada por el cliente
+			$recaptchaResponse = $_POST['g-recaptcha-response'];
+
+			// Realiza la solicitud POST al servicio de verificación de reCAPTCHA
+			$verificationUrl = 'https://www.google.com/recaptcha/api/siteverify';
+			$data = array(
+			'secret' => $secretKey,
+			'response' => $recaptchaResponse
+			);
+
+			$options = array(
+			'http' => array(
+				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+				'method' => 'POST',
+				'content' => http_build_query($data)
+			)
+			);
+
+			$context = stream_context_create($options);
+			$response = file_get_contents($verificationUrl, false, $context);
+			$result = json_decode($response, true);
+
+			// Verifica el resultado de la verificación
+			if ($result['success']) {
+			// La respuesta del reCAPTCHA es válida, continúa con el procesamiento del formulario
+			// ...
+			return "reCAPTCHA verificado correctamente";
+			} else {
+			// La respuesta del reCAPTCHA no es válida, muestra un mensaje de error o toma alguna otra acción
+			// ...
+			return "Error en la verificación de reCAPTCHA";
+			}
+
+		}
+	}
 
  ?>
