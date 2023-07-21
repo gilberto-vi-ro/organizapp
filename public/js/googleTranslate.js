@@ -80,13 +80,17 @@ $('document').ready(function () {
         });
     
 
-        
+       // Change iframes to 100%
+        $('.VIpgJd-ZVi9od-xl07Ob-OEVmcd').css({
+            'width': '100%',
+            "overflow-x": "auto",
+        });
       
         // Change iframes's size and overflow
         $("iframe").contents().find('.VIpgJd-ZVi9od-vH1Gmf').css({
             'position': 'relative',
             'height': '100%',
-            'width': '80%',
+            'width': '96%',
             'padding': '10px',
             "overflow-x": "auto",
             "-webkit-overflow-scrolling": "touch",
