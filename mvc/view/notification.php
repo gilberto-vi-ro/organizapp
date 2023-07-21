@@ -210,7 +210,7 @@
     <script src="<?= BASE_URL ?>public/js/general/menu-horizontal.js"></script>
     <script src="<?= BASE_URL ?>public/js/notification.js"></script>
     <!----=====GOOGLE TRANSLATE ===== -->
-	<script src="<?= BASE_URL ?>public/js/plugins/translate.google.js"></script>
+	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="<?= BASE_URL ?>public/js/googleTranslate.js"></script>
 
 </body>
