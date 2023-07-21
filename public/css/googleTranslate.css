@@ -12,7 +12,7 @@
   left: 145px;
 }
 
-.goog-te-banner-frame {display:none;}  /*Don't show Google Topbar */
+.goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd  {display:none;}  /*Don't show Google Topbar */
 #goog-gt-tt {display:none!important;visibility:hidden!important;}
 .goog-te-gadget {
   font-family: Roboto, 'Open Sans', sans-serif!important;
@@ -41,12 +41,14 @@
   white-space: nowrap !important;
 }
 
-.goog-te-menu-value {
-  display: flex;
+.goog-te-menu-value, .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  /* display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  white-space: nowrap;
+  white-space: nowrap; */
+  display: none !important;
 } 
+
 .goog-te-menu2 {
   max-width: 100%;
   overflow: auto !important;
