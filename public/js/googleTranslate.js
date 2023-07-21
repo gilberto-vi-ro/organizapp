@@ -1,12 +1,18 @@
 
+ 
  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ /*includedLanguages: 'en,es,ca,eu,gl,en,fr,it,pt,de',*/ layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: false,autoDisplay: false}, 'google_translate_element');
+    new google.translate.TranslateElement({ /*includedLanguages: 'en,es,ca,eu,gl,en,fr,it,pt,de',*/ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: false,autoDisplay: false}, 'google_translate_element');
     setTimeout(function() {
         $("body").removeAttr("style"); //remove style of body
         $(".goog-te-gadget-icon").removeAttr("style"); 
+        $(".goog-te-spinner-pos").remove();  //remover spinner
+        $(".VIpgJd-ZVi9od-xl07Ob-lTBxed").remove();
+        
         // var removePopup = document.getElementById('goog-gt-tt'); //remove cont of suggest a better translation
         // removePopup.parentNode.removeChild(removePopup); //remove cont of suggest a better translation
         removeStyleFont(); //remove style of all font
+        // var elements = document.getElementsByClassName('VIpgJd-ZVi9od-xl07Ob-lTBxed');
+        // elements[0].remove();
     }, 2000);
 
     function removeStyleFont(){
@@ -73,6 +79,19 @@ $('document').ready(function () {
             
         });
     
+
+        
+      
+        // Change iframes's size and overflow
+        $("iframe").contents().find('.VIpgJd-ZVi9od-vH1Gmf').css({
+            'position': 'relative',
+            'height': '100%',
+            'width': '80%',
+            'padding': '10px',
+            "overflow-x": "auto",
+            "-webkit-overflow-scrolling": "touch",
+            
+        });
 
         
     });
